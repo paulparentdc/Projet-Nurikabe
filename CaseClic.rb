@@ -1,0 +1,3 @@
+class CaseClic < Case
+    
+end
