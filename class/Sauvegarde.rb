@@ -54,7 +54,8 @@ class Sauvegarde
         if niveau == nil && taille == nil && compteur != taille
             return nil
         else
-            return {damier: matrice_plateau, damierCorrect: matrice_solution, taille: taille}
+            plateau = Plateau.new(matrice_plateau, matrice_solution, taille, niveau)
+            return Jeu.new(plateau, Time.now, nil)
         end
     end
 end
