@@ -1,4 +1,4 @@
-require "gtk3"
+require 'gtk3'
 load 'Etat.rb'
 
 class Plateau
@@ -53,8 +53,35 @@ class Plateau
 
         (0..@taille-1).each do |i|
             (0..@taille-1).each do |j|
-                temp = @damier[i][j].bouton
-                grid.attach temp, i, j, 1, 1
+                temp = @damier[i][j]
+                
+                css_noir = Gtk::CssProvider.new
+                css_noir.load(data: <<-CSS)
+                    button {
+                    background-image: image(black);
+                    }
+                    CSS
+
+                css_blanc = Gtk::CssProvider.new
+                css_blanc.load(data: <<-CSS)
+                    button {
+                    background-image: image(white);
+                    }
+                    CSS
+
+                
+                if temp.to_s == 'n'
+                    mybutton = Gtk::Button.new(:label => ' ')
+                    mybutton.style_context.add_provider(css_noir, Gtk::StyleProvider::PRIORITY_USER)
+                elsif temp.to_s == 'b'
+                    mybutton = Gtk::Button.new(:label => ' ')
+                    mybutton.style_context.add_provider(css_blanc, Gtk::StyleProvider::PRIORITY_USER)
+                else
+                    mybutton = Gtk::Button.new(:label => temp.to_s)
+                    mybutton.style_context.add_provider(css_blanc, Gtk::StyleProvider::PRIORITY_USER)
+                end
+                grid.attach mybutton, i, j, 1, 1
+
             end
         end
 
@@ -84,7 +111,6 @@ class Plateau
     end
 
     def onClickJeu(x,y)
-        @damier[x][y].suivant
     end
 
     def onClickAide

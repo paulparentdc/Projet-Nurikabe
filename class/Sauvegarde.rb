@@ -39,7 +39,7 @@ class Sauvegarde
                     i=-1
                     matrice_plateau.push(temp.map do |x|
                         i+=1
-                        (temp = x.to_i) == 0 ? CaseClic.new(i,compteur) : CaseChiffre.new(i,compteur, temp)
+                        (temp = x.to_i) == 0 ? CaseClic.new(compteur,i) : CaseChiffre.new(compteur,i, temp)
                         
                     end)
                     compteur+=1
@@ -55,6 +55,7 @@ class Sauvegarde
             return nil
         else
             plateau = Plateau.new(matrice_plateau, matrice_solution, taille, niveau)
+            Case.ajoutPlateau(plateau)
             return Jeu.new(plateau, Time.now, nil)
         end
     end

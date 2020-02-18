@@ -6,6 +6,7 @@ class CaseChiffre < Case
     def initialize(x, y, chiffre)
         super(x, y)
         @chiffre = chiffre
+        @bouton.set_label(@chiffre.to_s)
     end
 
     # @!visibility private

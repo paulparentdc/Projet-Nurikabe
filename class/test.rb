@@ -24,6 +24,10 @@ CSS
 mybutton.style_context.add_provider(css_provider, Gtk::StyleProvider::PRIORITY_USER)
 win.add(mybutton)
 
+mybutton.signal_connect('connected'){
+  
+}
+
 win.show_all
 
 Gtk.main
