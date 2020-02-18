@@ -1,9 +1,58 @@
 load 'Case.rb'
 load 'CaseClic.rb'
 load 'CaseChiffre.rb'
+require 'fileutils'
+
 
 class Sauvegarde
 
+
+    #Chargement d'une partie
+    #@param le jeu a sauvegarder
+    def Sauvegarde.creerSauvegarde(jeu)
+       a= Marshal::dump(jeu)
+       chemin_de_base="data/save/"+jeu.nomJoueur+"/"+Time.new.strftime("%d_%m_%Y__%H_%M")+".txt"
+
+       dirname=File::dirname(chemin_de_base)
+       unless File.directory?(dirname)
+            FileUtils.mkdir_p(dirname)
+       end
+
+       #puts chemin_de_base
+       myFile = File::open(chemin_de_base,"w+")
+       myFile.write(a)
+       myFile.close
+    end
+
+    #Chargement d'une partie
+    #@note le chemin devra être valide 
+    #@param le chemin de la sauvegarde
+    #@return le jeu correspondant au chemin
+
+
+    def Sauvegarde.chargerSauvegarde(chemin_de_base)
+        #chemin_de_base="data/save/"+joueur+"/"+Time.new.strftime("%d_%m_%Y__%H_%M")+".txt"
+        if File.exist?(chemin_de_base)
+            a=File.open(chemin_de_base,"r")
+            jeu=Marshal::load(File::read(chemin_de_base))
+            a.close
+            return jeu
+        else
+            raise "no Such file for ChargerSauvegarde"
+        end
+
+    end
+    #Suppression d'une partie
+    #@note le chemin devra être valide 
+    #@param le chemin de la sauvegarde a supprimer
+    def Sauvegarde.supprimerSauvegarde(chemin)
+        if File.exist?(chemin)
+             File.delete(chemin)
+        else
+             raise "no such file"
+        end
+    end    
+    
     # Chargement du template
     # @note le chemin devra être valide et le fichier correct et lisible
     # @param chemin le chemin à du template choisi
