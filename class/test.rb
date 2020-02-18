@@ -1,13 +1,29 @@
-class Test
-    def Test.ok(alpha)
-        puts alpha
-    end
+require "gtk3"
 
-    def Test.retour
-        return {alpha: 'a', beta: 'b'}
-    end
+win = Gtk::Window.new
+win.signal_connect "destroy" do
+  Gtk.main_quit
 end
 
-Test.ok(alpha: "ok")
+mybutton = Gtk::Button.new(:label => "Does nothing")
+mybutton.margin = 10
+css_provider = Gtk::CssProvider.new
+css_provider.load(data: <<-CSS)
+button {
+  background-image: image(cyan);
+}
 
-puts Test.retour[:beta]
+button:hover {
+  background-image: image(green);
+}
+
+button:active {
+  background-image: image(brown);
+}
+CSS
+mybutton.style_context.add_provider(css_provider, Gtk::StyleProvider::PRIORITY_USER)
+win.add(mybutton)
+
+win.show_all
+
+Gtk.main

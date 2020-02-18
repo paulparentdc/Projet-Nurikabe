@@ -46,18 +46,7 @@ class Plateau
         window = Gtk::Window.new
         
         vbox = Gtk::Box.new :vertical, 2
-        
-        mb = Gtk::MenuBar.new
-        filemenu = Gtk::Menu.new
-        file = Gtk::MenuItem.new "File"
-        file.set_submenu filemenu
-        mb.append file
-
-        vbox.pack_start mb, :expand => false, :fill => false, 
-            :padding => 0
-            
-        vbox.pack_start Gtk::Entry.new, :expand => false, 
-            :fill => false, :padding => 0            
+               
 
         grid = Gtk::Grid.new
         grid.set_property "row-homogeneous", true
@@ -65,9 +54,35 @@ class Plateau
 
         (0..@taille-1).each do |i|
             (0..@taille-1).each do |j|
-                temp = @damier[i][j]
-                test = Gtk::Button.new(:label => temp.to_s)
-                grid.attach test, i, j, 1, 1
+                temp = @damierCorrect[i][j]
+                
+                css_noir = Gtk::CssProvider.new
+                css_noir.load(data: <<-CSS)
+                    button {
+                    background-image: image(black);
+                    }
+                    CSS
+
+                css_blanc = Gtk::CssProvider.new
+                css_blanc.load(data: <<-CSS)
+                    button {
+                    background-image: image(white);
+                    }
+                    CSS
+
+                
+                if temp.to_s == 'n'
+                    mybutton = Gtk::ToggleButton.new(:label => ' ')
+                    mybutton.style_context.add_provider(css_noir, Gtk::StyleProvider::PRIORITY_USER)
+                elsif temp.to_s == 'b'
+                    mybutton = Gtk::ToggleButton.new(:label => ' ')
+                    mybutton.style_context.add_provider(css_blanc, Gtk::StyleProvider::PRIORITY_USER)
+                else
+                    mybutton = Gtk::ToggleButton.new(:label => temp.to_s)
+                    mybutton.style_context.add_provider(css_blanc, Gtk::StyleProvider::PRIORITY_USER)
+                end
+                grid.attach mybutton, i, j, 1, 1
+
             end
         end
 
@@ -77,7 +92,7 @@ class Plateau
 
         window.add vbox
 
-        window.set_title "Calculator"
+        window.set_title "Nurikabe!"
         window.signal_connect "destroy" do 
             Gtk.main_quit 
         end        
