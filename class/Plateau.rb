@@ -38,7 +38,21 @@ class Plateau
     def afficherErreur
     end
 
+    def coordValides(x,y)
+        if x < @taille && x>= 0 && y < @taille && y>= 0
+            return true
+        end
+        
+        return false       
+    end
+
     def donneTaCaseInt(x,y)
+        if coordValides(x,y)
+            return @damier[x][y].getEtatEntier()   
+        end
+        
+    #raise d une erreur ici car coordonnées invalides;
+        
     end
 
     def afficheToi
