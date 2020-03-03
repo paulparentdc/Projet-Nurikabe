@@ -14,11 +14,11 @@ class Etat
     def suivant!
         case(@etat)
         when BLANC
-            @etat = POINT
-        when NOIR
-            @etat = BLANC
-        when POINT
             @etat = NOIR
+        when NOIR
+            @etat = POINT
+        when POINT
+            @etat = BLANC
         else
             @etat = BLANC
         end
@@ -27,11 +27,11 @@ class Etat
     def precedent!
         case(etat)
         when BLANC
-            @etat = NOIR
-        when NOIR
             @etat = POINT
-        when POINT
+        when NOIR
             @etat = BLANC
+        when POINT
+            @etat = NOIR
         else
             @etat = BLANC
         end
