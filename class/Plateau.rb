@@ -1,8 +1,11 @@
 require "gtk3"
 load 'Etat.rb'
+load 'Aide.rb'
+load 'PileAction.rb'
+load 'Aide.rb'
 
 class Plateau
-    attr_reader :niveau, :damier, :damier_correct, :pile_action, :aide, :taille, :malus_aide
+    attr_reader :niveau, :damier, :damier_correct, :pile_action, :aide, :taille, :malus_aide, :partie_finie
 
     @niveau
     @damier
@@ -11,12 +14,15 @@ class Plateau
     @pile_action
     @aide
     @malus_aide
+    @partie_finie
 
     def initialize(matrice_plateau, matrice_solution, taille, niveau)
         @damier = matrice_plateau
         @damier_correct = matrice_solution
         @taille = taille
         @niveau = niveau
+
+        @pile_action = PileAction.new()
         @malus_aide = 0
     end
 
@@ -38,11 +44,15 @@ class Plateau
 
     def verifier_damier
         tab_erreur = []
+        @partie_finie = true
         (0..(@taille-1)).each do |x|
             (0..(@taille-1)).each do |y|
-                if (@damier[x][y].to_i == 0) && (@damier[x][y].to_s == 'n') && @damier_correct[x][y] != 'n'
+                if (@damier[x][y].to_s == 'n') && @damier_correct[x][y] != 'n'
                         tab_erreur.push(@damier[x][y])
                 end
+                #
+                # PARTIE FINIE EST FAUX SI LA PREMIER LETTRE DE DAMIER EST DIFFERENTE DE DAMIER CORRECT
+                #
             end
         end
         return tab_erreur
@@ -53,9 +63,21 @@ class Plateau
         pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
         Gtk::Dialog::DESTROY_WITH_PARENT,
         Gtk::MessageType::QUESTION,
-        Gtk::MessageDialog::BUTTONS_YES_NO, "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?")
-        pop.run
+        :yes_no, "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?")
+        
+        
+        reponse = pop.run 
         pop.destroy
+
+        @malus_aide += 10 if(tab_erreur.size != 0)
+        
+        # affichage en rouge des erreurs
+        if(reponse == Gtk::ResponseType::YES)
+            @malus_aide += tab_erreur.size*5
+            tab_erreur.each do |err|
+                err.en_rouge
+            end
+        end
     end
 
     def coord_valides?(x,y)
@@ -148,8 +170,9 @@ class Plateau
     def on_click_verif
         self.afficher_erreur
     end
-
+    
     def on_click_jeu(x,y)
+        # @pile_action.empiler(Action.new(x,y,false))
         @damier[x][y].suivant
     end
 

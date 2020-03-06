@@ -9,11 +9,9 @@ class CaseClic < Case
 
     def suivant
         @etat.suivant!
-        puts @etat.etat
         self.actualises_toi
         
     end
-
 
     def precedent
         @etat.precedent!
@@ -37,4 +35,12 @@ class CaseClic < Case
         @bouton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
     end
 
+    def en_rouge
+        @bouton.style_context.add_provider(@@CSS_BOUTON_ROUGE, Gtk::StyleProvider::PRIORITY_USER)
+    end
+
+
+    def to_s
+        return @etat.etat
+    end
 end
