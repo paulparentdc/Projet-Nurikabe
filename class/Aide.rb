@@ -27,14 +27,14 @@ class Aide
     for i in range(unPlateau.taille)
         for j in range(unPlateau.taille)
             if unPlateau.donneTaCaseInt(i,j) == 1
-                if unPlateau.coordValides(i+1,j)
+                if unPlateau.coordValides?(i+1,j)
                     if(unPlateau.donneTaCaseInt(i+1,j)) != -1
                         return true
                     end
                 end
                    
 
-                if unPlateau.coordValides(i,j+1)
+                if unPlateau.coordValides?(i,j+1)
                     if unPlateau.donneTaCaseInt(i,j+1) != -1
                         return true
                     end
@@ -42,7 +42,7 @@ class Aide
                 end
                 
 
-                if unPlateau.coordValides(i,j-1)
+                if unPlateau.coordValides?(i,j-1)
                     
                     if unPlateau.donneTaCaseInt(i,j-1) != -1
                         return true
@@ -52,7 +52,7 @@ class Aide
                 end
                 
 
-                if unPlateau.coordValides(i-1,j)
+                if unPlateau.coordValides?(i-1,j)
 
                     if unPlateau.donneTaCaseInt(i-1,j) != -1
                         return true
@@ -76,28 +76,28 @@ class Aide
                 
                 if unPlateau.donneTaCaseInt(i,j) > 0
 
-                    if unPlateau.coordValides(i+2,j)
+                    if unPlateau.coordValides?(i+2,j)
                         if unPlateau.donneTaCaseInt(i+2,j) > 0 && unPlateau.donneTaCaseInt(i+1,j) !=-1
                             return true
                         end
                     end
                     
 
-                    if unPlateau.coordValides(i,j+2)
+                    if unPlateau.coordValides?(i,j+2)
                         if unPlateau.donneTaCaseInt(i,j+2) >0 && unPlateau.donneTaCaseInt(i,j+1) !=-1
                             return true
                         end  
                     end
                     
 
-                    if unPlateau.coordValides(i,j-2)    
+                    if unPlateau.coordValides?(i,j-2)    
                         if unPlateau.donneTaCaseInt(i,j-2) >0 && unPlateau.donneTaCaseInt(i,j-1) !=-1
                             return true
                         end
                     end
                     
                     
-                    if unPlateau.coordValides(i-2,j)
+                    if unPlateau.coordValides?(i-2,j)
                         if unPlateau.donneTaCaseInt(i-2,j) > 0 && unPlateau.donneTaCaseInt(i-1,j) !=-1
                             return true
                         end
@@ -114,7 +114,7 @@ class Aide
 
                 if unPlateau.donneTaCaseInt(i,j) > 0
 
-                    if unPlateau.coordValides(i+1,j+1)
+                    if unPlateau.coordValides?(i+1,j+1)
                         if unPlateau.donneTaCaseInt(i+1,j+1) > 0 
                             if unPlateau.donneTaCaseInt(i+1,j) !=-1 || unPlateau.donneTaCaseInt(i,j+1) !=-1
                                 return true
@@ -123,7 +123,7 @@ class Aide
                     end
                     
 
-                    if unPlateau.coordValides(i-1,j-1)
+                    if unPlateau.coordValides?(i-1,j-1)
                         if unPlateau.donneTaCaseInt(i-1,j-1) >0 
                             if unPlateau.donneTaCaseInt(i-1,j) !=-1 || unPlateau.donneTaCaseInt(i,j-1) !=-1
                                 return true
@@ -133,7 +133,7 @@ class Aide
                     end
         
 
-                    if unPlateau.coordValides(i+1,j-1)
+                    if unPlateau.coordValides?(i+1,j-1)
                         if unPlateau.donneTaCaseInt(i+1,j-1) >0
                             if unPlateau.donneTaCaseInt(i+1,j) !=-1 || unPlateau.donneTaCaseInt(i,j-1) !=-1
                                 return true
@@ -142,7 +142,7 @@ class Aide
                     end
                     
                     
-                    if unPlateau.coordValides(i-1,j+1)
+                    if unPlateau.coordValides?(i-1,j+1)
                         if unPlateau.donneTaCaseInt(i-1,j+1) > 0
                             if unPlateau.donneTaCaseInt(i-1,j) !=-1 || unPlateau.donneTaCaseInt(i,j+1) !=-1
                                 return true
@@ -165,10 +165,10 @@ class Aide
                 
                 if unPlateau.donneTaCaseInt(i,j) == 0
 
-                    if !unPlateau.coordValides(i+1,j) || unPlateau.donneTaCaseInt(i+1,j)==-1
-                        if !unPlateau.coordValides(i-1,j) || unPlateau.donneTaCaseInt(i-1,j)==-1
-                            if !unPlateau.coordValides(i,j+1) || unPlateau.donneTaCaseInt(i,j+1)==-1
-                                if !unPlateau.coordValides(i,j-1) || unPlateau.donneTaCaseInt(i,j-1)==-1
+                    if !unPlateau.coordValides?(i+1,j) || unPlateau.donneTaCaseInt(i+1,j)==-1
+                        if !unPlateau.coordValides?(i-1,j) || unPlateau.donneTaCaseInt(i-1,j)==-1
+                            if !unPlateau.coordValides?(i,j+1) || unPlateau.donneTaCaseInt(i,j+1)==-1
+                                if !unPlateau.coordValides?(i,j-1) || unPlateau.donneTaCaseInt(i,j-1)==-1
                                     return true
                                 end
                             end

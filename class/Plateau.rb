@@ -38,7 +38,7 @@ class Plateau
     def afficherErreur
     end
 
-    def coordValides(x,y)
+    def coordValides?(x,y)
         if x < @taille && x>= 0 && y < @taille && y>= 0
             return true
         end
