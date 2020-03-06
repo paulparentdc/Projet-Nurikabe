@@ -32,10 +32,26 @@ class Plateau
         end
     end
 
-    def verifier
+    def verifierDamier
+        tabErreur = []
+        (0..(@taille-1)).each do |x|
+            (0..(@taille-1)).each do |y|
+                if (@damier[x][y].to_i == 0) && (@damier[x][y].to_s == 'n') && @damierCorrect[x][y] != 'n'
+                        tabErreur.push(@damier[x][y])
+                end
+            end
+        end
+        return tabErreur
     end
 
     def afficherErreur
+        tabErreur = self.verifierDamier
+        pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
+        Gtk::Dialog::DESTROY_WITH_PARENT,
+        Gtk::MessageType::QUESTION,
+        Gtk::MessageDialog::BUTTONS_YES_NO, "Vous avez  #{tabErreur.size} erreurs!\nVoulez-vous les visionner ?")
+        pop.run
+        pop.destroy
     end
 
     def coordValides?(x,y)
@@ -91,7 +107,19 @@ class Plateau
 
     end
 
+    def gagner?
+        (0..(@taille-1)).each do |x|
+            (0..(@taille-1)).each do |y|
+                if @damier[x][y].to_s != @damierCorrect[x][y]
+                        return false
+                end
+            end
+        end
+        return true
+    end
+
     def onClickVerif
+        self.afficherErreur
     end
 
     def onClickVerif
@@ -102,6 +130,45 @@ class Plateau
     end
 
     def onClickAide
+        txt =''
+        if(self.verifierDamier.empty?)
+            nbAide = @aide.testerTout(self)
+
+            case(nbAide)
+
+            when nbAide == 1
+                txt ='Il reste des 1 à isoler !'
+
+            when nbAide == 2
+                txt ='Il y a une case blanche entre 2 chiffres qui pourrait être cliquer!'
+
+            when nbAide == 3
+                txt = 'Il y a des cases en diagonales qui peuvent être separées'
+
+            when nbAide == 4
+                txt = "Il y a une case blanche seule"
+            
+            else 
+                txt = "Aucune aide n'a été trouvé bonne chance !"
+            
+
+
+            dialog = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"), 
+            Gtk::Dialog::DESTROY_WITH_PARENT,
+            Gtk::MessageDialog::INFO,
+            Gtk::MessageDialog::BUTTONS_OK,
+            txt)
+
+            
+            
+            dialog.run
+            dialog.destroy
+
+        end
+    
+        else
+            self.afficherErreur
+        end
     end
 
     def onClickUndo
