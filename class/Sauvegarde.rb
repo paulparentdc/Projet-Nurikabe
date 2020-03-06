@@ -24,12 +24,11 @@ class Sauvegarde
        mon_fichier.close
     end
 
+
     #Chargement d'une partie
     #@note le chemin devra être valide 
     #@param le chemin de la sauvegarde
     #@return le jeu correspondant au chemin
-
-
     def Sauvegarde.charger_sauvegarde(chemin_de_base)
         #chemin_de_base="data/save/"+joueur+"/"+Time.new.strftime("%d_%m_%Y__%H_%M")+".txt"
         if File.exist?(chemin_de_base)
@@ -42,6 +41,7 @@ class Sauvegarde
         end
 
     end
+
     #Suppression d'une partie
     #@note le chemin devra être valide 
     #@param le chemin de la sauvegarde a supprimer
@@ -72,7 +72,7 @@ class Sauvegarde
 
         #Parcours ligne par ligne
         text.each_line do |line|
-            #Retire les commentaires
+            #Retire les commentaires du traitement
             next if line.include? "#"
 
             if niveau == nil

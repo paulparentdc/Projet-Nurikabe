@@ -70,7 +70,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Options</property>
-                    <property name="label" translatable="yes">toolbutton</property>
+                    <property name="label" translatable="yes">Options</property>
                     <property name="use_underline">True</property>
                     <property name="stock_id">gtk-properties</property>
                   </object>
@@ -84,6 +84,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Annuler</property>
+                    <property name="label" translatable="yes">Annuler</property>
                     <property name="use_underline">True</property>
                     <property name="stock_id">gtk-undo</property>
                   </object>
@@ -97,6 +98,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Nouveau point de retour</property>
+                    <property name="label" translatable="yes">Nouveau point de retour</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="use_underline">True</property>
@@ -126,6 +128,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="tooltip_text" translatable="yes">Règles du jeu</property>
+                    <property name="label" translatable="yes">Règles du jeu</property>
                     <property name="use_underline">True</property>
                     <property name="icon_widget">image2</property>
                   </object>
