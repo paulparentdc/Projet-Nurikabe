@@ -9,7 +9,7 @@ class Sauvegarde
 
     #Chargement d'une partie
     #@param le jeu a sauvegarder
-    def Sauvegarde.creerSauvegarde(jeu)
+    def Sauvegarde.creer_sauvegarde(jeu)
        a= Marshal::dump(jeu)
        chemin_de_base="data/save/"+jeu.nomJoueur+"/"+Time.new.strftime("%d_%m_%Y__%H_%M")+".txt"
 
@@ -19,9 +19,9 @@ class Sauvegarde
        end
 
        #puts chemin_de_base
-       myFile = File::open(chemin_de_base,"w+")
-       myFile.write(a)
-       myFile.close
+       mon_fichier = File::open(chemin_de_base,"w+")
+       mon_fichier.write(a)
+       mon_fichier.close
     end
 
     #Chargement d'une partie
@@ -30,7 +30,7 @@ class Sauvegarde
     #@return le jeu correspondant au chemin
 
 
-    def Sauvegarde.chargerSauvegarde(chemin_de_base)
+    def Sauvegarde.charger_sauvegarde(chemin_de_base)
         #chemin_de_base="data/save/"+joueur+"/"+Time.new.strftime("%d_%m_%Y__%H_%M")+".txt"
         if File.exist?(chemin_de_base)
             a=File.open(chemin_de_base,"r")
@@ -45,7 +45,7 @@ class Sauvegarde
     #Suppression d'une partie
     #@note le chemin devra être valide 
     #@param le chemin de la sauvegarde a supprimer
-    def Sauvegarde.supprimerSauvegarde(chemin)
+    def Sauvegarde.supprimer_sauvegarde(chemin)
         if File.exist?(chemin)
              File.delete(chemin)
         else
@@ -58,7 +58,7 @@ class Sauvegarde
     # @param chemin le chemin à du template choisi
     # @return le damier avec et sans correction par hachage accessible via +:damier+ pour obtenir la matrice de cases et +:damierCorrect+ pour obtenir la matrice de correction indiquand la couleur que les cases doivent prendre
     # @return +nil+ est renvoyé si un problème est rencontré
-    def Sauvegarde.chargerTemplate(chemin)
+    def Sauvegarde.charger_template(chemin)
         # Chargement du fichier
         text = File.open(chemin).read
         return nil if text == nil
@@ -104,7 +104,7 @@ class Sauvegarde
             return nil
         else
             plateau = Plateau.new(matrice_plateau, matrice_solution, taille, niveau)
-            Case.ajoutPlateau(plateau)
+            Case.ajout_plateau(plateau)
             return Jeu.new(plateau, Time.now, nil)
         end
     end

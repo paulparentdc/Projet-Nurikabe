@@ -3,24 +3,24 @@ class CaseClic < Case
     def initialize(x,y)
         super(x,y)
         @etat = Etat.new
-        @bouton.signal_connect('clicked'){@@plateau.onClickJeu(x,y)}
+        @bouton.signal_connect('clicked'){@@plateau.on_click_jeu(x,y)}
     end
 
 
     def suivant
         @etat.suivant!
         puts @etat.etat
-        self.actualisesToi
+        self.actualises_toi
         
     end
 
 
     def precedent
         @etat.precedent!
-        self.actualisesToi
+        self.actualises_toi
     end
 
-    def actualisesToi
+    def actualises_toi
         case(@etat.etat)
         when Etat::BLANC
             css = @@CSS_BOUTON_BLANC

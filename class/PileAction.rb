@@ -1,15 +1,15 @@
 class PileAction
 
     @pile 
-    @nbPointDeRetour
+    @nb_point_de_retour
 
     def initialize()
-        @nbPointDeRetour=0
+        @nb_point_de_retour=0
         @pile=[]
     end
 
-    def empiler(uneAction)
-        @pile.push(uneAction)
+    def empiler(une_action)
+        @pile.push(une_action)
     end
     
     def depiler()
@@ -20,11 +20,11 @@ class PileAction
         end
     end
 
-    def estVide?()
+    def est_vide?()
         return (@pile.size == 0)
     end
 
-    def combienDePDR()
-        return @nbPointDeRetour
+    def combien_de_PDR()
+        return @nb_point_de_retour
     end
 end

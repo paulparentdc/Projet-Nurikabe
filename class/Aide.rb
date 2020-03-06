@@ -1,21 +1,21 @@
 
 
 class Aide
-   def Aide.testerTout(unPlateau)
+   def Aide.tester_tout(un_plateau)
 
-    if Aide.testerUn(unPlateau) 
+    if Aide.tester_un(un_plateau) 
         return 1
     end
 
-    if Aide.testerEspace(unPlateau) 
+    if Aide.tester_espace(un_plateau) 
         return 2
     end
 
-    if Aide.testerDiagonale(unPlateau) 
+    if Aide.tester_diagonale(un_plateau) 
         return 3
     end
 
-    if Aide.testerBlancIsole(unPlateau) 
+    if Aide.tester_blanc_isole(un_plateau) 
         return 4
     end
 
@@ -23,28 +23,28 @@ class Aide
 
    end
 
-   def Aide.testerUn(unPlateau)
-    for i in range(unPlateau.taille)
-        for j in range(unPlateau.taille)
-            if unPlateau.donneTaCaseInt(i,j) == 1
-                if unPlateau.coordValides?(i+1,j)
-                    if(unPlateau.donneTaCaseInt(i+1,j)) != -1
+   def Aide.tester_un(un_plateau)
+    for i in range(un_plateau.taille)
+        for j in range(un_plateau.taille)
+            if un_plateau.donne_ta_case_int(i,j) == 1
+                if un_plateau.coord_valides?(i+1,j)
+                    if(un_plateau.donne_ta_case_int(i+1,j)) != -1
                         return true
                     end
                 end
                    
 
-                if unPlateau.coordValides?(i,j+1)
-                    if unPlateau.donneTaCaseInt(i,j+1) != -1
+                if un_plateau.coord_valides?(i,j+1)
+                    if un_plateau.donne_ta_case_int(i,j+1) != -1
                         return true
                     end
                     
                 end
                 
 
-                if unPlateau.coordValides?(i,j-1)
+                if un_plateau.coord_valides?(i,j-1)
                     
-                    if unPlateau.donneTaCaseInt(i,j-1) != -1
+                    if un_plateau.donne_ta_case_int(i,j-1) != -1
                         return true
                     end
 
@@ -52,9 +52,9 @@ class Aide
                 end
                 
 
-                if unPlateau.coordValides?(i-1,j)
+                if un_plateau.coord_valides?(i-1,j)
 
-                    if unPlateau.donneTaCaseInt(i-1,j) != -1
+                    if un_plateau.donne_ta_case_int(i-1,j) != -1
                         return true
                     end
                    
@@ -70,35 +70,35 @@ class Aide
     end
    end
 
-   def Aide.testerEspace(unPlateau)
-        for i in range(unPlateau.taille)
-            for j in range(unPlateau.taille)
+   def Aide.tester_espace(un_plateau)
+        for i in range(un_plateau.taille)
+            for j in range(un_plateau.taille)
                 
-                if unPlateau.donneTaCaseInt(i,j) > 0
+                if un_plateau.donne_ta_case_int(i,j) > 0
 
-                    if unPlateau.coordValides?(i+2,j)
-                        if unPlateau.donneTaCaseInt(i+2,j) > 0 && unPlateau.donneTaCaseInt(i+1,j) !=-1
+                    if un_plateau.coord_valides?(i+2,j)
+                        if un_plateau.donne_ta_case_int(i+2,j) > 0 && un_plateau.donne_ta_case_int(i+1,j) !=-1
                             return true
                         end
                     end
                     
 
-                    if unPlateau.coordValides?(i,j+2)
-                        if unPlateau.donneTaCaseInt(i,j+2) >0 && unPlateau.donneTaCaseInt(i,j+1) !=-1
+                    if un_plateau.coord_valides?(i,j+2)
+                        if un_plateau.donne_ta_case_int(i,j+2) >0 && un_plateau.donne_ta_case_int(i,j+1) !=-1
                             return true
                         end  
                     end
                     
 
-                    if unPlateau.coordValides?(i,j-2)    
-                        if unPlateau.donneTaCaseInt(i,j-2) >0 && unPlateau.donneTaCaseInt(i,j-1) !=-1
+                    if un_plateau.coord_valides?(i,j-2)    
+                        if un_plateau.donne_ta_case_int(i,j-2) >0 && un_plateau.donne_ta_case_int(i,j-1) !=-1
                             return true
                         end
                     end
                     
                     
-                    if unPlateau.coordValides?(i-2,j)
-                        if unPlateau.donneTaCaseInt(i-2,j) > 0 && unPlateau.donneTaCaseInt(i-1,j) !=-1
+                    if un_plateau.coord_valides?(i-2,j)
+                        if un_plateau.donne_ta_case_int(i-2,j) > 0 && un_plateau.donne_ta_case_int(i-1,j) !=-1
                             return true
                         end
                     end            
@@ -108,24 +108,24 @@ class Aide
         return false
    end
 
-    def Aide.testerDiagonale(unPlateau)
-        for i in range(unPlateau.taille)
-            for j in range(unPlateau.taille)
+    def Aide.tester_diagonale(un_plateau)
+        for i in range(un_plateau.taille)
+            for j in range(un_plateau.taille)
 
-                if unPlateau.donneTaCaseInt(i,j) > 0
+                if un_plateau.donne_ta_case_int(i,j) > 0
 
-                    if unPlateau.coordValides?(i+1,j+1)
-                        if unPlateau.donneTaCaseInt(i+1,j+1) > 0 
-                            if unPlateau.donneTaCaseInt(i+1,j) !=-1 || unPlateau.donneTaCaseInt(i,j+1) !=-1
+                    if un_plateau.coord_valides?(i+1,j+1)
+                        if un_plateau.donne_ta_case_int(i+1,j+1) > 0 
+                            if un_plateau.donne_ta_case_int(i+1,j) !=-1 || un_plateau.donne_ta_case_int(i,j+1) !=-1
                                 return true
                             end
                         end
                     end
                     
 
-                    if unPlateau.coordValides?(i-1,j-1)
-                        if unPlateau.donneTaCaseInt(i-1,j-1) >0 
-                            if unPlateau.donneTaCaseInt(i-1,j) !=-1 || unPlateau.donneTaCaseInt(i,j-1) !=-1
+                    if un_plateau.coord_valides?(i-1,j-1)
+                        if un_plateau.donne_ta_case_int(i-1,j-1) >0 
+                            if un_plateau.donne_ta_case_int(i-1,j) !=-1 || un_plateau.donne_ta_case_int(i,j-1) !=-1
                                 return true
                             end
                         end
@@ -133,18 +133,18 @@ class Aide
                     end
         
 
-                    if unPlateau.coordValides?(i+1,j-1)
-                        if unPlateau.donneTaCaseInt(i+1,j-1) >0
-                            if unPlateau.donneTaCaseInt(i+1,j) !=-1 || unPlateau.donneTaCaseInt(i,j-1) !=-1
+                    if un_plateau.coord_valides?(i+1,j-1)
+                        if un_plateau.donne_ta_case_int(i+1,j-1) >0
+                            if un_plateau.donne_ta_case_int(i+1,j) !=-1 || un_plateau.donne_ta_case_int(i,j-1) !=-1
                                 return true
                             end
                         end
                     end
                     
                     
-                    if unPlateau.coordValides?(i-1,j+1)
-                        if unPlateau.donneTaCaseInt(i-1,j+1) > 0
-                            if unPlateau.donneTaCaseInt(i-1,j) !=-1 || unPlateau.donneTaCaseInt(i,j+1) !=-1
+                    if un_plateau.coord_valides?(i-1,j+1)
+                        if un_plateau.donne_ta_case_int(i-1,j+1) > 0
+                            if un_plateau.donne_ta_case_int(i-1,j) !=-1 || un_plateau.donne_ta_case_int(i,j+1) !=-1
                                 return true
                             end
                         end
@@ -159,16 +159,16 @@ class Aide
         return false
     end
 
-    def Aide.testerBlancIsole(unPlateau)
-        for i in range(unPlateau.taille)
-            for j in range(unPlateau.taille)
+    def Aide.tester_blanc_isole(un_plateau)
+        for i in range(un_plateau.taille)
+            for j in range(un_plateau.taille)
                 
-                if unPlateau.donneTaCaseInt(i,j) == 0
+                if un_plateau.donne_ta_case_int(i,j) == 0
 
-                    if !unPlateau.coordValides?(i+1,j) || unPlateau.donneTaCaseInt(i+1,j)==-1
-                        if !unPlateau.coordValides?(i-1,j) || unPlateau.donneTaCaseInt(i-1,j)==-1
-                            if !unPlateau.coordValides?(i,j+1) || unPlateau.donneTaCaseInt(i,j+1)==-1
-                                if !unPlateau.coordValides?(i,j-1) || unPlateau.donneTaCaseInt(i,j-1)==-1
+                    if !un_plateau.coord_valides?(i+1,j) || un_plateau.donne_ta_case_int(i+1,j)==-1
+                        if !un_plateau.coord_valides?(i-1,j) || un_plateau.donne_ta_case_int(i-1,j)==-1
+                            if !un_plateau.coord_valides?(i,j+1) || un_plateau.donne_ta_case_int(i,j+1)==-1
+                                if !un_plateau.coord_valides?(i,j-1) || un_plateau.donne_ta_case_int(i,j-1)==-1
                                     return true
                                 end
                             end

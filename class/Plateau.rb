@@ -4,14 +4,14 @@ load 'Etat.rb'
 class Plateau
     @niveau
     @damier
-    @damierCorrect
+    @damier_correct
     @taille
     @pileAction
     @aide
 
     def initialize(matrice_plateau, matrice_solution, taille, niveau)
         @damier = matrice_plateau
-        @damierCorrect = matrice_solution
+        @damier_correct = matrice_solution
         @taille = taille
         @niveau = niveau
     end
@@ -20,7 +20,7 @@ class Plateau
         (0..(@taille-1)).each do |y|
             (0..(@taille-1)).each do |x|
                 print " #{
-                    temp = @damierCorrect[y][x]
+                    temp = @damier_correct[y][x]
                     if temp.to_i == 0
                         temp == 'n' ? 'X' : ' '
                     else
@@ -32,11 +32,11 @@ class Plateau
         end
     end
 
-    def verifierDamier
+    def verifier_damier
         tabErreur = []
         (0..(@taille-1)).each do |x|
             (0..(@taille-1)).each do |y|
-                if (@damier[x][y].to_i == 0) && (@damier[x][y].to_s == 'n') && @damierCorrect[x][y] != 'n'
+                if (@damier[x][y].to_i == 0) && (@damier[x][y].to_s == 'n') && @damier_correct[x][y] != 'n'
                         tabErreur.push(@damier[x][y])
                 end
             end
@@ -45,7 +45,7 @@ class Plateau
     end
 
     def afficherErreur
-        tabErreur = self.verifierDamier
+        tabErreur = self.verifier_damier
         pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
         Gtk::Dialog::DESTROY_WITH_PARENT,
         Gtk::MessageType::QUESTION,
@@ -54,7 +54,7 @@ class Plateau
         pop.destroy
     end
 
-    def coordValides?(x,y)
+    def coord_valides?(x,y)
         if x < @taille && x>= 0 && y < @taille && y>= 0
             return true
         end
@@ -62,8 +62,8 @@ class Plateau
         return false       
     end
 
-    def donneTaCaseInt(x,y)
-        if coordValides(x,y)
+    def donne_ta_case_int(x,y)
+        if coord_valides(x,y)
             return @damier[x][y].getEtatEntier()   
         end
         
@@ -71,13 +71,16 @@ class Plateau
         
     end
 
-    def afficheToi
-        window = Gtk::Window.new
-        
-        vbox = Gtk::Box.new :vertical, 2
-               
+    def affiche_toi
+        builder = Gtk::Builder.new
 
-        grid = Gtk::Grid.new
+        builder.add_from_file("../graphic/Ruby/EnJeu.glade")
+		window = builder.get_object("fn_select")
+        window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		
+        nom_joueur_label = builder.get_object("nom_joueur")
+        grid = builder.get_object("grilleJeu")
+
         grid.set_property "row-homogeneous", true
         grid.set_property "column-homogeneous", true
 
@@ -88,11 +91,10 @@ class Plateau
             end
         end
 
-        vbox.pack_start grid, :expand => true, :fill => true, 
-            :padding => 0
+        # plateauBox.pack_start grid, :expand => true, :fill => true, :padding => 0
 
-
-        window.add vbox
+        # grilleBox.attach grid, 0, 1, 1, 1
+        #window.add grid
 
         window.set_title "Nurikabe!"
         window.signal_connect "destroy" do 
@@ -110,7 +112,7 @@ class Plateau
     def gagner?
         (0..(@taille-1)).each do |x|
             (0..(@taille-1)).each do |y|
-                if @damier[x][y].to_s != @damierCorrect[x][y]
+                if @damier[x][y].to_s != @damier_correct[x][y]
                         return false
                 end
             end
@@ -118,20 +120,17 @@ class Plateau
         return true
     end
 
-    def onClickVerif
+    def on_click_verif
         self.afficherErreur
     end
 
-    def onClickVerif
-    end
-
-    def onClickJeu(x,y)
+    def on_click_jeu(x,y)
         @damier[x][y].suivant
     end
 
-    def onClickAide
+    def on_click_aide
         txt =''
-        if(self.verifierDamier.empty?)
+        if(self.verifier_damier.empty?)
             nbAide = @aide.testerTout(self)
 
             case(nbAide)
@@ -171,21 +170,21 @@ class Plateau
         end
     end
 
-    def onClickUndo
+    def on_click_undo
     end
 
-    def onClickRegle
+    def on_click_regle
     end
 
-    def onClickCreerRetour
+    def on_click_creer_retour
     end
 
-    def onClickAllerRetour
+    def on_click_aller_retour
     end
 
-    def onClickOption
+    def on_click_option
     end
 
-    def onClickQuitter
+    def on_click_quitter
     end
 end

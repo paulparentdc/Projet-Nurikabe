@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkWindow">
+    <property name="can_focus">False</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkLabel">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Le jeu Nurikabe est un puzzle en forme d île basé sur une grille carrée avec des chiffres à
+divers endroits. Le but est de créer des îles en partitionnant la grille.
+Pour partitionner cette grille, on utilise des murs de telle sorte que chaque île contienne
+exactement un indice et le nombre de carrés correspondant à la valeur du chiffre.
+Les îles sont isolées les unes des autres horizontalement et verticalement. Il n y a pas de
+zones de mur de 2x2 ou plus.
+Tous les murs forment un chemin continu lorsque le puzzle est terminé.</property>
+      </object>
+    </child>
+  </object>
+</interface>

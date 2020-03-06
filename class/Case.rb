@@ -23,7 +23,7 @@ class Case
     @x
     @y
 
-    def Case.ajoutPlateau(plateau)
+    def Case.ajout_plateau(plateau)
         @@plateau = plateau
     end
 
@@ -37,7 +37,7 @@ class Case
         ' '
     end
 
-    def changerSuivant
+    def changer_suivant
     end
 
     def changer

@@ -13,7 +13,7 @@ class Jeu
 
 end
 
-jeu = Sauvegarde.chargerTemplate("../data/template/plateau.txt")
-puts jeu.plateau.afficheToi
+jeu = Sauvegarde.charger_template("../data/template/plateau.txt")
+puts jeu.plateau.affiche_toi
 # plateau.afficheToi
 # puts plateau
