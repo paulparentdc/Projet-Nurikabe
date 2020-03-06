@@ -9,6 +9,6 @@ class Coordonnee
     end
     
     def to_s
-        "%n Coordonnée: {@x};{@y} "
+        "%n Coordonnée: #{@x};#{@y} "
     end
 end
