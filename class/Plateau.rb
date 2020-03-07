@@ -21,7 +21,7 @@ class Plateau
         @taille = taille
         @niveau = niveau
 
-        @pile_action = PileAction.new()
+        @pile_action = PileAction.new(self)
         @malus_aide = 0
         @partie_finie = false
         
@@ -172,12 +172,20 @@ class Plateau
         return true
     end
 
+
+
+
+
+
+
+
+
     def on_click_verif
         self.afficher_erreur
     end
     
     def on_click_jeu(x,y)
-        # @pile_action.empiler(Action.new(x,y,false))
+        @pile_action.empiler(Action.new(x,y))
         @damier[x][y].suivant
     end
 
@@ -224,15 +232,18 @@ class Plateau
     end
 
     def on_click_undo
+        @pile_action.annuler_dernier_coup
     end
 
     def on_click_regle
     end
 
     def on_click_creer_retour
+        @pile_action.ajout_point_de_retour
     end
 
     def on_click_aller_retour
+        @pile_action.vers_dernier_point_de_retour
     end
 
     def on_click_option

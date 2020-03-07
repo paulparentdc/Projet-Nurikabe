@@ -29,3 +29,7 @@ demande de verif : 10s de pénalité si y'a au moins une faute + 5*(le nombre de
 
 ---
 ajout @a_gagner qui est initalisé à chaque fois que l'on fait appel à la verification du plateau
+
+---
+
+ + Annuler dernier coup

@@ -1,10 +1,13 @@
 class Action
+    attr_reader :x, :y
+    attr_accessor :point_de_retour
     @x
     @y
-    @point_de_retour=false
+    @point_de_retour
 
-    def initialize(x,y,retour)
-        @x,@y,@point_de_retour=x,y,retour
+    def initialize(x,y)
+        @x,@y,@point_de_retour=x,y
+        @point_de_retour=false;
     end
 
     def est_point_de_retour?
