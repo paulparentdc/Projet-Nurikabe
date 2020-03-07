@@ -2,11 +2,10 @@ require "gtk3"
 load 'Etat.rb'
 load 'Aide.rb'
 load 'PileAction.rb'
-load 'Aide.rb'
 
 class Plateau
-    attr_reader :niveau, :damier, :damier_correct, :pile_action, :aide, :taille, :malus_aide, :partie_finie
-
+    attr_reader :niveau, :damier, :damier_correct, :pile_action, :aide, :taille,  :partie_finie
+    attr_accessor :malus_aide
     @niveau
     @damier
     @damier_correct
@@ -24,6 +23,8 @@ class Plateau
 
         @pile_action = PileAction.new()
         @malus_aide = 0
+        @partie_finie = false
+        
     end
 
     def to_s
@@ -47,21 +48,25 @@ class Plateau
         @partie_finie = true
         (0..(@taille-1)).each do |x|
             (0..(@taille-1)).each do |y|
+                # check erreur
                 if (@damier[x][y].to_s == 'n') && @damier_correct[x][y] != 'n'
                         tab_erreur.push(@damier[x][y])
                 end
-                #
-                # PARTIE FINIE EST FAUX SI LA PREMIER LETTRE DE DAMIER EST DIFFERENTE DE DAMIER CORRECT
-                #
+                # check fin de partie
+                if(@damier[x][y].to_s.chr != @damier_correct[x][y])
+                    @partie_finie = false
+                end
             end
         end
+        @malus_aide += 10 if(tab_erreur.size != 0)
         return tab_erreur
     end
 
+    #suppr
     def afficher_erreur
         tab_erreur = self.verifier_damier
         pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
-        Gtk::Dialog::DESTROY_WITH_PARENT,
+        Gtk::DialogFlags::DESTROY_WITH_PARENT,
         Gtk::MessageType::QUESTION,
         :yes_no, "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?")
         
