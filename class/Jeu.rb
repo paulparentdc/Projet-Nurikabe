@@ -99,9 +99,10 @@ class Jeu
         @en_jeu = false if @plateau.partie_finie
         pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
         Gtk::DialogFlags::DESTROY_WITH_PARENT,
-        Gtk::MessageType::QUESTION,
-        :yes_no, (!@plateau.partie_finie ?
-            "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?" : 
+        (tab_erreur.size == 0?Gtk::MessageType::INFO : Gtk::MessageType::QUESTION),
+        (tab_erreur.size == 0? :ok : :yes_no),
+        (!@plateau.partie_finie ?
+            (tab_erreur.size == 0? "Vous avez  #{tab_erreur.size} erreurs!" : "Vous avez  #{tab_erreur.size} erreurs! \nVoulez-vous les visionner ?" ):
             "Bravo " + @nom_joueur +" ! Vous avez finis le jeu en " + (@temps_de_jeu+@plateau.malus_aide).to_s + " seconde.\nVoulez-vous rejouer ?"))
         
         
