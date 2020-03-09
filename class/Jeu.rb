@@ -18,6 +18,8 @@ class Jeu
         @en_jeu = true
         @malus_timer = 0
 
+        @temps_de_jeu = 0
+
         @nom_joueur = "paul"
     end
 
@@ -82,7 +84,7 @@ class Jeu
     end
 
     def lancer_timer
-        t1 = Time.now
+        t1 = Time.now - @temps_de_jeu
         while(@en_jeu)
             t2 = Time.now
             @temps_de_jeu = (t2 - t1).round
