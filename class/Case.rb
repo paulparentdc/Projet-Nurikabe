@@ -46,6 +46,7 @@ class Case
 
     def changer_suivant
     end
+    
 
     def changer
         

@@ -93,9 +93,9 @@ class Plateau
         return false       
     end
 
-    def donne_ta_case_int(x,y)
-        if coord_valides(x,y)
-            return @damier[x][y].get_etat_entier()   
+    def donne_case(x,y)
+        if coord_valides?(x,y)
+            return @damier[x][y]
         end
         
     #raise d une erreur ici car coordonnées invalides;
@@ -192,25 +192,26 @@ class Plateau
     def on_click_aide
         txt =''
         if(self.verifier_damier.empty?)
-            nb_aide = @aide.tester_tout(self)
+            nb_aide = Aide.tester_tout(self)
+            p nb_aide
+            case nb_aide
 
-            case(nb_aide)
+                when 1
+                    txt ='Il reste des 1 à isoler !'
 
-            when nb_aide == 1
-                txt ='Il reste des 1 à isoler !'
+                when 2
+                    txt ='Il y a une case blanche entre 2 chiffres qui pourrait être cliquer!'
 
-            when nb_aide == 2
-                txt ='Il y a une case blanche entre 2 chiffres qui pourrait être cliquer!'
+                when 3
+                    txt = 'Il y a des cases en diagonales qui peuvent être separées'
 
-            when nb_aide == 3
-                txt = 'Il y a des cases en diagonales qui peuvent être separées'
-
-            when nb_aide == 4
-                txt = "Il y a une case blanche seule"
-            
-            else 
-                txt = "Aucune aide n'a été trouvé bonne chance !"
-            
+                when 4
+                    txt = "Il y a une case blanche seule"
+                    
+                else
+                    txt = "Aucune aide n'a été trouvé bonne chance !"
+                    
+            end
 
 
             dialog = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"), 
@@ -224,7 +225,7 @@ class Plateau
             dialog.run
             dialog.destroy
 
-        end
+        
     
         else
             self.afficher_erreur

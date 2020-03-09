@@ -1,122 +1,116 @@
-
-
 class Aide
+
    def Aide.tester_tout(un_plateau)
 
-    if Aide.tester_un(un_plateau) 
-        return 1
-    end
+        if Aide.tester_un(un_plateau) 
+            return 1
+        end
 
-    if Aide.tester_espace(un_plateau) 
-        return 2
-    end
+        if Aide.tester_espace(un_plateau) 
+            return 2
+        end
 
-    if Aide.tester_diagonale(un_plateau) 
-        return 3
-    end
+        if Aide.tester_diagonale(un_plateau) 
+            return 3
+        end
 
-    if Aide.tester_blanc_isole(un_plateau) 
-        return 4
-    end
+        if Aide.tester_blanc_isole(un_plateau) 
+            return 4
+        end
 
-    return 0
+        return 0
 
    end
 
    def Aide.tester_un(un_plateau)
-    for i in range(un_plateau.taille)
-        for j in range(un_plateau.taille)
-            if un_plateau.donne_ta_case_int(i,j) == 1
-                if un_plateau.coord_valides?(i+1,j)
-                    if(un_plateau.donne_ta_case_int(i+1,j)) != -1
-                        return true
-                    end
-                end
-                   
+        for i in (0..un_plateau.taille)
+            for j in (0..un_plateau.taille)
 
-                if un_plateau.coord_valides?(i,j+1)
-                    if un_plateau.donne_ta_case_int(i,j+1) != -1
-                        return true
+                if case_1?(un_plateau.donne_case(i,j))
+                    
+                    if un_plateau.coord_valides?(i+1,j)
+                        
+                        if case_blanche?(un_plateau.donne_case(i+1,j))
+                            return true
+                        end
                     end
                     
-                end
-                
 
-                if un_plateau.coord_valides?(i,j-1)
+                    if un_plateau.coord_valides?(i,j+1)
+                        if case_blanche?(un_plateau.donne_case(i,j+1))
+                            return true
+                        end
+                    end
                     
-                    if un_plateau.donne_ta_case_int(i,j-1) != -1
-                        return true
+
+                    if un_plateau.coord_valides?(i,j-1) 
+                                      
+                        if case_blanche?(un_plateau.donne_case(i,j-1))
+                            return true
+                        end
                     end
+                    
 
-
-                end
+                    if un_plateau.coord_valides?(i-1,j)
+                        if case_blanche?(un_plateau.donne_case(i-1,j))
+                            return true
+                        end                  
+                    end
                 
-
-                if un_plateau.coord_valides?(i-1,j)
-
-                    if un_plateau.donne_ta_case_int(i-1,j) != -1
-                        return true
-                    end
-                   
+                
                 end
-               
-
-               return false
-
-
             end
         end
-
-    end
+        return false #Cas où aucun 1 seul n'a été trouvé
    end
 
    def Aide.tester_espace(un_plateau)
-        for i in range(un_plateau.taille)
-            for j in range(un_plateau.taille)
+        for i in (0..un_plateau.taille)
+            for j in (0..un_plateau.taille)
                 
-                if un_plateau.donne_ta_case_int(i,j) > 0
-
+                if case_chiffre?(un_plateau.donne_case(i,j))
+                    p "trouve"
                     if un_plateau.coord_valides?(i+2,j)
-                        if un_plateau.donne_ta_case_int(i+2,j) > 0 && un_plateau.donne_ta_case_int(i+1,j) !=-1
+                        if case_chiffre?(un_plateau.donne_case(i+2,j)) && case_blanche?(un_plateau.donne_case(i+1,j))
                             return true
                         end
                     end
                     
 
                     if un_plateau.coord_valides?(i,j+2)
-                        if un_plateau.donne_ta_case_int(i,j+2) >0 && un_plateau.donne_ta_case_int(i,j+1) !=-1
+                        if case_chiffre?(un_plateau.donne_case(i,j+2)) && case_blanche?(un_plateau.donne_case(i,j+1))
                             return true
                         end  
                     end
                     
 
                     if un_plateau.coord_valides?(i,j-2)    
-                        if un_plateau.donne_ta_case_int(i,j-2) >0 && un_plateau.donne_ta_case_int(i,j-1) !=-1
+                        if case_chiffre?(un_plateau.donne_case(i,j-2)) && case_blanche?(un_plateau.donne_case(i,j-1))
                             return true
                         end
                     end
                     
                     
                     if un_plateau.coord_valides?(i-2,j)
-                        if un_plateau.donne_ta_case_int(i-2,j) > 0 && un_plateau.donne_ta_case_int(i-1,j) !=-1
+                        if case_chiffre?(un_plateau.donne_case(i-2,j)) && case_blanche?(un_plateau.donne_case(i-1,j))
                             return true
                         end
                     end            
                 end
             end
         end
-        return false
+        return false #Cas où aucun espace n'a été trouvé entre 2 cases chiffre
    end
 
     def Aide.tester_diagonale(un_plateau)
-        for i in range(un_plateau.taille)
-            for j in range(un_plateau.taille)
+        for i in (0..un_plateau.taille)
+            for j in (0..un_plateau.taille)
 
-                if un_plateau.donne_ta_case_int(i,j) > 0
+                if case_chiffre?(un_plateau.donne_case(i,j))
 
                     if un_plateau.coord_valides?(i+1,j+1)
-                        if un_plateau.donne_ta_case_int(i+1,j+1) > 0 
-                            if un_plateau.donne_ta_case_int(i+1,j) !=-1 || un_plateau.donne_ta_case_int(i,j+1) !=-1
+                        if case_chiffre?(un_plateau.donne_case(i+1,j+1))
+                            if case_noire?(un_plateau.donne_case(i+1,j)) || case_noire?(un_plateau.donne_case(i,j+1)) 
                                 return true
                             end
                         end
@@ -124,18 +118,17 @@ class Aide
                     
 
                     if un_plateau.coord_valides?(i-1,j-1)
-                        if un_plateau.donne_ta_case_int(i-1,j-1) >0 
-                            if un_plateau.donne_ta_case_int(i-1,j) !=-1 || un_plateau.donne_ta_case_int(i,j-1) !=-1
+                        if case_chiffre?(un_plateau.donne_case(i-1,j-1))
+                            if case_noire?(un_plateau.donne_case(i-1,j))  || case_noire?(un_plateau.donne_case(i,j-1)) 
                                 return true
                             end
-                        end
-                        
+                        end    
                     end
         
 
                     if un_plateau.coord_valides?(i+1,j-1)
-                        if un_plateau.donne_ta_case_int(i+1,j-1) >0
-                            if un_plateau.donne_ta_case_int(i+1,j) !=-1 || un_plateau.donne_ta_case_int(i,j-1) !=-1
+                        if case_chiffre?(un_plateau.donne_case(i+1,j-1))
+                            if case_noire?(un_plateau.donne_case(i+1,j))  || case_noire?(un_plateau.donne_case(i,j-1)) 
                                 return true
                             end
                         end
@@ -143,32 +136,28 @@ class Aide
                     
                     
                     if un_plateau.coord_valides?(i-1,j+1)
-                        if un_plateau.donne_ta_case_int(i-1,j+1) > 0
-                            if un_plateau.donne_ta_case_int(i-1,j) !=-1 || un_plateau.donne_ta_case_int(i,j+1) !=-1
+                        if case_chiffre?(un_plateau.donne_case(i-1,j+1))
+                            if case_noire?(un_plateau.donne_case(i-1,j))  || case_noire?(un_plateau.donne_case(i,j+1)) 
                                 return true
                             end
                         end
-                    
                     end
-                
-                
-
                 end
             end
         end
-        return false
+        return false #Cas où on n'a pas trouvé de case vide en diagonale de 2 cases chiffre
     end
 
     def Aide.tester_blanc_isole(un_plateau)
-        for i in range(un_plateau.taille)
-            for j in range(un_plateau.taille)
+        for i in (0..un_plateau.taille)
+            for j in (0..un_plateau.taille)
                 
-                if un_plateau.donne_ta_case_int(i,j) == 0
+                if case_blanche?(un_plateau.donne_case(i,j))
 
-                    if !un_plateau.coord_valides?(i+1,j) || un_plateau.donne_ta_case_int(i+1,j)==-1
-                        if !un_plateau.coord_valides?(i-1,j) || un_plateau.donne_ta_case_int(i-1,j)==-1
-                            if !un_plateau.coord_valides?(i,j+1) || un_plateau.donne_ta_case_int(i,j+1)==-1
-                                if !un_plateau.coord_valides?(i,j-1) || un_plateau.donne_ta_case_int(i,j-1)==-1
+                    if !un_plateau.coord_valides?(i+1,j) || case_noire?(un_plateau.donne_case(i+1,j))
+                        if !un_plateau.coord_valides?(i-1,j) || case_noire?(un_plateau.donne_case(i-1,j))
+                            if !un_plateau.coord_valides?(i,j+1) || case_noire?(un_plateau.donne_case(i,j+1))
+                                if !un_plateau.coord_valides?(i,j-1) || case_noire?(un_plateau.donne_case(i,j-1))
                                     return true
                                 end
                             end
@@ -178,7 +167,25 @@ class Aide
                 end
             end
         end
-        return false
+        return false #Cas où la case n'est pas isolée
+    end
+
+    
+    #Fonctions de test sur les cases
+    def Aide.case_chiffre?(uneCase)
+        return uneCase.to_s.chr != 'n' && uneCase.to_s.chr != 'b'
+    end
+
+    def Aide.case_noire?(uneCase)
+        return uneCase.to_s.chr == 'n'
+    end
+
+    def Aide.case_blanche?(uneCase)
+        return uneCase.to_s.chr == 'b'
+    end
+
+    def Aide.case_1?(uneCase)
+        return uneCase.to_s.chr == '1'
     end
 
 end
