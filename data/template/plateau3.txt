@@ -1,0 +1,12 @@
+#Difficulté
+Facile
+#Taille
+7
+#Plateau
+n 1 n n n 1 n
+n n n 1 n n n
+n b 2 n 2 b n
+n n n n n n n
+n 5 b b b b n
+7 n n n n n n
+b b b b b b n
