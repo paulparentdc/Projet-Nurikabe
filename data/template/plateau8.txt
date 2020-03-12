@@ -1,0 +1,14 @@
+#Difficulté
+Moyen
+#Taille
+9
+#Plateau
+n n n n n b b 6 b
+1 n b b n n n b b
+n n n b b 7 n n n
+2 n 2 n b n b b b
+b n b n b n n n b
+n n n n n b 2 n 5
+n b n 2 n n n n n
+n b n b n b b b 4
+n 3 n n n n n n n
