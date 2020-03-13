@@ -208,6 +208,9 @@ class Plateau
 
                 when 4
                     txt = "Il y a une case blanche seule"
+
+                when 5
+                    txt = "Il y a une case noire qui ne sera pas reliée aux autres"
                     
                 else
                     txt = "Aucune aide n'a été trouvé bonne chance !"

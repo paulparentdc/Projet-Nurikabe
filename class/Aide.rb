@@ -25,6 +25,10 @@ class Aide
             return 4
         end
 
+        if self.tester_chemin
+            return 5
+        end
+
         return 0
 
    end
@@ -147,12 +151,53 @@ class Aide
             for j in (0..@plateau.taille)
 
                 if self.case_noire?(i,j)
+
+
                     nb_sortie = 0;#Compteur pour le nombre de case libre autour de la case que l'on analyse
-                    
-                    if self.case_blanche?(i+1,j) 
+                    x_courant = i
+                    y_courant = j
+
+                    while(nb_sortie==1)
+                        x_sortie = -1
+                        y_sortie = -1
+                        
+                        #On cherche la ou les cases de sortie
+                        if self.case_blanche?(x_courant+1,y_courant) || self.case_noire?(x_courant+1,y_courant)
+                            nb_sortie+=1
+                            x_sortie = x_courant+1
+                            y_sortie = y_courant
+                        end
+
+                        if self.case_blanche?(x_courant-1,y_courant) || self.case_noire?(x_courant-1,y_courant)
+                            nb_sortie+=1
+                            x_sortie = x_courant-1
+                            y_sortie = y_courant
+                        end
+
+                        if self.case_blanche?(x_courant,y_courant+1) || self.case_noire?(x_courant,y_courant+1)
+                            nb_sortie+=1
+                            x_sortie = x_courant
+                            y_sortie = y_courant+1
+                        end
+
+                        if self.case_blanche?(x_courant,y_courant-1) || self.case_noire?(x_courant,y_courant-1)
+                            nb_sortie+=1
+                            x_sortie = x_courant
+                            y_sortie = y_courant-1
+                        end
+
+                        if(nb_sortie == 1)
+                            if self.case_blanche?(x_sortie,y_sortie)
+                                return true
+                            else   
+                                
+                        end
+
                     end
 
                 end
+
+
             end
         end
         return false #Cas où la case n'est pas isolée
