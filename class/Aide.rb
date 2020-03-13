@@ -173,19 +173,19 @@ class Aide
 
     #Fonctions de test sur les cases
     def Aide.case_chiffre?(une_case)
-        return uneCase.to_s.chr != 'n' && uneCase.to_s.chr != 'b'
+        return une_case.to_s.chr != 'n' && une_case.to_s.chr != 'b'
     end
 
     def Aide.case_noire?(une_case)
-        return uneCase.to_s.chr == 'n'
+        return une_case.to_s.chr == 'n'
     end
 
     def Aide.case_blanche?(une_case)
-        return uneCase.to_s.chr == 'b'
+        return une_case.to_s.chr == 'b'
     end
 
     def Aide.case_1?(une_case)
-        return uneCase.to_s.chr == '1'
+        return une_case.to_s.chr == '1'
     end
 
 
