@@ -24,6 +24,7 @@ class Plateau
         @pile_action = PileAction.new(self)
         @malus_aide = 0
         @partie_finie = false
+        @aide = Aide.new(self)
         
     end
 
@@ -192,7 +193,7 @@ class Plateau
     def on_click_aide
         txt =''
         if(self.verifier_damier.empty?)
-            nb_aide = Aide.tester_tout(self)
+            nb_aide = @aide.tester_tout()
             p nb_aide
             case nb_aide
 
