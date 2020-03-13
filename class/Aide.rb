@@ -169,22 +169,25 @@ class Aide
         return false #Cas où la case n'est pas isolée
     end
 
+ 
 
     #Fonctions de test sur les cases
-    def Aide.case_chiffre?(uneCase)
+    def Aide.case_chiffre?(une_case)
         return uneCase.to_s.chr != 'n' && uneCase.to_s.chr != 'b'
     end
 
-    def Aide.case_noire?(uneCase)
+    def Aide.case_noire?(une_case)
         return uneCase.to_s.chr == 'n'
     end
 
-    def Aide.case_blanche?(uneCase)
+    def Aide.case_blanche?(une_case)
         return uneCase.to_s.chr == 'b'
     end
 
-    def Aide.case_1?(uneCase)
+    def Aide.case_1?(une_case)
         return uneCase.to_s.chr == '1'
     end
+
+
 
 end
