@@ -146,7 +146,7 @@ class Sauvegarde
                     i=-1
                     matrice_plateau.push(temp.map do |x|
                         i+=1
-                        (temp = x.to_i) == 0 ? CaseClic.new(compteur,i) : CaseChiffre.new(compteur,i, temp)
+                        (temp = x.to_i) == 0 ? CaseClic.new(i,compteur) : CaseChiffre.new(i,compteur, temp)
                         
                     end)
                     compteur+=1
