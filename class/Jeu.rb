@@ -56,8 +56,8 @@ class Jeu
         grid.set_property "column-homogeneous", true
         (0..@plateau.taille-1).each do |i|
             (0..@plateau.taille-1).each do |j|
-                temp = @plateau.damier[j][i].bouton
-                grid.attach temp, i, j, 1, 1
+                temp = @plateau.damier[i][j].bouton
+                grid.attach temp, j, i, 1, 1
             end
         end
 
