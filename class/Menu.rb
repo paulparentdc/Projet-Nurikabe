@@ -3,7 +3,7 @@ require 'gtk3'
 load 'Sauvegarde.rb'
 load 'Highscore.rb'
 class Menus
-	@nomJoueur
+	@nom_joueur
 	@window
 	@builder
 	@files_fac
@@ -30,8 +30,8 @@ class Menus
 
 	def onClickDemarrage()
 		ch_pseudo= @builder.get_object("ch_pseudo")
-		@nomJoueur=ch_pseudo.text().gsub('/',"")
-		puts @nomJoueur
+		@nom_joueur=ch_pseudo.text().gsub('/',"")
+		puts @nom_joueur
 		afficheChoixMode()
 	end
 
@@ -82,7 +82,7 @@ class Menus
 
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		lab_pseu = @builder.get_object("lab_pseu")
-		lab_pseu.set_text("Pseudo : " + @nomJoueur)
+		lab_pseu.set_text("Pseudo : " + @nom_joueur)
 
 		box_fac_haut = @builder.get_object("box_fac_haut")
 		box_fac_bas = @builder.get_object("box_fac_bas")
@@ -171,7 +171,7 @@ class Menus
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		scrl = @builder.get_object("scrl_save")
 		@window.show()
-		file = Dir["../data/save/"+@nomJoueur+"/*.txt"]
+		file = Dir["../data/save/"+@nom_joueur+"/*.txt"]
 		box_save = @builder.get_object("box_liste_save")
 		box_save.margin = 20
 
