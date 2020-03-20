@@ -4,8 +4,8 @@ load 'Aide.rb'
 load 'PileAction.rb'
 
 class Plateau
-    attr_reader :niveau, :damier, :damier_correct, :pile_action, :aide, :taille, :partie_finie, :chemin_template
-    attr_accessor :malus_aide, :pile_action
+    attr_reader :niveau, :damier_correct, :pile_action, :aide, :taille, :partie_finie, :chemin_template
+    attr_accessor :malus_aide, :pile_action, :damier
     @niveau
     @damier
     @damier_correct

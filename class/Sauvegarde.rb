@@ -81,9 +81,11 @@ class Sauvegarde
         plateau.malus_aide = donnees.malus_aide
 
         plateau_etat = donnees.plateau_etat
+        
         (0..plateau.taille-1).each do |i|
             (0..plateau.taille-1).each do |j|
-                plateau.damier[i][j].etat = plateau_etat[i][j]
+                p plateau.damier[i][j]  if plateau.damier[i][j].instance_of? CaseClic
+                plateau.damier[i][j].etat = plateau_etat[i][j] if plateau.damier[i][j].instance_of? CaseClic
             end
         end
 
