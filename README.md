@@ -33,3 +33,5 @@ ajout @a_gagner qui est initalisé à chaque fois que l'on fait appel à la veri
 ---
 
  + Annuler dernier coup
+
+ CHECKER : sauvegarde, le plateau etat pose probleme

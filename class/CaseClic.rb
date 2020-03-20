@@ -1,4 +1,6 @@
 class CaseClic < Case
+    attr_accessor :etat
+
     @etat
     def initialize(x,y)
         super(x,y)

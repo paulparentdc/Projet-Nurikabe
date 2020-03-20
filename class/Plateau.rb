@@ -4,8 +4,8 @@ load 'Aide.rb'
 load 'PileAction.rb'
 
 class Plateau
-    attr_reader :niveau, :damier, :damier_correct, :pile_action, :aide, :taille,  :partie_finie
-    attr_accessor :malus_aide
+    attr_reader :niveau, :damier, :damier_correct, :pile_action, :aide, :taille, :partie_finie, :chemin_template
+    attr_accessor :malus_aide, :pile_action
     @niveau
     @damier
     @damier_correct
@@ -14,15 +14,17 @@ class Plateau
     @aide
     @malus_aide
     @partie_finie
+    @chemin_template
 
-    def initialize(matrice_plateau, matrice_solution, taille, niveau)
+    def initialize(matrice_plateau, matrice_solution, taille, niveau, chemin_template)
         @damier = matrice_plateau
         @damier_correct = matrice_solution
         @taille = taille
         @niveau = niveau
+        @chemin_template = chemin_template
 
-        @pile_action = PileAction.new(self)
-        @malus_aide = 0
+        @pile_action = PileAction.new(self, [])
+        @malus_aide =0
         @partie_finie = false
         @aide = Aide.new(self)
         
@@ -63,28 +65,33 @@ class Plateau
         return tab_erreur
     end
 
-    #suppr
-    def afficher_erreur
-        tab_erreur = self.verifier_damier
-        pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
-        Gtk::DialogFlags::DESTROY_WITH_PARENT,
-        Gtk::MessageType::QUESTION,
-        :yes_no, "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?")
-        
-        
-        reponse = pop.run 
-        pop.destroy
-
-        @malus_aide += 10 if(tab_erreur.size != 0)
-        
-        # affichage en rouge des erreurs
-        if(reponse == Gtk::ResponseType::YES)
-            @malus_aide += tab_erreur.size*5
-            tab_erreur.each do |err|
-                err.en_rouge
+    def get_plateau_caracteres
+        tab_char = []
+        (0..(@taille-1)).each do |x|
+            (0..(@taille-1)).each do |y|
+                tab_char.push(@damier[x][y].to_s)
             end
         end
+        return tab_char
     end
+
+    def get_plateau_etat
+        tab_etat = []
+        (0..(@taille-1)).each do |x|
+            tab_ligne = []
+            (0..(@taille-1)).each do |y|
+                temp = @damier[x][y]
+                if temp.is_a? CaseClic
+                    tab_etat.push(temp.etat)
+                else
+                    tab_etat.push(nil)
+                end
+            end
+            tab_etat.push(tab_ligne)
+        end
+        return tab_etat
+    end
+
 
     def coord_valides?(x,y)
         if x < @taille && x>= 0 && y < @taille && y>= 0
@@ -103,64 +110,6 @@ class Plateau
         
     end
 
-    def affiche_toi(nom_du_joueur)
-        builder = Gtk::Builder.new
-
-        builder.add_from_file("../graphic/Ruby/EnJeu.glade")
-		window = builder.get_object("fn_select")
-        window.signal_connect('destroy') { |_widget| Gtk.main_quit }
-        
-        # Récupérations des objets
-            # Boutons
-        btn_options = builder.get_object("Options")
-        btn_undo = builder.get_object("Undo")
-        btn_point_de_retour = builder.get_object("Point de retour")
-        btn_revenir_point_de_retour = builder.get_object("Revenir point de retour")
-        btn_aide = builder.get_object("Aide")
-        btn_verification = builder.get_object("Verification")
-        btn_indice = builder.get_object("Indice")
-            
-            # Autres
-        nom_joueur_label = builder.get_object("nom_joueur")
-        grid = builder.get_object("grilleJeu")
-
-        # Configurations des objets récupéré
-            # Boutons
-        btn_options.signal_connect('clicked'){self.on_click_option}
-        btn_undo.signal_connect('clicked'){self.on_click_undo}
-        btn_point_de_retour.signal_connect('clicked'){self.on_click_creer_retour}
-        btn_revenir_point_de_retour.signal_connect('clicked'){self.on_click_aller_retour}
-        btn_aide.signal_connect('clicked'){self.on_click_aide}
-        btn_verification.signal_connect('clicked'){self.on_click_verif}
-        btn_indice.signal_connect('clicked'){self.on_click_aide}
-            
-
-            # initialisation du plateau dans la grille
-        grid.set_property "row-homogeneous", true
-        grid.set_property "column-homogeneous", true
-        (0..@taille-1).each do |i|
-            (0..@taille-1).each do |j|
-                temp = @damier[i][j].bouton
-                grid.attach temp, i, j, 1, 1
-            end
-        end
-
-            # label
-        nom_joueur_label.set_label("Joueur : " + nom_du_joueur + " ")
-
-
-        # configuration de la fenêtre
-        window.set_title "Nurikabe!"
-        window.signal_connect "destroy" do 
-            Gtk.main_quit 
-        end        
-
-        window.set_default_size 300, 250
-        window.set_window_position :center
-        
-        window.show_all
-        Gtk.main
-    end
 
     def gagner?
         (0..(@taille-1)).each do |x|
@@ -173,14 +122,6 @@ class Plateau
         return true
     end
 
-
-
-
-
-
-
-
-
     def on_click_verif
         self.afficher_erreur
     end
@@ -190,7 +131,7 @@ class Plateau
         @damier[x][y].suivant
     end
 
-    def on_click_aide
+    def on_click_aide(jeu)
         txt =''
         if(self.verifier_damier.empty?)
             nb_aide = @aide.tester_tout()
@@ -223,16 +164,12 @@ class Plateau
             Gtk::MessageDialog::INFO,
             Gtk::MessageDialog::BUTTONS_OK,
             txt)
-
-            
             
             dialog.run
             dialog.destroy
 
-        
-    
         else
-            self.afficher_erreur
+            jeu.afficher_erreur
         end
     end
 

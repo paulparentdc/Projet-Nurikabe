@@ -189,7 +189,9 @@ class Aide
                         if(nb_sortie == 1)
                             if self.case_blanche?(x_sortie,y_sortie)
                                 return true
-                            else   
+                            else
+                              return false
+                            end
                                 
                         end
 

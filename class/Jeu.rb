@@ -1,33 +1,28 @@
-require "gtk3"
-load 'Sauvegarde.rb'
+#require "gtk3"
+#load 'Sauvegarde.rb'
 load 'Plateau.rb'
 
 class Jeu
-    attr_reader :plateau, :timer, :nom_joueur
+    attr_reader :plateau, :nom_joueur,:temps_de_jeu,:en_jeu
     @plateau
-    @timer
     @nom_joueur
     @nom_joueur_label
     @temps_de_jeu
 
     @en_jeu
 
-    def initialize(plateau, timer, nom_joueur)
-        @plateau, @timer, @nom_joueur = plateau, timer, nom_joueur
+    def initialize(plateau:, nom_joueur:, temps_de_jeu:)
+        @plateau, @nom_joueur, @temps_de_jeu = plateau, nom_joueur, temps_de_jeu
 
         @en_jeu = true
         @malus_timer = 0
-
-        @temps_de_jeu = 0
-
-        @nom_joueur = "paul"
     end
 
 
     def affiche_toi
         builder = Gtk::Builder.new
 
-        builder.add_from_file("../graphic/Ruby/EnJeu.glade")
+        builder.add_from_file("../Glade/EnJeu.glade")
 		window = builder.get_object("fn_select")
         window.signal_connect('destroy') { |_widget| Gtk.main_quit }
         
@@ -47,13 +42,13 @@ class Jeu
 
         # Configurations des objets récupéré
             # Boutons
-        btn_options.signal_connect('clicked'){@plateau.on_click_option}
+        btn_options.signal_connect('clicked'){Sauvegarde.creer_sauvegarde(self)}
         btn_undo.signal_connect('clicked'){@plateau.on_click_undo}
         btn_point_de_retour.signal_connect('clicked'){@plateau.on_click_creer_retour}
         btn_revenir_point_de_retour.signal_connect('clicked'){@plateau.on_click_aller_retour}
-        btn_aide.signal_connect('clicked'){@plateau.on_click_aide}
+        btn_aide.signal_connect('clicked'){@plateau.on_click_aide(self)}
         btn_verification.signal_connect('clicked'){self.afficher_erreur}
-        btn_indice.signal_connect('clicked'){@plateau.on_click_aide}
+        btn_indice.signal_connect('clicked'){@plateau.on_click_aide(self)}
             
 
             # initialisation du plateau dans la grille
@@ -73,7 +68,6 @@ class Jeu
             Gtk.main_quit 
         end        
 
-        window.set_default_size 300, 250
         window.set_window_position :center
         window.show_all
         
@@ -99,11 +93,10 @@ class Jeu
         @en_jeu = false if @plateau.partie_finie
         pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
         Gtk::DialogFlags::DESTROY_WITH_PARENT,
-        (tab_erreur.size == 0?Gtk::MessageType::INFO : Gtk::MessageType::QUESTION),
-        (tab_erreur.size == 0? :ok : :yes_no),
-        (!@plateau.partie_finie ?
-            (tab_erreur.size == 0? "Vous avez  #{tab_erreur.size} erreurs!" : "Vous avez  #{tab_erreur.size} erreurs! \nVoulez-vous les visionner ?" ):
-            "Bravo " + @nom_joueur +" ! Vous avez finis le jeu en " + (@temps_de_jeu+@plateau.malus_aide).to_s + " seconde.\nVoulez-vous rejouer ?"))
+        Gtk::MessageType::QUESTION,
+        :yes_no, (!@plateau.partie_finie ?
+            "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?" : 
+            "Bravo " + @nom_joueur +" ! Vous avez fini le jeu en " + (@temps_de_jeu+@plateau.malus_aide).to_s + " seconde.\nVoulez-vous rejouer ?"))
         
         
         reponse = pop.run 
@@ -119,7 +112,6 @@ class Jeu
     end
 end
 
-jeu = Sauvegarde.charger_template("../data/template/plateau.txt")
-puts jeu.affiche_toi
+
 # plateau.afficheToi
 # puts plateau

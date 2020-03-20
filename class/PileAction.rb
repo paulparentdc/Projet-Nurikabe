@@ -12,6 +12,16 @@ class PileAction
         @plateau = plateau
     end
 
+    def initialize(plateau, pile)
+        @nb_point_de_retour = 0
+        @pile=pile
+        @plateau = plateau
+
+        @pile.each do |action|
+            @nb_point_de_retour +=1 if action.est_point_de_retour?
+        end
+    end
+
     def empiler(une_action)
         @pile.push(une_action)
     end
@@ -65,4 +75,7 @@ class PileAction
         @nb_point_de_retour -= 1
     end
     
+    def serialiser
+        return @pile
+    end
 end
