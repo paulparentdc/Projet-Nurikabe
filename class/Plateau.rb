@@ -177,7 +177,18 @@ class Plateau
         @pile_action.annuler_dernier_coup
     end
 
-    def on_click_regle
+    def on_click_regle(jeu)
+        builder = Gtk::Builder.new
+
+        builder.add_from_file("../Glade/regles.glade")
+		window = builder.get_object("fen_regle")
+        window.signal_connect('destroy') { |_widget| window.destroy}
+
+        btn_compris = builder.get_object("btn_compris")
+        btn_compris.signal_connect('clicked'){|_widget| window.destroy}
+
+        window.show_all
+        Gtk.main();
     end
 
     def on_click_creer_retour
