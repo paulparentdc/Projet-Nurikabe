@@ -46,7 +46,7 @@ class Jeu
         btn_undo.signal_connect('clicked'){@plateau.on_click_undo}
         btn_point_de_retour.signal_connect('clicked'){@plateau.on_click_creer_retour}
         btn_revenir_point_de_retour.signal_connect('clicked'){@plateau.on_click_aller_retour}
-        btn_aide.signal_connect('clicked'){@plateau.on_click_aide(self)}
+        btn_aide.signal_connect('clicked'){@plateau.on_click_regle(self)}
         btn_verification.signal_connect('clicked'){self.afficher_erreur}
         btn_indice.signal_connect('clicked'){@plateau.on_click_aide(self)}
             
