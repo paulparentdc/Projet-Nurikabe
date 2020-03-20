@@ -18,12 +18,6 @@ class Case
                     }
                     CSS
 
-    @@CSS_BOUTON_ROUGE ||= Gtk::CssProvider.new
-    @@CSS_BOUTON_ROUGE.load(data: <<-CSS)
-                    button {
-                    background-image: image(red);
-                    }
-                    CSS
     @@plateau
 
     @bouton

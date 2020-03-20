@@ -84,8 +84,10 @@ class Sauvegarde
         
         (0..plateau.taille-1).each do |i|
             (0..plateau.taille-1).each do |j|
-                p plateau.damier[i][j]  if plateau.damier[i][j].instance_of? CaseClic
-                #-plateau.damier[i][j].etat = plateau_etat[i][j] if plateau.damier[i][j].instance_of? CaseClic
+                if plateau.damier[i][j].instance_of? CaseClic
+                    plateau.damier[i][j].etat = plateau_etat[i][j] 
+                    plateau.damier[i][j].actualises_toi
+                end
             end
         end
 

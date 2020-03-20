@@ -82,9 +82,9 @@ class Plateau
             (0..(@taille-1)).each do |y|
                 temp = @damier[x][y]
                 if temp.is_a? CaseClic
-                    tab_etat.push(temp.etat)
+                    tab_ligne.push(temp.etat)
                 else
-                    tab_etat.push(nil)
+                    tab_ligne.push(nil)
                 end
             end
             tab_etat.push(tab_ligne)

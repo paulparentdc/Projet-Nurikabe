@@ -1,6 +1,20 @@
 class CaseClic < Case
     attr_accessor :etat
 
+    @@CSS_BOUTON_ROUGE ||= Gtk::CssProvider.new
+    @@CSS_BOUTON_ROUGE.load(data: <<-CSS)
+                    button {
+                    background-image: image(red);
+                    }
+                    CSS
+
+    @@CSS_BOUTON_GRIS ||= Gtk::CssProvider.new
+    @@CSS_BOUTON_GRIS.load(data: <<-CSS)
+                    button {
+                    background-image: image(grey);
+                    }
+                    CSS
+
     @etat
     def initialize(x,y)
         super(x,y)
@@ -39,6 +53,10 @@ class CaseClic < Case
 
     def en_rouge
         @bouton.style_context.add_provider(@@CSS_BOUTON_ROUGE, Gtk::StyleProvider::PRIORITY_USER)
+    end
+
+    def en_gris
+        @bouton.style_context.add_provider(@@CSS_BOUTON_GRIS, Gtk::StyleProvider::PRIORITY_USER)
     end
 
 
