@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'gtk3'
 load 'Sauvegarde.rb'
+load 'Highscore.rb'
 
 class Menus
 	@nom_joueur
@@ -9,7 +10,7 @@ class Menus
 	@files_fac
 	@files_int
 	@files_dif
-	
+
 	def initialize()
 		@builder = Gtk::Builder.new
 	end
@@ -21,7 +22,6 @@ class Menus
 		@builder.add_from_file("../Glade/Menu.glade")
 		@window = @builder.get_object("fn_debut")
 		bt_ok = @builder.get_object("bt_ok")
-		#bt_ok.sensitive = FALSE
 		bt_ok.signal_connect('clicked') { |_widget| onClickDemarrage() }
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		@window.show()
@@ -30,7 +30,7 @@ class Menus
 
 	def onClickDemarrage()
 		ch_pseudo= @builder.get_object("ch_pseudo")
-		@nom_joueur=ch_pseudo.text().gsub('/',"") 
+		@nom_joueur=ch_pseudo.text().gsub('/',"")
 		puts @nom_joueur
 		afficheChoixMode()
 	end
@@ -51,6 +51,24 @@ class Menus
 		bt_nv.signal_connect('clicked') { |_widget| afficheChoixPlateau() }
 		bt_cs = @builder.get_object("bt_cs")
 		bt_cs.signal_connect('clicked') { |_widget| afficheChoixSauvegarde() }
+
+		stack_box_fac = @builder.get_object("stack_box_fac")
+		stack_box_int = @builder.get_object("stack_box_int")
+		stack_box_dif = @builder.get_object("stack_box_dif")
+
+		getHighscore = Highscore.new()
+		classement_fac = getHighscore.classement_facile
+
+		puts "classement = "
+		puts classement_fac
+		if(classement_fac)
+			for score in classement_fac
+
+					label_fac = Gtk::Label.new(score)
+				  stack_box_fac.add(label_fac)
+			end
+		end
+		@window.show_all
 		Gtk.main()
 	end
 
@@ -76,13 +94,13 @@ class Menus
 		if files_fac.length() <= 8 then
 			toggles_fac = []
 			for n in files_fac do
-			
+
 				toggles_fac[i] = Gtk::Button.new()
 				image = Gtk::Image.new(n)
 				toggles_fac[i].signal_connect('clicked') { |_widget|  btn_to_img(toggles_fac, files_fac,_widget) }
 				toggles_fac[i].add(image)
 				toggles_fac[i].set_visible(TRUE)
-				if(i <= 3) then 
+				if(i <= 3) then
 					box_fac_haut.add(toggles_fac[i])
 				else
 					box_fac_bas.add(toggles_fac[i])
@@ -100,13 +118,13 @@ class Menus
 		if files_int.length() <= 8 then
 			toggles_int = []
 			for n in files_int do
-			
+
 				toggles_int[i] = Gtk::Button.new()
-				image = Gtk::Image.new(n)				
+				image = Gtk::Image.new(n)
 				toggles_int[i].signal_connect('clicked') { |_widget| btn_to_img(toggles_int, files_int,_widget) }
 				toggles_int[i].add(image)
 				toggles_int[i].set_visible(TRUE)
-				if(i <= 3) then 
+				if(i <= 3) then
 					box_int_haut.add(toggles_int[i])
 				else
 					box_int_bas.add(toggles_int[i])
@@ -117,17 +135,17 @@ class Menus
 
 		box_dif_haut = @builder.get_object("box_dif_haut")
 		box_dif_bas = @builder.get_object("box_dif_bas")
-		
+
 		i = 0
 
 		files_dif = Dir["../data/template/Difficile/*.png"]
-		 
+
 		if files_dif.length() <= 8 then
 			toggles_dif = []
 			for n in files_dif do
-			
+
 				toggles_dif[i] = Gtk::Button.new()
-				image = Gtk::Image.new(n) 
+				image = Gtk::Image.new(n)
 				toggles_dif[i].signal_connect('clicked') { |_widget| btn_to_img(toggles_dif, files_dif, _widget)}
 				toggles_dif[i].add(image)
 				toggles_dif[i].set_visible(TRUE)
@@ -139,7 +157,7 @@ class Menus
 				i += 1
 			end
 		end
- 		@window.show_all  
+ 		@window.show_all
 		Gtk.main()
 	end
 
@@ -147,7 +165,7 @@ class Menus
 		@window.destroy()
 		@builder.add_from_file("../Glade/Charger_sauvegarde.glade")
 		@window = @builder.get_object("fn_save")
-		
+
 		bouton_retour = @builder.get_object("btn_retour")
 		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode()}
 
@@ -209,7 +227,7 @@ class Menus
 			end
 			j+=1
 		end
-	end 
+	end
 
 	def executer_map(file_image)
 		file_niveau = file_image[0..file_image.length-4]
@@ -225,4 +243,3 @@ end
 
 menu = Menus.new()
 menu.afficheDemarrage()
-

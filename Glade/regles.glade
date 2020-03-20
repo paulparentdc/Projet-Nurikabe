@@ -2,22 +2,264 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkWindow">
+  <object class="GtkWindow" id="fen_regle">
     <property name="can_focus">False</property>
+    <property name="window_position">center-always</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
     <child>
-      <object class="GtkLabel">
+      <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Le jeu Nurikabe est un puzzle en forme d île basé sur une grille carrée avec des chiffres à
-divers endroits. Le but est de créer des îles en partitionnant la grille.
-Pour partitionner cette grille, on utilise des murs de telle sorte que chaque île contienne
-exactement un indice et le nombre de carrés correspondant à la valeur du chiffre.
-Les îles sont isolées les unes des autres horizontalement et verticalement. Il n y a pas de
-zones de mur de 2x2 ou plus.
-Tous les murs forment un chemin continu lorsque le puzzle est terminé.</property>
+        <property name="is_focus">True</property>
+        <property name="resize_mode">immediate</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkNotebook">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="resize_mode">immediate</property>
+            <child>
+              <object class="GtkLabel" id="Règles2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="valign">start</property>
+                <property name="label" translatable="yes">Le puzzle se résout sur une grille rectangulaire de cellules, dont certaines contiennent des nombres.
+
+Deux cellules sont connectées si elles sont adjacentes verticalement ou horizontalement, mais pas en diagonale. Les cellules blanches constituent les îlots alors que les cellules noires connectées constituent le fleuve.
+
+L'objectif est de déterminer quelles cellules doivent être blanches ou noires en respectant les règles suivantes :
+
+    -chaque cellule numérotée est une cellule d'îlots (blanche) et le chiffre qu'elle contient est le nombre de cellules blanches que comporte l'îlot auquel elle appartient,
+
+    -chaque îlot ne doit comporter qu'une cellule numérotée,
+
+    -il ne doit y avoir qu'un fleuve (cellules noires connectées) qui ne doit pas contenir de lacs, c'est-à-dire de blocs de cellules noires de 2x2.
+
+Action entrainant un malus  de temps:
+	- demander une vérification du terrain -&gt; 10 secondes de pénalité si il y a au moins une faute + 5*(le nombre de fautes) si l'on décide de les afficher.</property>
+                <property name="justify">center</property>
+                <property name="wrap">True</property>
+                <property name="width_chars">20</property>
+              </object>
+              <packing>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="name">btn_regle</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Règles</property>
+              </object>
+              <packing>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="shadow_type">in</property>
+                <property name="propagate_natural_height">True</property>
+                <child>
+                  <object class="GtkViewport">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkFixed">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="resize_mode">immediate</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="width_request">286</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="margin_bottom">29</property>
+                            <property name="label" translatable="yes">Méthode 1
+
+Comme il s'agit d'une île avec un seul carré, nous pouvons l'entourer de murs en ombrant les carrés adjacents horizontalement et verticalement.</property>
+                            <property name="justify">fill</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">205</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="name">img_un_un</property>
+                            <property name="width_request">148</property>
+                            <property name="height_request">148</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">../graphic/img_regles/2664.gif</property>
+                          </object>
+                          <packing>
+                            <property name="x">500</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="width_request">148</property>
+                            <property name="height_request">148</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">../graphic/img_regles/2665.gif</property>
+                          </object>
+                          <packing>
+                            <property name="x">700</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="width_request">280</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Méthode 2
+Selon les règles Nurikabe, tous les indices 
+doivent être séparés les uns des autres 
+par des murs. Par conséquent, lorsque
+deux indices sont dans la même ligne 
+ou colonne et séparés par un carré, 
+le carré entre les deux doit être un mur.</property>
+                            <property name="justify">fill</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">700</property>
+                            <property name="y">200</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="name">img_trois_un</property>
+                            <property name="width_request">148</property>
+                            <property name="height_request">148</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">../graphic/img_regles/2666.gif</property>
+                          </object>
+                          <packing>
+                            <property name="x">300</property>
+                            <property name="y">181</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="name">img_trois_deux</property>
+                            <property name="width_request">148</property>
+                            <property name="height_request">148</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">../graphic/img_regles/2667.gif</property>
+                          </object>
+                          <packing>
+                            <property name="x">500</property>
+                            <property name="y">182</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="width_request">293</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">Méthode 3
+
+Semblable à l'exemple ci-dessus, 
+lorsque deux indices sont diagonalement 
+adjacents, alors chacun des carrés touchant 
+les deux indices doit faire partie d'un mur.</property>
+                            <property name="justify">fill</property>
+                            <property name="wrap">True</property>
+                          </object>
+                          <packing>
+                            <property name="x">205</property>
+                            <property name="y">400</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="name">img_deux_un</property>
+                            <property name="width_request">100</property>
+                            <property name="height_request">80</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">../graphic/img_regles/2668.gif</property>
+                          </object>
+                          <packing>
+                            <property name="x">500</property>
+                            <property name="y">400</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="name">img_deux_deux</property>
+                            <property name="width_request">100</property>
+                            <property name="height_request">80</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="pixbuf">../graphic/img_regles/2669.gif</property>
+                          </object>
+                          <packing>
+                            <property name="x">700</property>
+                            <property name="y">400</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel">
+                <property name="name">btn_methode</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Méthodes</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child type="tab">
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btn_compris">
+            <property name="label" translatable="yes">Compris!</property>
+            <property name="name">btn_compris</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="receives_default">False</property>
+            <property name="resize_mode">immediate</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
       </object>
     </child>
   </object>
