@@ -2,9 +2,8 @@ require 'rubygems'
 require 'gtk3'
 load 'Sauvegarde.rb'
 load 'Highscore.rb'
-
 class Menus
-	@nom_joueur
+	@nomJoueur
 	@window
 	@builder
 	@files_fac
@@ -22,6 +21,7 @@ class Menus
 		@builder.add_from_file("../Glade/Menu.glade")
 		@window = @builder.get_object("fn_debut")
 		bt_ok = @builder.get_object("bt_ok")
+		#bt_ok.sensitive = FALSE
 		bt_ok.signal_connect('clicked') { |_widget| onClickDemarrage() }
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		@window.show()
@@ -30,8 +30,8 @@ class Menus
 
 	def onClickDemarrage()
 		ch_pseudo= @builder.get_object("ch_pseudo")
-		@nom_joueur=ch_pseudo.text().gsub('/',"")
-		puts @nom_joueur
+		@nomJoueur=ch_pseudo.text().gsub('/',"")
+		puts @nomJoueur
 		afficheChoixMode()
 	end
 
@@ -53,22 +53,21 @@ class Menus
 		bt_cs.signal_connect('clicked') { |_widget| afficheChoixSauvegarde() }
 
 		stack_box_fac = @builder.get_object("stack_box_fac")
-		stack_box_int = @builder.get_object("stack_box_int")
-		stack_box_dif = @builder.get_object("stack_box_dif")
+        stack_box_int = @builder.get_object("stack_box_int")
+        stack_box_dif = @builder.get_object("stack_box_dif")
 
-		getHighscore = Highscore.new()
-		classement_fac = getHighscore.classement_facile
+        getHighscore = Highscore.new()
+        classement_fac = getHighscore.classement_facile
 
-		puts "classement = "
-		puts classement_fac
-		if(classement_fac)
-			for score in classement_fac
+        puts "classement = "
+        puts classement_fac
+        if(classement_fac)
+            for score in classement_fac
 
-					label_fac = Gtk::Label.new(score)
-				  stack_box_fac.add(label_fac)
-			end
-		end
-		@window.show_all
+                    label_fac = Gtk::Label.new(score)
+                  stack_box_fac.add(label_fac)
+            end
+      	end
 		Gtk.main()
 	end
 
@@ -83,7 +82,7 @@ class Menus
 
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		lab_pseu = @builder.get_object("lab_pseu")
-		lab_pseu.set_text("Pseudo : " + @nom_joueur)
+		lab_pseu.set_text("Pseudo : " + @nomJoueur)
 
 		box_fac_haut = @builder.get_object("box_fac_haut")
 		box_fac_bas = @builder.get_object("box_fac_bas")
@@ -172,7 +171,7 @@ class Menus
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		scrl = @builder.get_object("scrl_save")
 		@window.show()
-		file = Dir["../data/save/"+@nom_joueur+"/*.snurikabe"]
+		file = Dir["../data/save/"+@nomJoueur+"/*.txt"]
 		box_save = @builder.get_object("box_liste_save")
 		box_save.margin = 20
 
@@ -183,7 +182,7 @@ class Menus
 			hbox = Gtk::Box.new(:horizontal, 0)
 			hbox.margin = 20
 			nom_save = n.split("/")
-			label = Gtk::Label.new("Sauvegarde du : " + nom_save[4].split('.')[0])
+			label = Gtk::Label.new(nom_save[4])
 			bouton_charger[i] = Gtk::Button.new(:label => "Charger")
 			bouton_supprimer[i] = Gtk::Button.new(:label => "Supprimer")
 			bouton_charger[i].signal_connect('clicked'){|_widget| charger_save(bouton_charger, file, _widget)}
@@ -202,9 +201,7 @@ class Menus
 		j = 0
 		for b in boutons do
 			if(b == btn)
-				jeu = Sauvegarde.charger_sauvegarde(files[j])
-				@window.destroy
-				jeu.affiche_toi
+				Sauvegarde.charger_sauvegarde(files[j])
 			end
 		end
 	end
@@ -232,10 +229,10 @@ class Menus
 	def executer_map(file_image)
 		file_niveau = file_image[0..file_image.length-4]
 		file_niveau +="nurikabe"
-		@window.destroy()
 
+		@window.destroy()
 		jeu = Jeu.new(plateau: Sauvegarde.charger_template(file_niveau), nom_joueur: @nom_joueur, temps_de_jeu: 0)
-		jeu.affiche_toi
+		puts jeu.affiche_toi
 
 	end
 
