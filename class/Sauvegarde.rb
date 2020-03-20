@@ -85,7 +85,7 @@ class Sauvegarde
         (0..plateau.taille-1).each do |i|
             (0..plateau.taille-1).each do |j|
                 p plateau.damier[i][j]  if plateau.damier[i][j].instance_of? CaseClic
-                plateau.damier[i][j].etat = plateau_etat[i][j] if plateau.damier[i][j].instance_of? CaseClic
+                #-plateau.damier[i][j].etat = plateau_etat[i][j] if plateau.damier[i][j].instance_of? CaseClic
             end
         end
 
@@ -146,7 +146,7 @@ class Sauvegarde
                     i=-1
                     matrice_plateau.push(temp.map do |x|
                         i+=1
-                        (temp = x.to_i) == 0 ? CaseClic.new(i,compteur) : CaseChiffre.new(i,compteur, temp)
+                        (temp = x.to_i) == 0 ? CaseClic.new(compteur,i) : CaseChiffre.new(compteur,i, temp)
                         
                     end)
                     compteur+=1
