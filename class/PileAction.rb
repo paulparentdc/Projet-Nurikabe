@@ -57,10 +57,12 @@ class PileAction
     end
 
     def ajout_point_de_retour
+        return if @pile.empty?
         return if self.get_derniere_action.est_point_de_retour? == true
 
         self.get_derniere_action.point_de_retour = true
         @nb_point_de_retour += 1
+        self.appliquer_couleur
     end
 
     def vers_dernier_point_de_retour
@@ -73,9 +75,40 @@ class PileAction
         
         self.get_derniere_action.point_de_retour = false if !self.est_vide?
         @nb_point_de_retour -= 1
+
+        return if @nb_point_de_retour < 1
+
+        #retire la couleur grise pour ce point de retour
+        i=0
+        @pile.each do |coord|
+            i+=1
+            next if i < @nb_point_de_retour
+            @plateau.damier[coord.x][coord.y].actualises_toi
+        end
+
     end
     
     def serialiser
         return @pile
+    end
+
+    def appliquer_couleur
+        tab_temp = []
+        tab_cases_noires = []
+        
+        @pile.each do |coord|
+            tab_temp << [coord.x, coord.y]
+        end
+
+        # Ajoute les coordonnées une seule fois dans la liste et retire ceux qui sont présent un nombre paire de fois
+        tab_temp.each do |coord|
+            tab_cases_noires << coord if (tab_temp.count(coord) % 2 != 0) && (tab_cases_noires.count(coord) == 0) 
+        end
+
+        tab_cases_noires.each do |coord|
+            @plateau.damier[coord[0]][coord[1]].en_gris
+        end
+
+
     end
 end
