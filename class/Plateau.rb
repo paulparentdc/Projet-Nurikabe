@@ -52,7 +52,7 @@ class Plateau
         (0..(@taille-1)).each do |x|
             (0..(@taille-1)).each do |y|
                 # check erreur
-                if (@damier[x][y].to_s == 'n') && @damier_correct[x][y] != 'n'
+                if (@damier[x][y].to_s == 'n') && @damier_correct[x][y] != 'n' || ((@damier[x][y].to_s == 'b+') && (@damier_correct[x][y] != 'b'))
                         tab_erreur.push(@damier[x][y])
                 end
                 # check fin de partie
