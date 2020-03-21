@@ -29,6 +29,10 @@ class Aide
             return 5
         end
 
+        if self.entoure_ile_complete
+            return 6
+        end
+
         return 0
 
    end
@@ -204,9 +208,61 @@ class Aide
         end
         return false #Cas où la case n'est pas isolée
 
-
-
     end
+
+    def entoure_ile_complete
+        for i in (0..@plateau.taille)
+            for j in (0..@plateau.taille)
+              if self.case_chiffre?(i,j)
+                tab_cases_point = [@plateau.donne_case(i,j)]
+                taille_ile = @plateau.donne_case(i,j).to_s
+  
+                tab_cases_point.each do |c|
+                  x = c.x
+                  y = c.y
+  
+                  if case_point?(x+1,y) && !tab_cases_point.include?(@plateau.donne_case(x+1,y))
+                    tab_cases_point.push(@plateau.donne_case(x+1,y))
+                  end
+  
+                  if case_point?(x-1,y) && !tab_cases_point.include?(@plateau.donne_case(x-1,y))
+                    tab_cases_point.push(@plateau.donne_case(x-1,y))
+                  end
+  
+                  if case_point?(x,y+1) && !tab_cases_point.include?(@plateau.donne_case(x,y+1))
+                    tab_cases_point.push(@plateau.donne_case(x,y+1))
+                  end
+  
+                  if case_point?(x,y-1) && !tab_cases_point.include?(@plateau.donne_case(x,y-1))
+                    tab_cases_point.push(@plateau.donne_case(x,y-1))
+                  end
+  
+                end
+  
+                if tab_cases_point.length == taille_ile.to_i
+                  tab_cases_point.each do |c|
+                    x = c.x
+                    y = c.y
+  
+                    if case_vide?(x+1,y)
+                      return true
+                    end
+                    if case_vide?(x-1,y)
+                      return true
+                    end
+                    if case_vide?(x,y+1)
+                      return true
+                    end
+                    if case_vide?(x,y-1)
+                      return true
+                    end
+                  end
+                end
+              end
+            end
+          end
+        return false
+      end
  
 
     #Fonctions de test sur les cases
@@ -220,6 +276,14 @@ class Aide
 
     def case_blanche?(i,j)
         return @plateau.coord_valides?(i,j) && @plateau.donne_case(i,j).to_s.chr == 'b'
+    end
+
+    def case_point?(i,j)
+        return @plateau.coord_valides?(i,j) && @plateau.donne_case(i,j).to_s == 'b+'
+    end
+
+    def case_vide?(i,j)
+        return @plateau.coord_valides?(i,j) && @plateau.donne_case(i,j).to_s == 'b'
     end
 
     def case_1?(i,j)
