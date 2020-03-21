@@ -2,7 +2,7 @@ require 'gtk3'
 load 'Etat.rb'
 
 class Case
-    attr_reader :bouton
+    attr_reader :bouton, :x, :y
 
     @@CSS_BOUTON_NOIR ||= Gtk::CssProvider.new
     @@CSS_BOUTON_NOIR.load(data: <<-CSS)
