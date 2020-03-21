@@ -88,15 +88,15 @@ class Jeu
     end
 
     def afficher_erreur
-        return if @plateau.partie_finie
+       return if @plateau.partie_finie
         tab_erreur = @plateau.verifier_damier
         @en_jeu = false if @plateau.partie_finie
         pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
         Gtk::DialogFlags::DESTROY_WITH_PARENT,
-        Gtk::MessageType::QUESTION,
-        :yes_no, (!@plateau.partie_finie ?
-            "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?" : 
-            "Bravo " + @nom_joueur +" ! Vous avez fini le jeu en " + (@temps_de_jeu+@plateau.malus_aide).to_s + " seconde.\nVoulez-vous rejouer ?"))
+        (tab_erreur.empty?  && !@plateau.partie_finie ? Gtk::MessageType::INFO : Gtk::MessageType::QUESTION),
+        (tab_erreur.empty? && !@plateau.partie_finie ? :OK : :yes_no),
+        (@plateau.partie_finie ? "Bravo " + @nom_joueur +" ! Vous avez fini le jeu en " + (@temps_de_jeu+@plateau.malus_aide).to_s + " seconde.\nVoulez-vous rejouer ?" : 
+        (tab_erreur.empty? ? "Vous avez  #{tab_erreur.size} erreurs! " : "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?")))
         
         
         reponse = pop.run 
