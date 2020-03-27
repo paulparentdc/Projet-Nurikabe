@@ -171,7 +171,7 @@ class Menus
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		scrl = @builder.get_object("scrl_save")
 		@window.show()
-		file = Dir["../data/save/"+@nom_joueur+"/*.snurikabe"]
+		file = Dir["../data/save/"+@nom_joueur+"/*.txt"]
 		box_save = @builder.get_object("box_liste_save")
 		box_save.margin = 20
 
@@ -182,7 +182,7 @@ class Menus
 			hbox = Gtk::Box.new(:horizontal, 0)
 			hbox.margin = 20
 			nom_save = n.split("/")
-			label = Gtk::Label.new("Sauvegarde du " + nom_save[4].split(".")[0])
+			label = Gtk::Label.new(nom_save[4])
 			bouton_charger[i] = Gtk::Button.new(:label => "Charger")
 			bouton_supprimer[i] = Gtk::Button.new(:label => "Supprimer")
 			bouton_charger[i].signal_connect('clicked'){|_widget| charger_save(bouton_charger, file, _widget)}
@@ -201,9 +201,7 @@ class Menus
 		j = 0
 		for b in boutons do
 			if(b == btn)
-				@window.destroy()
-				jeu = Sauvegarde.charger_sauvegarde(files[j])
-				jeu.affiche_toi()
+				Sauvegarde.charger_sauvegarde(files[j])
 			end
 		end
 	end
