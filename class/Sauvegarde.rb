@@ -1,3 +1,6 @@
+
+
+
 load 'Case.rb'
 load 'CaseClic.rb'
 load 'CaseChiffre.rb'
@@ -10,7 +13,7 @@ require 'fileutils'
 
 
 class Sauvegarde
-
+    #class qui permet de sauvegarder le jeu sans les boutons
     class DonneesJeu
         attr_reader :plateau_etat, :pile_action, :malus_aide, :nom_joueur, :temps_de_jeu, :chemin_template
 
@@ -37,20 +40,22 @@ class Sauvegarde
 
     #Chargement d'une partie
     #@param le jeu a sauvegarder
+    
     def Sauvegarde.creer_sauvegarde(jeu)
         
-        #return if jeu.en_jeu == false
+       
         jeu_filtree = DonneesJeu.new(jeu)
         donnees = Marshal::dump(jeu_filtree)
 
-        chemin_de_base="../data/save/"+jeu.nom_joueur+"/"+Time.new.strftime("%d-%m-%Y   %Hh%Mm%Ss")+".snurikabe"
+        chemin_de_base = "../data/save/"+jeu.nom_joueur+"/"+Time.new.strftime("%d-%m-%Y   %Hh%Mm%Ss")+".snurikabe"
 
         dirname=File::dirname(chemin_de_base)
+        #creation d'un dossier par joueur , qui contiendra toutes les sauvegardes de ce dernier
         unless File.directory?(dirname)
             FileUtils.mkdir_p(dirname)
         end
 
-       #puts chemin_de_base
+      
        mon_fichier = File::open(chemin_de_base,"w+")
        mon_fichier.write(donnees)
        mon_fichier.close
@@ -62,7 +67,7 @@ class Sauvegarde
     # @param le chemin de la sauvegarde
     # @return le jeu correspondant au chemin
     def Sauvegarde.charger_sauvegarde(chemin_de_base)
-        #chemin_de_base="data/save/"+joueur+"/"+Time.new.strftime("%d_%m_%Y__%H_%M")+".txt"
+        
         if !File.exist?(chemin_de_base)
             raise "Fichier inexistant"
             return
@@ -73,7 +78,7 @@ class Sauvegarde
         donnees=Marshal::load(File::read(chemin_de_base))
         fichier.close
 
-        # :plateau_char
+       
 
         plateau = Sauvegarde.charger_template(donnees.chemin_template)
         
