@@ -54,12 +54,8 @@ class Highscore
           p File::read(@chemin)
           highscore = Marshal::load(File::read(@chemin))
           fichier.close
-          for n in donnees
-              if n.start_with?("1")
-                @classement_facile.push(n)
-              end
-          end
-          puts @classement_facile
+	  
+	
         end
         return highscore
     end
