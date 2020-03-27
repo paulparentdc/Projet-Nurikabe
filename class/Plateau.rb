@@ -153,8 +153,11 @@ class Plateau
                 when 5
                     txt = "Il y a une case noire qui ne sera pas reliée aux autres"
 		    
-		when 6
+		        when 6
                     txt = "Une ile terminée n'est pas complètement entourée"
+
+                when 7
+                    txt = "Des cases ne sont pas atteignable par les iles, il faut les colorer en noire"
                     
                 else
                     txt = "Aucune aide n'a été trouvé bonne chance !"
