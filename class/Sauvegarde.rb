@@ -42,13 +42,7 @@ class Sauvegarde
     #@param le jeu a sauvegarder
     
     def Sauvegarde.creer_sauvegarde(jeu)
-<<<<<<< HEAD
 
-        #return if jeu.en_jeu == false
-=======
-        
-       
->>>>>>> 9a88fd7ba800f689b1c0ae37858068a49c443963
         jeu_filtree = DonneesJeu.new(jeu)
         donnees = Marshal::dump(jeu_filtree)
 
@@ -179,7 +173,6 @@ class Sauvegarde
             #return Jeu.new(plateau: plateau, nom_joueur: nom_joueur, temps_de_jeu: 0)
         end
     end
-<<<<<<< HEAD
 
     def Sauvegarde.sauvegarde_highscore(highscore)
       donnees = Marshal::dump(highscore)
@@ -189,6 +182,4 @@ class Sauvegarde
       mon_fichier.close
     end
 
-=======
->>>>>>> 9a88fd7ba800f689b1c0ae37858068a49c443963
 end
