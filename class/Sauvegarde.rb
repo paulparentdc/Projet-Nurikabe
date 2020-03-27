@@ -23,14 +23,14 @@ class Sauvegarde
         @pile_action
         @malus_aide
         @chemin_template
-        
+
         @nom_joueur
         @temps_de_jeu
-    
-        
+
+
         def initialize(jeu)
             @nom_joueur, @temps_de_jeu = jeu.nom_joueur, jeu.temps_de_jeu
-            
+
             @pile_action = jeu.plateau.pile_action.serialiser
             @malus_aide = jeu.plateau.malus_aide
             @chemin_template = jeu.plateau.chemin_template
@@ -42,8 +42,13 @@ class Sauvegarde
     #@param le jeu a sauvegarder
     
     def Sauvegarde.creer_sauvegarde(jeu)
+<<<<<<< HEAD
+
+        #return if jeu.en_jeu == false
+=======
         
        
+>>>>>>> 9a88fd7ba800f689b1c0ae37858068a49c443963
         jeu_filtree = DonneesJeu.new(jeu)
         donnees = Marshal::dump(jeu_filtree)
 
@@ -63,7 +68,7 @@ class Sauvegarde
 
 
     # Chargement d'une partie
-    # @note le chemin devra être valide 
+    # @note le chemin devra être valide
     # @param le chemin de la sauvegarde
     # @return le jeu correspondant au chemin
     def Sauvegarde.charger_sauvegarde(chemin_de_base)
@@ -81,32 +86,32 @@ class Sauvegarde
        
 
         plateau = Sauvegarde.charger_template(donnees.chemin_template)
-        
+
         plateau.pile_action = PileAction.new(plateau, donnees.pile_action)
         plateau.malus_aide = donnees.malus_aide
 
         plateau_etat = donnees.plateau_etat
-        
+
         (0..plateau.taille-1).each do |i|
             (0..plateau.taille-1).each do |j|
                 if plateau.damier[i][j].instance_of? CaseClic
-                    plateau.damier[i][j].etat = plateau_etat[i][j] 
+                    plateau.damier[i][j].etat = plateau_etat[i][j]
                     plateau.damier[i][j].actualises_toi
                 end
             end
         end
 
         jeu = Jeu.new(plateau: plateau, nom_joueur: donnees.nom_joueur, temps_de_jeu: donnees.temps_de_jeu)
-        
 
-        
+
+
 
         return jeu
 
     end
 
     #Suppression d'une partie
-    #@note le chemin devra être valide 
+    #@note le chemin devra être valide
     #@param le chemin de la sauvegarde a supprimer
     def Sauvegarde.supprimer_sauvegarde(chemin)
         if File.exist?(chemin)
@@ -115,7 +120,7 @@ class Sauvegarde
              raise "Impossible de supprimer le fichier car il est inexistant, chemin : " + chemin
         end
     end
-    
+
    # Chargement du template
     # @note le chemin devra être valide et le fichier correct et lisible
     # @param chemin le chemin à du template choisi
@@ -154,7 +159,7 @@ class Sauvegarde
                     matrice_plateau.push(temp.map do |x|
                         i+=1
                         (temp = x.to_i) == 0 ? CaseClic.new(compteur,i) : CaseChiffre.new(compteur,i, temp)
-                        
+
                     end)
                     compteur+=1
                 else
@@ -163,7 +168,7 @@ class Sauvegarde
                 end
             end
         end
-        
+
         #Verifier si tout a été initialisé
         if niveau == nil && taille == nil && compteur != taille
             return nil
@@ -174,4 +179,16 @@ class Sauvegarde
             #return Jeu.new(plateau: plateau, nom_joueur: nom_joueur, temps_de_jeu: 0)
         end
     end
+<<<<<<< HEAD
+
+    def Sauvegarde.sauvegarde_highscore(highscore)
+      donnees = Marshal::dump(highscore)
+      chemin_de_base = "../data/highscore.score"
+      mon_fichier = File::open(chemin_de_base,"w+")
+      mon_fichier.write(donnees)
+      mon_fichier.close
+    end
+
+=======
+>>>>>>> 9a88fd7ba800f689b1c0ae37858068a49c443963
 end

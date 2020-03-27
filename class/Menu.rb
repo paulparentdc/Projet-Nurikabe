@@ -53,21 +53,41 @@ class Menus
 		bt_cs.signal_connect('clicked') { |_widget| afficheChoixSauvegarde() }
 
 		stack_box_fac = @builder.get_object("stack_box_fac")
-        stack_box_int = @builder.get_object("stack_box_int")
-        stack_box_dif = @builder.get_object("stack_box_dif")
+    stack_box_int = @builder.get_object("stack_box_int")
+  	stack_box_dif = @builder.get_object("stack_box_dif")
 
-        getHighscore = Highscore.new()
-        classement_fac = getHighscore.classement_facile
+    getHighscore = Highscore.recuperer_ds_fichier
+		getHighscore.inserer_score_facile("oo",5555)
+		getHighscore.inserer_score_facile("xx",32)
+		getHighscore.inserer_score_moyen("oo",5555)
+		getHighscore.inserer_score_moyen("xx",32)
+		getHighscore.inserer_score_difficile("xx",32)
+		getHighscore.inserer_score_difficile("xx",32)
 
-        puts "classement = "
-        puts classement_fac
-        if(classement_fac)
-            for score in classement_fac
+		Sauvegarde.sauvegarde_highscore(getHighscore)
+    classement_fac = getHighscore.classement_facile
+		classement_int = getHighscore.classement_moyen
+		classement_dif = getHighscore.classement_difficile
 
-                    label_fac = Gtk::Label.new(score)
-                  stack_box_fac.add(label_fac)
-            end
-      	end
+    if(classement_fac)
+        for score in classement_fac do
+              label_fac = Gtk::Label.new(score)
+              stack_box_fac.add(label_fac)
+        end
+    end
+		if(classement_int)
+        for score in classement_int do
+              label_int = Gtk::Label.new(score)
+              stack_box_int.add(label_int)
+        end
+    end
+		if(classement_dif)
+        for score in classement_dif do
+              label_dif = Gtk::Label.new(score)
+              stack_box_dif.add(label_dif)
+        end
+    end
+		@window.show_all
 		Gtk.main()
 	end
 
@@ -171,7 +191,7 @@ class Menus
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		scrl = @builder.get_object("scrl_save")
 		@window.show()
-		file = Dir["../data/save/"+@nom_joueur+"/*.txt"]
+		file = Dir["../data/save/"+@nom_joueur+"/*.snurikabe"]
 		box_save = @builder.get_object("box_liste_save")
 		box_save.margin = 20
 
@@ -182,7 +202,7 @@ class Menus
 			hbox = Gtk::Box.new(:horizontal, 0)
 			hbox.margin = 20
 			nom_save = n.split("/")
-			label = Gtk::Label.new(nom_save[4])
+			label = Gtk::Label.new("Sauvegarde du " + nom_save[4].split(".")[0])
 			bouton_charger[i] = Gtk::Button.new(:label => "Charger")
 			bouton_supprimer[i] = Gtk::Button.new(:label => "Supprimer")
 			bouton_charger[i].signal_connect('clicked'){|_widget| charger_save(bouton_charger, file, _widget)}
@@ -201,7 +221,9 @@ class Menus
 		j = 0
 		for b in boutons do
 			if(b == btn)
-				Sauvegarde.charger_sauvegarde(files[j])
+				@window.destroy()
+				jeu = Sauvegarde.charger_sauvegarde(files[j])
+				jeu.affiche_toi()
 			end
 		end
 	end
