@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Aide
+  
+    &mdash; Documentation by YARD 0.9.24
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Aide";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (A)</a> &raquo;
+    
+    
+    <span class="title">Aide</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Aide
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Aide</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>Aide.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>un résumé de nos aides peut être trouvé à cette adresse <a
+href="https://www.conceptispuzzles.com/index.aspx?uri=puzzle/nurikabe/techniques">www.conceptispuzzles.com/index.aspx?uri=puzzle/nurikabe/techniques</a></p>
+</div>
+  </div>
+
+
+<p>Permet de trouver des aides sur un plateau</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#plateau-instance_method" title="#plateau (instance method)">#<strong>plateau</strong>  &#x21d2; Plateau </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>plateau de jeu.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#case_1%3F-instance_method" title="#case_1? (instance method)">#<strong>case_1?</strong>(i, j)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde aux coordonnées si la case contient un 1.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#case_blanche%3F-instance_method" title="#case_blanche? (instance method)">#<strong>case_blanche?</strong>(i, j)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde aux coordonnées si la case est blanche.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#case_bord%3F-instance_method" title="#case_bord? (instance method)">#<strong>case_bord?</strong>(i, j)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde aux coordonnées si la case est hors du plateau.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#case_chiffre%3F-instance_method" title="#case_chiffre? (instance method)">#<strong>case_chiffre?</strong>(i, j)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde aux coordonnées si la case est une CaseChiffre.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#case_noire%3F-instance_method" title="#case_noire? (instance method)">#<strong>case_noire?</strong>(i, j)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde aux coordonnées si la case est noire.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#case_point%3F-instance_method" title="#case_point? (instance method)">#<strong>case_point?</strong>(i, j)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde aux coordonnées si la case contient un point.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#case_vide%3F-instance_method" title="#case_vide? (instance method)">#<strong>case_vide?</strong>(i, j)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde aux coordonnées si la case est vide.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#entoure_ile_complete-instance_method" title="#entoure_ile_complete (instance method)">#<strong>entoure_ile_complete</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde dans le plateau si on peut appliquer la méthode Basic Techniques 8
+: Surrounding a completed island.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(un_plateau)  &#x21d2; Aide </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Aide.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tester_blanc_isole-instance_method" title="#tester_blanc_isole (instance method)">#<strong>tester_blanc_isole</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde dans le plateau si on peut appliquer la méthode Basic Techniques 1
+: Surrounded square.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tester_chemin-instance_method" title="#tester_chemin (instance method)">#<strong>tester_chemin</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde dans le plateau si on peut appliquer la méthode Basic Techniques 2
+: Wall expansion.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tester_diagonale-instance_method" title="#tester_diagonale (instance method)">#<strong>tester_diagonale</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde dans le plateau si on peut appliquer la méthode Starting techniques
+3 : Diagonally adjacent clues.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tester_espace-instance_method" title="#tester_espace (instance method)">#<strong>tester_espace</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde dans le plateau si on peut appliquer la méthode Starting techniques
+2 : Clues separated by one square.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tester_tout-instance_method" title="#tester_tout (instance method)">#<strong>tester_tout</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#tester_un-instance_method" title="#tester_un (instance method)">#<strong>tester_un</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde dans le plateau si on peut appliquer la méthode Starting techniques
+1 : Island of 1.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#trop_loin-instance_method" title="#trop_loin (instance method)">#<strong>trop_loin</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Regarde dans le plateau si on peut appliquer la méthode Basic Techniques 10
+: Unreachable square.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(un_plateau)  &#x21d2; <tt><span class='object_link'><a href="" title="Aide (class)">Aide</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Aide.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_un_plateau'>un_plateau</span><span class='rparen'>)</span>
+    <span class='ivar'>@plateau</span> <span class='op'>=</span> <span class='id identifier rubyid_un_plateau'>un_plateau</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="plateau=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="plateau-instance_method">
+  
+    #<strong>plateau</strong>  &#x21d2; <tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>plateau de jeu</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of plateau</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 4</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_plateau'>plateau</span>
+  <span class='ivar'>@plateau</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="case_1?-instance_method">
+  
+    #<strong>case_1?</strong>(i, j)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde aux coordonnées si la case contient un 1</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+344
+345
+346</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 344</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_case_1?'>case_1?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="case_blanche?-instance_method">
+  
+    #<strong>case_blanche?</strong>(i, j)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde aux coordonnées si la case est blanche</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+332
+333
+334</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 332</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="case_bord?-instance_method">
+  
+    #<strong>case_bord?</strong>(i, j)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde aux coordonnées si la case est hors du plateau</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+348
+349
+350</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 348</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_case_bord?'>case_bord?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='op'>!</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="case_chiffre?-instance_method">
+  
+    #<strong>case_chiffre?</strong>(i, j)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde aux coordonnées si la case est une CaseChiffre</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+324
+325
+326</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 324</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="case_noire?-instance_method">
+  
+    #<strong>case_noire?</strong>(i, j)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde aux coordonnées si la case est noire</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+328
+329
+330</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 328</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="case_point?-instance_method">
+  
+    #<strong>case_point?</strong>(i, j)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde aux coordonnées si la case contient un point</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+336
+337
+338</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 336</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_case_point?'>case_point?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b+</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="case_vide?-instance_method">
+  
+    #<strong>case_vide?</strong>(i, j)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde aux coordonnées si la case est vide</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+340
+341
+342</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 340</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_case_vide?'>case_vide?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="entoure_ile_complete-instance_method">
+  
+    #<strong>entoure_ile_complete</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde dans le plateau si on peut appliquer la méthode Basic Techniques 8
+: Surrounding a completed island</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 224</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_entoure_ile_complete'>entoure_ile_complete</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+        <span class='kw'>for</span> <span class='id identifier rubyid_j'>j</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+          <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+            <span class='id identifier rubyid_taille_ile'>taille_ile</span> <span class='op'>=</span> <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  
+            <span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+                <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span>
+                <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span>
+
+                <span class='kw'>if</span> <span class='id identifier rubyid_case_point?'>case_point?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                    <span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                <span class='kw'>end</span>
+
+                <span class='kw'>if</span> <span class='id identifier rubyid_case_point?'>case_point?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                    <span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                <span class='kw'>end</span>
+
+                <span class='kw'>if</span> <span class='id identifier rubyid_case_point?'>case_point?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                    <span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                <span class='kw'>end</span>
+
+                <span class='kw'>if</span> <span class='id identifier rubyid_case_point?'>case_point?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                    <span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                <span class='kw'>end</span>
+  
+            <span class='kw'>end</span>
+  
+            <span class='kw'>if</span> <span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='id identifier rubyid_taille_ile'>taille_ile</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+              <span class='id identifier rubyid_tab_cases_point'>tab_cases_point</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+                <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span>
+                <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span>
+  
+                <span class='kw'>if</span> <span class='id identifier rubyid_case_vide?'>case_vide?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+                  <span class='kw'>return</span> <span class='kw'>true</span>
+                <span class='kw'>end</span>
+                <span class='kw'>if</span> <span class='id identifier rubyid_case_vide?'>case_vide?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+                  <span class='kw'>return</span> <span class='kw'>true</span>
+                <span class='kw'>end</span>
+                <span class='kw'>if</span> <span class='id identifier rubyid_case_vide?'>case_vide?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                  <span class='kw'>return</span> <span class='kw'>true</span>
+                <span class='kw'>end</span>
+                <span class='kw'>if</span> <span class='id identifier rubyid_case_vide?'>case_vide?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                  <span class='kw'>return</span> <span class='kw'>true</span>
+                <span class='kw'>end</span>
+              <span class='kw'>end</span>
+            <span class='kw'>end</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tester_blanc_isole-instance_method">
+  
+    #<strong>tester_blanc_isole</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde dans le plateau si on peut appliquer la méthode Basic Techniques 1
+: Surrounded square</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tester_blanc_isole'>tester_blanc_isole</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+        <span class='kw'>for</span> <span class='id identifier rubyid_j'>j</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+
+            <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+
+                <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_bord?'>case_bord?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_bord?'>case_bord?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+                        <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_bord?'>case_bord?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                            <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_bord?'>case_bord?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                                <span class='kw'>return</span> <span class='kw'>true</span>
+                            <span class='kw'>end</span>
+                        <span class='kw'>end</span>
+                    <span class='kw'>end</span>
+                <span class='kw'>end</span>
+
+            <span class='kw'>end</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='comment'>#Cas où la case n&#39;est pas isolée
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tester_chemin-instance_method">
+  
+    #<strong>tester_chemin</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde dans le plateau si on peut appliquer la méthode Basic Techniques 2
+: Wall expansion</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 162</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tester_chemin'>tester_chemin</span>
+    <span class='id identifier rubyid_nb_sortie'>nb_sortie</span> <span class='op'>=</span> <span class='int'>0</span><span class='semicolon'>;</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+        <span class='kw'>for</span> <span class='id identifier rubyid_j'>j</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+
+            <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+
+
+                <span class='id identifier rubyid_nb_sortie'>nb_sortie</span> <span class='op'>=</span> <span class='int'>0</span><span class='semicolon'>;</span><span class='comment'>#Compteur pour le nombre de case libre autour de la case que l&#39;on analyse
+</span>                <span class='id identifier rubyid_x_courant'>x_courant</span> <span class='op'>=</span> <span class='id identifier rubyid_i'>i</span>
+                <span class='id identifier rubyid_y_courant'>y_courant</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span>
+
+                <span class='kw'>while</span><span class='lparen'>(</span><span class='id identifier rubyid_nb_sortie'>nb_sortie</span><span class='op'>==</span><span class='int'>1</span><span class='rparen'>)</span>
+                    <span class='id identifier rubyid_x_sortie'>x_sortie</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span>
+                    <span class='id identifier rubyid_y_sortie'>y_sortie</span> <span class='op'>=</span> <span class='op'>-</span><span class='int'>1</span>
+                    
+                    <span class='comment'>#On cherche la ou les cases de sortie
+</span>                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_courant'>x_courant</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y_courant'>y_courant</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_courant'>x_courant</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y_courant'>y_courant</span><span class='rparen'>)</span>
+                        <span class='id identifier rubyid_nb_sortie'>nb_sortie</span><span class='op'>+=</span><span class='int'>1</span>
+                        <span class='id identifier rubyid_x_sortie'>x_sortie</span> <span class='op'>=</span> <span class='id identifier rubyid_x_courant'>x_courant</span><span class='op'>+</span><span class='int'>1</span>
+                        <span class='id identifier rubyid_y_sortie'>y_sortie</span> <span class='op'>=</span> <span class='id identifier rubyid_y_courant'>y_courant</span>
+                    <span class='kw'>end</span>
+
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_courant'>x_courant</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y_courant'>y_courant</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_courant'>x_courant</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_y_courant'>y_courant</span><span class='rparen'>)</span>
+                        <span class='id identifier rubyid_nb_sortie'>nb_sortie</span><span class='op'>+=</span><span class='int'>1</span>
+                        <span class='id identifier rubyid_x_sortie'>x_sortie</span> <span class='op'>=</span> <span class='id identifier rubyid_x_courant'>x_courant</span><span class='op'>-</span><span class='int'>1</span>
+                        <span class='id identifier rubyid_y_sortie'>y_sortie</span> <span class='op'>=</span> <span class='id identifier rubyid_y_courant'>y_courant</span>
+                    <span class='kw'>end</span>
+
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_courant'>x_courant</span><span class='comma'>,</span><span class='id identifier rubyid_y_courant'>y_courant</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_courant'>x_courant</span><span class='comma'>,</span><span class='id identifier rubyid_y_courant'>y_courant</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='id identifier rubyid_nb_sortie'>nb_sortie</span><span class='op'>+=</span><span class='int'>1</span>
+                        <span class='id identifier rubyid_x_sortie'>x_sortie</span> <span class='op'>=</span> <span class='id identifier rubyid_x_courant'>x_courant</span>
+                        <span class='id identifier rubyid_y_sortie'>y_sortie</span> <span class='op'>=</span> <span class='id identifier rubyid_y_courant'>y_courant</span><span class='op'>+</span><span class='int'>1</span>
+                    <span class='kw'>end</span>
+
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_courant'>x_courant</span><span class='comma'>,</span><span class='id identifier rubyid_y_courant'>y_courant</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_courant'>x_courant</span><span class='comma'>,</span><span class='id identifier rubyid_y_courant'>y_courant</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='id identifier rubyid_nb_sortie'>nb_sortie</span><span class='op'>+=</span><span class='int'>1</span>
+                        <span class='id identifier rubyid_x_sortie'>x_sortie</span> <span class='op'>=</span> <span class='id identifier rubyid_x_courant'>x_courant</span>
+                        <span class='id identifier rubyid_y_sortie'>y_sortie</span> <span class='op'>=</span> <span class='id identifier rubyid_y_courant'>y_courant</span><span class='op'>-</span><span class='int'>1</span>
+                    <span class='kw'>end</span>
+
+                    <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_nb_sortie'>nb_sortie</span> <span class='op'>==</span> <span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_x_sortie'>x_sortie</span><span class='comma'>,</span><span class='id identifier rubyid_y_sortie'>y_sortie</span><span class='rparen'>)</span>
+                            <span class='kw'>return</span> <span class='kw'>true</span>
+                        <span class='kw'>else</span>
+                          <span class='kw'>return</span> <span class='kw'>false</span>
+                        <span class='kw'>end</span>
+                            
+                    <span class='kw'>end</span>
+
+                <span class='kw'>end</span>
+
+            <span class='kw'>end</span>
+
+
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='comment'>#Cas où la case n&#39;est pas isolée
+</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tester_diagonale-instance_method">
+  
+    #<strong>tester_diagonale</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde dans le plateau si on peut appliquer la méthode Starting techniques
+3 : Diagonally adjacent clues</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tester_diagonale'>tester_diagonale</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+        <span class='kw'>for</span> <span class='id identifier rubyid_j'>j</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+
+            <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                            <span class='kw'>return</span> <span class='kw'>true</span>
+                        <span class='kw'>end</span>
+                    <span class='kw'>end</span>
+                
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>  <span class='op'>||</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                            <span class='kw'>return</span> <span class='kw'>true</span>
+                        <span class='kw'>end</span>
+                    <span class='kw'>end</span>         
+                
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>  <span class='op'>||</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                            <span class='kw'>return</span> <span class='kw'>true</span>
+                        <span class='kw'>end</span>
+                    <span class='kw'>end</span>
+                   
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>if</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>  <span class='op'>||</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                            <span class='kw'>return</span> <span class='kw'>true</span>
+                        <span class='kw'>end</span>
+                    <span class='kw'>end</span>
+            <span class='kw'>end</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='comment'>#Cas où on n&#39;a pas trouvé de case vide en diagonale de 2 cases chiffre
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tester_espace-instance_method">
+  
+    #<strong>tester_espace</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde dans le plateau si on peut appliquer la méthode Starting techniques
+2 : Clues separated by one square</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 74</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tester_espace'>tester_espace</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+        <span class='kw'>for</span> <span class='id identifier rubyid_j'>j</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+
+            <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+              
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>2</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+                        <span class='kw'>return</span> <span class='kw'>true</span>
+                    <span class='kw'>end</span>
+            
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>return</span> <span class='kw'>true</span>
+                    <span class='kw'>end</span>
+            
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>2</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>return</span> <span class='kw'>true</span>
+                    <span class='kw'>end</span>
+               
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>2</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+                        <span class='kw'>return</span> <span class='kw'>true</span>
+                    <span class='kw'>end</span>
+             
+            <span class='kw'>end</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='comment'>#Cas où aucun espace n&#39;a été trouvé entre 2 cases chiffre
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tester_tout-instance_method">
+  
+    #<strong>tester_tout</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tester_tout'>tester_tout</span>
+
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tester_un'>tester_un</span>
+        <span class='kw'>return</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tester_espace'>tester_espace</span>
+        <span class='kw'>return</span> <span class='int'>2</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tester_diagonale'>tester_diagonale</span>
+        <span class='kw'>return</span> <span class='int'>3</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tester_blanc_isole'>tester_blanc_isole</span>
+        <span class='kw'>return</span> <span class='int'>4</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_tester_chemin'>tester_chemin</span>
+        <span class='kw'>return</span> <span class='int'>5</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_entoure_ile_complete'>entoure_ile_complete</span>
+        <span class='kw'>return</span> <span class='int'>6</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_trop_loin'>trop_loin</span>
+        <span class='kw'>return</span> <span class='int'>7</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>return</span> <span class='int'>0</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="tester_un-instance_method">
+  
+    #<strong>tester_un</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde dans le plateau si on peut appliquer la méthode Starting techniques
+1 : Island of 1</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_tester_un'>tester_un</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+        <span class='kw'>for</span> <span class='id identifier rubyid_j'>j</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+
+            <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_1?'>case_1?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+                        <span class='kw'>return</span> <span class='kw'>true</span>
+                    <span class='kw'>end</span>
+          
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>return</span> <span class='kw'>true</span>
+                    <span class='kw'>end</span>
+
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+                        <span class='kw'>return</span> <span class='kw'>true</span>
+                    <span class='kw'>end</span>
+               
+                    <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_blanche?'>case_blanche?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+                        <span class='kw'>return</span> <span class='kw'>true</span>
+                    <span class='kw'>end</span>
+            <span class='kw'>end</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='comment'>#Cas où aucun 1 seul n&#39;a été trouvé
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="trop_loin-instance_method">
+  
+    #<strong>trop_loin</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Regarde dans le plateau si on peut appliquer la méthode Basic Techniques 10
+: Unreachable square</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Aide.rb', line 279</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_trop_loin'>trop_loin</span>
+    <span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+        <span class='kw'>for</span> <span class='id identifier rubyid_j'>j</span> <span class='kw'>in</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
+            <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_case_chiffre?'>case_chiffre?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span>
+                <span class='kw'>if</span><span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                    <span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                <span class='kw'>end</span>
+                <span class='id identifier rubyid_taille'>taille</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_chiffre'>chiffre</span><span class='rparen'>)</span> <span class='op'>-</span><span class='int'>1</span> 
+                <span class='id identifier rubyid_decalage_x'>decalage_x</span> <span class='op'>=</span> <span class='int'>0</span>
+                <span class='id identifier rubyid_taille'>taille</span><span class='period'>.</span><span class='id identifier rubyid_downto'>downto</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_y'>y</span><span class='op'>|</span>
+                    <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_decalage_x'>decalage_x</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
+                        <span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                            <span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                        <span class='kw'>end</span>
+                        <span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                            <span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                        <span class='kw'>end</span>
+                        <span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                            <span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>+</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                        <span class='kw'>end</span>
+                        <span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                            <span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='op'>-</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                        <span class='kw'>end</span>
+                    <span class='kw'>end</span>
+                    <span class='id identifier rubyid_decalage_x'>decalage_x</span><span class='op'>+=</span><span class='int'>1</span>
+                <span class='kw'>end</span> 
+
+            <span class='kw'>end</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+        <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_taille'>taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_j'>j</span><span class='op'>|</span>
+            <span class='kw'>if</span><span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_tab_atteignable'>tab_atteignable</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_case_noire?'>case_noire?</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span><span class='id identifier rubyid_j'>j</span><span class='rparen'>)</span><span class='rparen'>)</span>
+                <span class='kw'>return</span> <span class='kw'>true</span>
+            <span class='kw'>end</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Fri Apr  3 10:10:09 2020 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.24 (ruby-2.5.3).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,3 +1,7 @@
+# Sert à mémoriser les coordonnées d'une action
+# @attr_reader x [Fixnum] coordonnée x de l'action faite
+# @attr_reader y [Fixnum] coordonnée y de l'action faite
+# @attr_reader point_de_retour [Boolean] indique si l'action est un point de retour
 class Action
     attr_reader :x, :y
     attr_accessor :point_de_retour
@@ -9,7 +13,7 @@ class Action
         @x,@y,@point_de_retour=x,y
         @point_de_retour=false;
     end
-
+    
     def est_point_de_retour?
         return @point_de_retour
     end
