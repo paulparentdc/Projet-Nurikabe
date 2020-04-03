@@ -65,6 +65,7 @@ class Jeu
         # configuration de la fenêtre
         window.set_title "Nurikabe!"
         window.signal_connect "destroy" do 
+            Sauvegarde.creer_sauvegarde(self)
             Gtk.main_quit 
         end        
 

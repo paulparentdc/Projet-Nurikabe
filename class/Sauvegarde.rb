@@ -1,3 +1,6 @@
+
+
+
 load 'Case.rb'
 load 'CaseClic.rb'
 load 'CaseChiffre.rb'
@@ -10,7 +13,7 @@ require 'fileutils'
 
 
 class Sauvegarde
-
+    #class qui permet de sauvegarder le jeu sans les boutons
     class DonneesJeu
         attr_reader :plateau_etat, :pile_action, :malus_aide, :nom_joueur, :temps_de_jeu, :chemin_template
 
@@ -20,14 +23,14 @@ class Sauvegarde
         @pile_action
         @malus_aide
         @chemin_template
-        
+
         @nom_joueur
         @temps_de_jeu
-    
-        
+
+
         def initialize(jeu)
             @nom_joueur, @temps_de_jeu = jeu.nom_joueur, jeu.temps_de_jeu
-            
+
             @pile_action = jeu.plateau.pile_action.serialiser
             @malus_aide = jeu.plateau.malus_aide
             @chemin_template = jeu.plateau.chemin_template
@@ -37,20 +40,21 @@ class Sauvegarde
 
     #Chargement d'une partie
     #@param le jeu a sauvegarder
+    
     def Sauvegarde.creer_sauvegarde(jeu)
-        
-        #return if jeu.en_jeu == false
+
         jeu_filtree = DonneesJeu.new(jeu)
         donnees = Marshal::dump(jeu_filtree)
 
-        chemin_de_base="../data/save/"+jeu.nom_joueur+"/"+Time.new.strftime("%d-%m-%Y   %Hh%Mm%Ss")+".snurikabe"
+        chemin_de_base = "../data/save/"+jeu.nom_joueur+"/"+Time.new.strftime("%d-%m-%Y   %Hh%Mm%Ss")+".snurikabe"
 
         dirname=File::dirname(chemin_de_base)
+        #creation d'un dossier par joueur , qui contiendra toutes les sauvegardes de ce dernier
         unless File.directory?(dirname)
             FileUtils.mkdir_p(dirname)
         end
 
-       #puts chemin_de_base
+      
        mon_fichier = File::open(chemin_de_base,"w+")
        mon_fichier.write(donnees)
        mon_fichier.close
@@ -58,11 +62,11 @@ class Sauvegarde
 
 
     # Chargement d'une partie
-    # @note le chemin devra être valide 
+    # @note le chemin devra être valide
     # @param le chemin de la sauvegarde
     # @return le jeu correspondant au chemin
     def Sauvegarde.charger_sauvegarde(chemin_de_base)
-        #chemin_de_base="data/save/"+joueur+"/"+Time.new.strftime("%d_%m_%Y__%H_%M")+".txt"
+        
         if !File.exist?(chemin_de_base)
             raise "Fichier inexistant"
             return
@@ -73,35 +77,35 @@ class Sauvegarde
         donnees=Marshal::load(File::read(chemin_de_base))
         fichier.close
 
-        # :plateau_char
+       
 
         plateau = Sauvegarde.charger_template(donnees.chemin_template)
-        
+
         plateau.pile_action = PileAction.new(plateau, donnees.pile_action)
         plateau.malus_aide = donnees.malus_aide
 
         plateau_etat = donnees.plateau_etat
-        
+
         (0..plateau.taille-1).each do |i|
             (0..plateau.taille-1).each do |j|
                 if plateau.damier[i][j].instance_of? CaseClic
-                    plateau.damier[i][j].etat = plateau_etat[i][j] 
+                    plateau.damier[i][j].etat = plateau_etat[i][j]
                     plateau.damier[i][j].actualises_toi
                 end
             end
         end
 
         jeu = Jeu.new(plateau: plateau, nom_joueur: donnees.nom_joueur, temps_de_jeu: donnees.temps_de_jeu)
-        
 
-        
+
+
 
         return jeu
 
     end
 
     #Suppression d'une partie
-    #@note le chemin devra être valide 
+    #@note le chemin devra être valide
     #@param le chemin de la sauvegarde a supprimer
     def Sauvegarde.supprimer_sauvegarde(chemin)
         if File.exist?(chemin)
@@ -110,7 +114,7 @@ class Sauvegarde
              raise "Impossible de supprimer le fichier car il est inexistant, chemin : " + chemin
         end
     end
-    
+
    # Chargement du template
     # @note le chemin devra être valide et le fichier correct et lisible
     # @param chemin le chemin à du template choisi
@@ -149,7 +153,7 @@ class Sauvegarde
                     matrice_plateau.push(temp.map do |x|
                         i+=1
                         (temp = x.to_i) == 0 ? CaseClic.new(compteur,i) : CaseChiffre.new(compteur,i, temp)
-                        
+
                     end)
                     compteur+=1
                 else
@@ -158,7 +162,7 @@ class Sauvegarde
                 end
             end
         end
-        
+
         #Verifier si tout a été initialisé
         if niveau == nil && taille == nil && compteur != taille
             return nil
@@ -169,4 +173,13 @@ class Sauvegarde
             #return Jeu.new(plateau: plateau, nom_joueur: nom_joueur, temps_de_jeu: 0)
         end
     end
+
+    def Sauvegarde.sauvegarde_highscore(highscore)
+      donnees = Marshal::dump(highscore)
+      chemin_de_base = "../data/highscore.score"
+      mon_fichier = File::open(chemin_de_base,"w+")
+      mon_fichier.write(donnees)
+      mon_fichier.close
+    end
+
 end
