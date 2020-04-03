@@ -1,4 +1,8 @@
-
+# Etat d'une case
+# @attr_reader etat etat entre BLANC, NOIR ou POINT
+# @attr BLANC [String] chaine correspondant à l'état blanc
+# @attr NOIR [String] chaine correspondant à l'état noir
+# @attr POINT [String] chaine correspondant à l'état point
 class Etat
     attr_reader :etat
     BLANC ||= 'b'
@@ -11,6 +15,7 @@ class Etat
         @etat = BLANC
     end
     
+    # Passe l'état à l'état suivant
     def suivant!
         case(@etat)
         when BLANC
@@ -24,6 +29,7 @@ class Etat
         end
     end
 
+    # Passe l'état à l'état précédent
     def precedent!
         case(etat)
         when BLANC

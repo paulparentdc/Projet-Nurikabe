@@ -1,3 +1,4 @@
+# Case fixe avec un chiffre
 # @attr_reader [Fixnum] chiffre - chiffre contenu dans la case
 class CaseChiffre < Case
     @chiffre

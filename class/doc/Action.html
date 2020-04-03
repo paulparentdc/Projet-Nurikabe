@@ -232,7 +232,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Indique si l&#39;action est un point de retour.</p>
+</div></span>
   
 </li>
 
@@ -541,6 +543,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Indique si l&#39;action est un point de retour</p>
+
 
   </div>
 </div>
@@ -566,12 +570,12 @@
       <pre class="lines">
 
 
-17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Action.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'Action.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_est_point_de_retour?'>est_point_de_retour?</span>
     <span class='kw'>return</span> <span class='ivar'>@point_de_retour</span>
@@ -596,12 +600,12 @@
       <pre class="lines">
 
 
-21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Action.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'Action.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Action : Coordonnées : </span><span class='embexpr_beg'>#{</span><span class='ivar'>@x</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@y</span><span class='embexpr_end'>}</span><span class='tstring_content'>  , est un point de retour?:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_point_de_retour'>point_de_retour</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -616,7 +620,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Apr  3 10:10:09 2020 by
+  Generated on Fri Apr  3 10:45:37 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.5.3).
 </div>

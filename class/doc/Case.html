@@ -99,7 +99,18 @@
   
 </div>
 
-<div id="subclasses">
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Classe mère qui sert pour créer CaseChiffre et CaseClic</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="CaseChiffre.html" title="CaseChiffre (class)">CaseChiffre</a></span>, <span class='object_link'><a href="CaseClic.html" title="CaseClic (class)">CaseClic</a></span></p>
 </div>
@@ -113,7 +124,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#bouton-instance_method" title="#bouton (instance method)">#<strong>bouton</strong>  &#x21d2; Object </a>
+      <a href="#bouton-instance_method" title="#bouton (instance method)">#<strong>bouton</strong>  &#x21d2; Button </a>
     
 
     
@@ -133,7 +144,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute bouton.</p>
+<p>bouton lié à la case.</p>
 </div></span>
   
 </li>
@@ -142,7 +153,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#x-instance_method" title="#x (instance method)">#<strong>x</strong>  &#x21d2; Object </a>
+      <a href="#CSS_BOUTON_BLANC-instance_method" title="#CSS_BOUTON_BLANC (instance method)">#<strong>CSS_BOUTON_BLANC</strong>  &#x21d2; CssProvider </a>
     
 
     
@@ -150,8 +161,6 @@
   
   
   
-    
-      <span class="note title readonly">readonly</span>
     
     
   
@@ -162,7 +171,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute x.</p>
+<p>VARIABLE DE CLASSE : code CSS d&#39;un bouton blanc.</p>
 </div></span>
   
 </li>
@@ -171,7 +180,61 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#y-instance_method" title="#y (instance method)">#<strong>y</strong>  &#x21d2; Object </a>
+      <a href="#CSS_BOUTON_NOIR-instance_method" title="#CSS_BOUTON_NOIR (instance method)">#<strong>CSS_BOUTON_NOIR</strong>  &#x21d2; CssProvider </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>VARIABLE DE CLASSE : code CSS d&#39;un bouton noir.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#plateau-instance_method" title="#plateau (instance method)">#<strong>plateau</strong>  &#x21d2; Plateau </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>VARIABLE DE CLASSE : plateau dans lequel est la case.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#x-instance_method" title="#x (instance method)">#<strong>x</strong>  &#x21d2; Fixnum </a>
     
 
     
@@ -191,7 +254,36 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute y.</p>
+<p>coordonnée x de notre case.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#y-instance_method" title="#y (instance method)">#<strong>y</strong>  &#x21d2; Fixnum </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>coordonnée y de notre case.</p>
 </div></span>
   
 </li>
@@ -227,7 +319,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Permet de renseigner le plateau de la case.</p>
+</div></span>
   
 </li>
 
@@ -240,50 +334,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#changer-instance_method" title="#changer (instance method)">#<strong>changer</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#changer_suivant-instance_method" title="#changer_suivant (instance method)">#<strong>changer_suivant</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -307,28 +357,6 @@
     <span class="summary_desc"><div class='inline'>
 <p>A new instance of Case.</p>
 </div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -365,14 +393,14 @@
       <pre class="lines">
 
 
-31
-32
-33
-34
-35</pre>
+39
+40
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Case.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'Case.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
     <span class='ivar'>@x</span><span class='comma'>,</span> <span class='ivar'>@y</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span>
@@ -394,7 +422,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="bouton-instance_method">
   
-    #<strong>bouton</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>bouton</strong>  &#x21d2; <tt>Button</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -403,13 +431,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute bouton.</p>
+<p>bouton lié à la case</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Button</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of bouton</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -417,15 +463,198 @@
       <pre class="lines">
 
 
-5
-6
-7</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Case.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'Case.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bouton'>bouton</span>
   <span class='ivar'>@bouton</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="CSS_BOUTON_BLANC=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="CSS_BOUTON_BLANC-instance_method">
+  
+    #<strong>CSS_BOUTON_BLANC</strong>  &#x21d2; <tt>CssProvider</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>VARIABLE DE CLASSE : code CSS d&#39;un bouton blanc</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>CssProvider</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of CSS_BOUTON_BLANC</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Case.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='const'>CSS_BOUTON_BLANC</span>
+  <span class='ivar'>@CSS_BOUTON_BLANC</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="CSS_BOUTON_NOIR=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="CSS_BOUTON_NOIR-instance_method">
+  
+    #<strong>CSS_BOUTON_NOIR</strong>  &#x21d2; <tt>CssProvider</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>VARIABLE DE CLASSE : code CSS d&#39;un bouton noir</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>CssProvider</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of CSS_BOUTON_NOIR</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Case.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='const'>CSS_BOUTON_NOIR</span>
+  <span class='ivar'>@CSS_BOUTON_NOIR</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="plateau=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="plateau-instance_method">
+  
+    #<strong>plateau</strong>  &#x21d2; <tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>VARIABLE DE CLASSE : plateau dans lequel est la case</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of plateau</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Case.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_plateau'>plateau</span>
+  <span class='ivar'>@plateau</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -437,7 +666,7 @@
       <div class="method_details ">
   <h3 class="signature " id="x-instance_method">
   
-    #<strong>x</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>x</strong>  &#x21d2; <tt>Fixnum</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -446,13 +675,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute x.</p>
+<p>coordonnée x de notre case</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of x</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -460,12 +707,12 @@
       <pre class="lines">
 
 
-5
-6
-7</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Case.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'Case.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_x'>x</span>
   <span class='ivar'>@x</span>
@@ -480,7 +727,7 @@
       <div class="method_details ">
   <h3 class="signature " id="y-instance_method">
   
-    #<strong>y</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>y</strong>  &#x21d2; <tt>Fixnum</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -489,13 +736,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute y.</p>
+<p>coordonnée y de notre case</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of y</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -503,12 +768,12 @@
       <pre class="lines">
 
 
-5
-6
-7</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Case.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'Case.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_y'>y</span>
   <span class='ivar'>@y</span>
@@ -534,18 +799,49 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Permet de renseigner le plateau de la case</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>le</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>plateau de jeu</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-27
-28
-29</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Case.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'Case.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='const'><span class='object_link'><a href="" title="Case (class)">Case</a></span></span><span class='period'>.</span><span class='id identifier rubyid_ajout_plateau'>ajout_plateau</span><span class='lparen'>(</span><span class='id identifier rubyid_plateau'>plateau</span><span class='rparen'>)</span>
     <span class='cvar'>@@plateau</span> <span class='op'>=</span> <span class='id identifier rubyid_plateau'>plateau</span>
@@ -557,104 +853,10 @@
     
   </div>
 
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="changer-instance_method">
-  
-    #<strong>changer</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-45
-46
-47</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Case.rb', line 45</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_changer'>changer</span>
-    
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="changer_suivant-instance_method">
-  
-    #<strong>changer_suivant</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-41
-42</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Case.rb', line 41</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_changer_suivant'>changer_suivant</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="to_s-instance_method">
-  
-    #<strong>to_s</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-37
-38
-39</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Case.rb', line 37</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
-    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
-
 </div>
 
       <div id="footer">
-  Generated on Fri Apr  3 10:10:09 2020 by
+  Generated on Fri Apr  3 10:45:37 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.5.3).
 </div>

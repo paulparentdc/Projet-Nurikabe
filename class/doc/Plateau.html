@@ -711,28 +711,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#verifier_damier-instance_method" title="#verifier_damier (instance method)">#<strong>verifier_damier</strong>  &#x21d2; Object </a>
     
 
@@ -1255,16 +1233,16 @@
       <pre class="lines">
 
 
-96
 97
 98
 99
 100
 101
-102</pre>
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>&lt;</span> <span class='ivar'>@taille</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_x'>x</span><span class='op'>&gt;=</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_y'>y</span> <span class='op'>&lt;</span> <span class='ivar'>@taille</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_y'>y</span><span class='op'>&gt;=</span> <span class='int'>0</span>
@@ -1293,17 +1271,17 @@
       <pre class="lines">
 
 
-104
 105
 106
 107
 108
 109
 110
-111</pre>
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_donne_case'>donne_case</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='id identifier rubyid_coord_valides?'>coord_valides?</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
@@ -1355,7 +1333,6 @@
       <pre class="lines">
 
 
-114
 115
 116
 117
@@ -1364,10 +1341,11 @@
 120
 121
 122
-123</pre>
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gagner?'>gagner?</span>
     <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='lparen'>(</span><span class='ivar'>@taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
@@ -1399,7 +1377,6 @@
       <pre class="lines">
 
 
-68
 69
 70
 71
@@ -1407,10 +1384,11 @@
 73
 74
 75
-76</pre>
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_plateau_caracteres'>get_plateau_caracteres</span>
     <span class='id identifier rubyid_tab_char'>tab_char</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1441,7 +1419,6 @@
       <pre class="lines">
 
 
-78
 79
 80
 81
@@ -1456,10 +1433,11 @@
 90
 91
 92
-93</pre>
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_plateau_etat'>get_plateau_etat</span>
     <span class='id identifier rubyid_tab_etat'>tab_etat</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1497,7 +1475,6 @@
       <pre class="lines">
 
 
-134
 135
 136
 137
@@ -1543,10 +1520,11 @@
 177
 178
 179
-180</pre>
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_aide'>on_click_aide</span><span class='lparen'>(</span><span class='id identifier rubyid_jeu'>jeu</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_txt'>txt</span> <span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
@@ -1615,12 +1593,12 @@
       <pre class="lines">
 
 
-204
 205
-206</pre>
+206
+207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 204</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 205</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_aller_retour'>on_click_aller_retour</span>
     <span class='ivar'>@pile_action</span><span class='period'>.</span><span class='id identifier rubyid_vers_dernier_point_de_retour'>vers_dernier_point_de_retour</span>
@@ -1645,12 +1623,12 @@
       <pre class="lines">
 
 
-200
 201
-202</pre>
+202
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 200</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 201</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_creer_retour'>on_click_creer_retour</span>
     <span class='ivar'>@pile_action</span><span class='period'>.</span><span class='id identifier rubyid_ajout_point_de_retour'>ajout_point_de_retour</span>
@@ -1675,13 +1653,13 @@
       <pre class="lines">
 
 
-129
 130
 131
-132</pre>
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 129</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_jeu'>on_click_jeu</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
     <span class='ivar'>@pile_action</span><span class='period'>.</span><span class='id identifier rubyid_empiler'>empiler</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Action.html" title="Action (class)">Action</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Action.html#initialize-instance_method" title="Action#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1707,11 +1685,11 @@
       <pre class="lines">
 
 
-208
-209</pre>
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 209</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_option'>on_click_option</span>
 <span class='kw'>end</span></pre>
@@ -1735,11 +1713,11 @@
       <pre class="lines">
 
 
-211
-212</pre>
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 211</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_quitter'>on_click_quitter</span>
 <span class='kw'>end</span></pre>
@@ -1763,7 +1741,6 @@
       <pre class="lines">
 
 
-186
 187
 188
 189
@@ -1775,10 +1752,11 @@
 195
 196
 197
-198</pre>
+198
+199</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_regle'>on_click_regle</span><span class='lparen'>(</span><span class='id identifier rubyid_jeu'>jeu</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_builder'>builder</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1813,12 +1791,12 @@
       <pre class="lines">
 
 
-182
 183
-184</pre>
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 183</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_undo'>on_click_undo</span>
     <span class='ivar'>@pile_action</span><span class='period'>.</span><span class='id identifier rubyid_annuler_dernier_coup'>annuler_dernier_coup</span>
@@ -1843,69 +1821,15 @@
       <pre class="lines">
 
 
-125
 126
-127</pre>
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_click_verif'>on_click_verif</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_afficher_erreur'>afficher_erreur</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="to_s-instance_method">
-  
-    #<strong>to_s</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 33</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
-    <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='lparen'>(</span><span class='ivar'>@taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_y'>y</span><span class='op'>|</span>
-        <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='lparen'>(</span><span class='ivar'>@taille</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_x'>x</span><span class='op'>|</span>
-            <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span>
-                <span class='id identifier rubyid_temp'>temp</span> <span class='op'>=</span> <span class='ivar'>@damier_correct</span><span class='lbracket'>[</span><span class='id identifier rubyid_y'>y</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='rbracket'>]</span>
-                <span class='kw'>if</span> <span class='id identifier rubyid_temp'>temp</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>==</span> <span class='int'>0</span>
-                    <span class='id identifier rubyid_temp'>temp</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n</span><span class='tstring_end'>&#39;</span></span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>X</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span>
-                <span class='kw'>else</span>
-                    <span class='id identifier rubyid_temp'>temp</span>
-                <span class='kw'>end</span>
-            <span class='embexpr_end'>}</span><span class='tstring_content'> |</span><span class='tstring_end'>&quot;</span></span>
-        <span class='kw'>end</span>
-        <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1927,7 +1851,6 @@
       <pre class="lines">
 
 
-49
 50
 51
 52
@@ -1944,10 +1867,11 @@
 63
 64
 65
-66</pre>
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Plateau.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'Plateau.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_verifier_damier'>verifier_damier</span>
     <span class='id identifier rubyid_tab_erreur'>tab_erreur</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1977,7 +1901,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Apr  3 10:10:09 2020 by
+  Generated on Fri Apr  3 10:45:37 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.5.3).
 </div>
