@@ -59,12 +59,12 @@ class Menus
 		stack_box_int = @builder.get_object("stack_box_int")
 		stack_box_dif = @builder.get_object("stack_box_dif")
     getHighscore = Highscore.recuperer_ds_fichier
-		getHighscore.inserer_score_facile("oo",5555)
-		getHighscore.inserer_score_facile("xx",32)
-		getHighscore.inserer_score_moyen("oo",5555)
-		getHighscore.inserer_score_moyen("xx",32)
-		getHighscore.inserer_score_difficile("xx",32)
-		getHighscore.inserer_score_difficile("xx",32)
+		#getHighscore.inserer_score_facile("oo",5555)
+		#getHighscore.inserer_score_facile("xx",32)
+		#getHighscore.inserer_score_moyen("oo",5555)
+		#getHighscore.inserer_score_moyen("xx",32)
+		#getHighscore.inserer_score_difficile("xx",32)
+		#getHighscore.inserer_score_difficile("xx",32)
 
 		Sauvegarde.sauvegarde_highscore(getHighscore)
     classement_fac = getHighscore.classement_facile

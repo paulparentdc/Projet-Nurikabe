@@ -24,9 +24,9 @@ class Jeu
         builder = Gtk::Builder.new
 
         builder.add_from_file("../Glade/EnJeu.glade")
-		window = builder.get_object("fn_select")
+		    window = builder.get_object("fn_select")
         window.signal_connect('destroy') { |_widget| Gtk.main_quit }
-        
+
         # Récupérations des objets
             # Boutons
         btn_options = builder.get_object("Options")
@@ -36,7 +36,7 @@ class Jeu
         btn_aide = builder.get_object("Aide")
         btn_verification = builder.get_object("Verification")
         btn_indice = builder.get_object("Indice")
-            
+
             # Autres
         @nom_joueur_label = builder.get_object("nom_joueur")
         grid = builder.get_object("grilleJeu")
@@ -50,7 +50,7 @@ class Jeu
         btn_aide.signal_connect('clicked'){@plateau.on_click_regle(self)}
         btn_verification.signal_connect('clicked'){self.afficher_erreur}
         btn_indice.signal_connect('clicked'){@plateau.on_click_aide(self)}
-            
+
 
             # initialisation du plateau dans la grille
         grid.set_property "row-homogeneous", true
@@ -65,18 +65,18 @@ class Jeu
 
         # configuration de la fenêtre
         window.set_title "Nurikabe!"
-        window.signal_connect "destroy" do 
+        window.signal_connect "destroy" do
             Sauvegarde.creer_sauvegarde(self)
-            Gtk.main_quit 
-        end        
+            Gtk.main_quit
+        end
 
         window.set_window_position :center
         window.show_all
-        
+
         # lancement du timer
         timer_thread = Thread.new{self.lancer_timer}
         Gtk.main
-        
+
     end
 
     def lancer_timer
@@ -97,13 +97,13 @@ class Jeu
         Gtk::DialogFlags::DESTROY_WITH_PARENT,
         (tab_erreur.empty?  && !@plateau.partie_finie ? Gtk::MessageType::INFO : Gtk::MessageType::QUESTION),
         (tab_erreur.empty? && !@plateau.partie_finie ? :OK : :yes_no),
-        (@plateau.partie_finie ? "Bravo " + @nom_joueur +" ! Vous avez fini le jeu en " + (@temps_de_jeu+@plateau.malus_aide).to_s + " seconde.\nVoulez-vous rejouer ?" : 
+        (@plateau.partie_finie ? "Bravo " + @nom_joueur +" ! Vous avez fini le jeu en " + (@temps_de_jeu+@plateau.malus_aide).to_s + " seconde.\nVoulez-vous rejouer ?" :
         (tab_erreur.empty? ? "Vous avez  #{tab_erreur.size} erreurs! " : "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?")))
-        
-        
-        reponse = pop.run 
+
+
+        reponse = pop.run
         pop.destroy
-        
+
         # affichage en rouge des erreurs
         if(reponse == Gtk::ResponseType::YES)
             @plateau.malus_aide += tab_erreur.size*5
