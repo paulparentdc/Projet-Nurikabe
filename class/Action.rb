@@ -13,7 +13,8 @@ class Action
         @x,@y,@point_de_retour=x,y
         @point_de_retour=false;
     end
-    
+
+    # Indique si l'action est un point de retour
     def est_point_de_retour?
         return @point_de_retour
     end

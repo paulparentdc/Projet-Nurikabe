@@ -34,6 +34,7 @@ class Case
         @bouton.style_context.add_provider(@@CSS_BOUTON_BLANC, Gtk::StyleProvider::PRIORITY_USER)
     end
 
+    # @!visibility private
     def to_s
         ' '
     end
