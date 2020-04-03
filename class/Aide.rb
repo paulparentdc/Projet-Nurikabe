@@ -33,6 +33,10 @@ class Aide
             return 6
         end
 
+        if self.trop_loin
+            return 7
+        end
+
         return 0
 
    end
@@ -128,8 +132,8 @@ class Aide
     end
 
     def tester_blanc_isole
-        for i in (0..@plateau.taille)
-            for j in (0..@plateau.taille)
+        for i in (0..@plateau.taille-1)
+            for j in (0..@plateau.taille-1)
 
                 if self.case_blanche?(i,j)
 
@@ -151,8 +155,8 @@ class Aide
 
     def tester_chemin
         nb_sortie = 0;
-        for i in (0..@plateau.taille)
-            for j in (0..@plateau.taille)
+        for i in (0..@plateau.taille-1)
+            for j in (0..@plateau.taille-1)
 
                 if self.case_noire?(i,j)
 
@@ -211,8 +215,8 @@ class Aide
     end
 
     def entoure_ile_complete
-        for i in (0..@plateau.taille)
-            for j in (0..@plateau.taille)
+        for i in (0..@plateau.taille-1)
+            for j in (0..@plateau.taille-1)
               if self.case_chiffre?(i,j)
                 tab_cases_point = [@plateau.donne_case(i,j)]
                 taille_ile = @plateau.donne_case(i,j).to_s
@@ -262,8 +266,54 @@ class Aide
             end
           end
         return false
-      end
+    end
  
+
+    def trop_loin
+        tab_atteignable = []
+        for i in (0..@plateau.taille-1)
+            for j in (0..@plateau.taille-1)
+                if self.case_chiffre?(i,j)
+                    if(!tab_atteignable.include?(@plateau.donne_case(i,j)))
+                        tab_atteignable.push(@plateau.donne_case(i,j))
+                    end
+                    taille = (@plateau.donne_case(i,j).chiffre) -1 
+                    decalage_x = 0
+                    taille.downto(0) do |y|
+                        (0..decalage_x).each do |x|
+                            if(@plateau.coord_valides?(i+x,j+y) && !tab_atteignable.include?(@plateau.donne_case(i+x,j+y)))
+                                tab_atteignable.push(@plateau.donne_case(i+x,j+y))
+                            end
+                            if(@plateau.coord_valides?(i-x,j+y) && !tab_atteignable.include?(@plateau.donne_case(i-x,j+y)))
+                                tab_atteignable.push(@plateau.donne_case(i-x,j+y))
+                            end
+                            if(@plateau.coord_valides?(i+x,j-y) && !tab_atteignable.include?(@plateau.donne_case(i+x,j-y)))
+                                tab_atteignable.push(@plateau.donne_case(i+x,j-y))
+                            end
+                            if(@plateau.coord_valides?(i-x,j-y) && !tab_atteignable.include?(@plateau.donne_case(i-x,j-y)))
+                                tab_atteignable.push(@plateau.donne_case(i-x,j-y))
+                            end
+                        end
+                        decalage_x+=1
+                    end 
+
+                end
+            end
+        end
+        (0..@plateau.taille-1).each do |i|
+            (0..@plateau.taille-1).each do |j|
+                if(!tab_atteignable.include?(@plateau.donne_case(i,j)) && !case_noire?(i,j))
+                    return true
+                end
+            end
+        end
+        return false
+        
+      
+    end
+                        
+
+
 
     #Fonctions de test sur les cases
     def case_chiffre?(i,j)
