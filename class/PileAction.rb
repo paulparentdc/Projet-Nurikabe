@@ -78,11 +78,13 @@ class PileAction
 
         return if @nb_point_de_retour < 1
 
+        self.appliquer_couleur
         #retire la couleur grise pour ce point de retour
         i=0
         @pile.each do |coord|
             i+=1
-            next if i < @nb_point_de_retour
+            next if i <= @nb_point_de_retour
+            puts "on actualise " + coord.x.to_s + " et " + coord.y.to_s
             @plateau.damier[coord.x][coord.y].actualises_toi
         end
 
