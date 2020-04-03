@@ -8,6 +8,7 @@ class Jeu
     @nom_joueur
     @nom_joueur_label
     @temps_de_jeu
+    @malus_timer
 
     @en_jeu
 
