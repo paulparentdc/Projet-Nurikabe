@@ -79,22 +79,28 @@ class Menu
 		p "classment ds menu :"
 		p classement_fac
 
-    if(classement_fac)
-        for score in classement_fac do
-              label_fac = Gtk::Label.new(score)
-              stack_box_fac.add(label_fac)
+	if(classement_fac)
+		i=0
+		for score in classement_fac do
+			i+=1
+            label_fac = Gtk::Label.new(i.to_s + ". " + score)
+            stack_box_fac.add(label_fac)
+	end
+    end
+	if(classement_int)
+		i=0
+		for score in classement_int do
+			i+=1
+            label_int = Gtk::Label.new(i.to_s + ". " +score)
+            stack_box_int.add(label_int)
         end
     end
-		if(classement_int)
-        for score in classement_int do
-              label_int = Gtk::Label.new(score)
-              stack_box_int.add(label_int)
-        end
-    end
-		if(classement_dif)
+	if(classement_dif)
+		i=0
         for score in classement_dif do
-              label_dif = Gtk::Label.new(score)
-              stack_box_dif.add(label_dif)
+			i+=1
+			label_dif = Gtk::Label.new(i.to_s + ". " +score)
+            stack_box_dif.add(label_dif)
         end
     end
 		@window_menu_titre.show_all

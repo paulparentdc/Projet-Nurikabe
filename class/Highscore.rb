@@ -14,30 +14,23 @@ class Highscore
         @classement_difficile = []
     end
 
-    def inserer_score(nom_j, temp, classement)
-          i = 0
+    def tri_insertion_score(nom_j, temp, classement)
           classement.push(nom_j + " " + temp.to_s)
-          #classement.sort { |a, b| b.split(' ')[1] <=> a.split(' ')[1] }
-          classement = classement.sort { |a, b|
-            puts a.split(' ')[1]
-            puts b.split(' ')[1]
-            b.split(' ')[1] <=> a.split(' ')[1]
-          }
-          puts classement
-          puts "classement fac"
-          puts @classement_facile
+          return classement.sort { |a, b|
+            a.split(' ')[1] <=> b.split(' ')[1]
+          }[0, 10]
     end
 
     def inserer_score_facile(nom_j, temp)
-        inserer_score(nom_j, temp, @classement_facile)
+        @classement_facile = self.tri_insertion_score(nom_j, temp, @classement_facile)
     end
 
     def inserer_score_moyen(nom_j, temp)
-        inserer_score(nom_j, temp, @classement_moyen)
+        @classement_moyen = self.tri_insertion_score(nom_j, temp, @classement_moyen)
     end
 
     def inserer_score_difficile(nom_j, temp)
-        inserer_score(nom_j, temp, @classement_difficile)
+        @classement_difficile = self.tri_insertion_score(nom_j, temp, @classement_difficile)
     end
 
     def Highscore.recuperer_ds_fichier
