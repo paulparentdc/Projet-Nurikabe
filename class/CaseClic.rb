@@ -1,3 +1,7 @@
+# Case clicable par le joueur
+# @attr CSS_BOUTON_ROUGE [CssProvider] VARIABLE DE CLASSE : code CSS d'un bouton rouge
+# @attr CSS_BOUTON_GRIS [CssProvider] VARIABLE DE CLASSE : code CSS d'un bouton gris 
+# @attr etat [Etat] état de la case
 class CaseClic < Case
     attr_accessor :etat
 
@@ -62,7 +66,7 @@ class CaseClic < Case
         @bouton.style_context.add_provider(@@CSS_BOUTON_GRIS, Gtk::StyleProvider::PRIORITY_USER)
     end
 
-
+    # @!visibility private
     def to_s
         return @etat.etat
     end

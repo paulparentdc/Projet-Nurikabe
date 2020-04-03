@@ -1,6 +1,12 @@
 require 'gtk3'
 load 'Etat.rb'
-
+# Classe mère qui sert pour créer CaseChiffre et CaseClic
+# @attr_reader bouton [Button] bouton lié à la case
+# @attr_reader x [Fixnum] coordonnée x de notre case
+# @attr_reader y [Fixnum] coordonnée y de notre case
+# @attr plateau [Plateau] VARIABLE DE CLASSE : plateau dans lequel est la case
+# @attr CSS_BOUTON_NOIR [CssProvider] VARIABLE DE CLASSE : code CSS d'un bouton noir
+# @attr CSS_BOUTON_BLANC [CssProvider] VARIABLE DE CLASSE : code CSS d'un bouton blanc
 class Case
     attr_reader :bouton, :x, :y
 
@@ -23,7 +29,9 @@ class Case
     @bouton
     @x
     @y
-
+    
+    # Permet de renseigner le plateau de la case
+    # @param le plateau de jeu
     def Case.ajout_plateau(plateau)
         @@plateau = plateau
     end
@@ -39,11 +47,4 @@ class Case
         ' '
     end
 
-    def changer_suivant
-    end
-    
-
-    def changer
-        
-    end
 end

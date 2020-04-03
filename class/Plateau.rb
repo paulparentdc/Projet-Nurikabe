@@ -30,6 +30,7 @@ class Plateau
         
     end
 
+    # @!visibility private
     def to_s
         (0..(@taille-1)).each do |y|
             (0..(@taille-1)).each do |x|
