@@ -1,7 +1,7 @@
 #require "gtk3"
 #load 'Sauvegarde.rb'
 load 'Plateau.rb'
-
+load 'Highscore.rb'
 class Jeu
     attr_reader :plateau, :nom_joueur,:temps_de_jeu,:en_jeu
     @plateau
@@ -9,7 +9,7 @@ class Jeu
     @nom_joueur_label
     @temps_de_jeu
     @malus_timer
-
+    @window
     @en_jeu
 
     def initialize(plateau:, nom_joueur:, temps_de_jeu:)
@@ -24,8 +24,8 @@ class Jeu
         builder = Gtk::Builder.new
 
         builder.add_from_file("../Glade/EnJeu.glade")
-		    window = builder.get_object("fn_select")
-        window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		    @window = builder.get_object("fn_select")
+        @window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 
         # Récupérations des objets
             # Boutons
@@ -64,14 +64,14 @@ class Jeu
 
 
         # configuration de la fenêtre
-        window.set_title "Nurikabe!"
-        window.signal_connect "destroy" do
+        @window.set_title "Nurikabe!"
+        @window.signal_connect "destroy" do
             Sauvegarde.creer_sauvegarde(self)
             Gtk.main_quit
         end
 
-        window.set_window_position :center
-        window.show_all
+        @window.set_window_position :center
+        @window.show_all
 
         # lancement du timer
         timer_thread = Thread.new{self.lancer_timer}
@@ -104,8 +104,23 @@ class Jeu
         reponse = pop.run
         pop.destroy
 
-        # affichage en rouge des erreurs
-        if(reponse == Gtk::ResponseType::YES)
+        if(@plateau.partie_finie)
+          classement = @plateau.niveau.chomp.downcase
+          getHighscore = Highscore.recuperer_ds_fichier
+          if(classement == "facile")
+              getHighscore.inserer_score_facile(@nom_joueur,@temps_de_jeu+@plateau.malus_aide)
+          elsif(classement == "Moyen")
+              getHighscore.inserer_score_moyen(@nom_joueur,@temps_de_jeu+@plateau.malus_aide)
+          else
+              getHighscore.inserer_score_difficile(@nom_joueur,@temps_de_jeu+@plateau.malus_aide)
+          end
+          Sauvegarde.sauvegarde_highscore(getHighscore)
+          @window.destroy
+          if(reponse == Gtk::ResponseType::YES)
+              menu = Menu.getInstance()
+              menu.afficheChoixMode(@nom_joueur)
+          end
+          elsif(reponse == Gtk::ResponseType::YES)  # affichage en rouge des erreurs
             @plateau.malus_aide += tab_erreur.size*5
             tab_erreur.each do |err|
                 err.en_rouge

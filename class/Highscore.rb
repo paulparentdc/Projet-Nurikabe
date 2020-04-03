@@ -15,20 +15,17 @@ class Highscore
     end
 
     def inserer_score(nom_j, temp, classement)
-      i = 0
-      if classement
-           classement.push(nom_j + " " + temp.to_s)
-      else
-          for joueur in  classement do
-                if(joueur[1] >= temp)
-                    classement.insert(i, nom_j+ " " + temp.to_s)
-                    return
-                end
-                i+=1
-                return if(i>=TAILLE_MAX)
-          end
+          i = 0
           classement.push(nom_j + " " + temp.to_s)
-      end
+          #classement.sort { |a, b| b.split(' ')[1] <=> a.split(' ')[1] }
+          classement = classement.sort { |a, b|
+            puts a.split(' ')[1]
+            puts b.split(' ')[1]
+            b.split(' ')[1] <=> a.split(' ')[1]
+          }
+          puts classement
+          puts "classement fac"
+          puts @classement_facile
     end
 
     def inserer_score_facile(nom_j, temp)
@@ -54,8 +51,6 @@ class Highscore
           fichier = File.open(@chemin, "rb")
           highscore = Marshal::load(File::binread(@chemin))
           fichier.close
-
-
         end
         return highscore
     end

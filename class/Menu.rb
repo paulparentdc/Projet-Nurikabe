@@ -2,27 +2,29 @@ require 'rubygems'
 require 'gtk3'
 load 'Sauvegarde.rb'
 load 'Highscore.rb'
-class Menus
+class Menu
 	@nom_joueur
 	@window
-	@builder
+	@@builder ||= Gtk::Builder.new
 	@files_fac
 	@files_int
 	@files_dif
 	@window_menu_titre
 	@window_choix_niveau
+	@@menu ||= Menu.new
 
-	def initialize()
-		@builder = Gtk::Builder.new
+
+	def Menu.getInstance()
+		return @@menu
 	end
 
 	def afficheDemarrage()
 		if(@window_menu_titre != nil) then
 			@window_menu_titre.hide()
 		end
-		@builder.add_from_file("../Glade/Menu.glade")
-		@window = @builder.get_object("fn_debut")
-		bt_ok = @builder.get_object("bt_ok")
+		@@builder.add_from_file("../Glade/Menu.glade")
+		@window = @@builder.get_object("fn_debut")
+		bt_ok = @@builder.get_object("bt_ok")
 		#bt_ok.sensitive = FALSE
 		bt_ok.signal_connect('clicked') { |_widget| onClickDemarrage() }
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
@@ -31,45 +33,51 @@ class Menus
 	end
 
 	def onClickDemarrage()
-		ch_pseudo= @builder.get_object("ch_pseudo")
+		ch_pseudo= @@builder.get_object("ch_pseudo")
 		@nom_joueur=ch_pseudo.text().gsub('/',"")
 		puts @nom_joueur
-		afficheChoixMode()
+		afficheChoixMode(nil)
 	end
 
-	def afficheChoixMode()
+	def afficheChoixMode(nom_j)
+		if(nom_j != nil)
+				@nom_joueur = nom_j
+		end
 		if(@window_choix_niveau != nil)
 			@window_choix_niveau.hide()
-		else
+		elsif(@window != nil)
 				@window.destroy()
 		end
-		@builder.add_from_file("../Glade/Menu-titre.glade")
-		@window_menu_titre = @builder.get_object("fn_menu")
+		@@builder.add_from_file("../Glade/Menu-titre.glade")
+		@window_menu_titre = @@builder.get_object("fn_menu")
 		@window_menu_titre.show_all
 
 		@window_menu_titre.signal_connect('destroy') { |_widget| Gtk.main_quit }
-		bt_quit = @builder.get_object("bt_quit")
+		bt_quit = @@builder.get_object("bt_quit")
 		bt_quit.signal_connect('clicked') { |_widget| Gtk.main_quit }
-		bt_nv = @builder.get_object("bt_nv")
+		bt_nv = @@builder.get_object("bt_nv")
 		bt_nv.signal_connect('clicked') { |_widget| afficheChoixPlateau() }
-		bt_cs = @builder.get_object("bt_cs")
+		bt_cs = @@builder.get_object("bt_cs")
 		bt_cs.signal_connect('clicked') { |_widget| afficheChoixSauvegarde() }
 
-		stack_box_fac = @builder.get_object("stack_box_fac")
-		stack_box_int = @builder.get_object("stack_box_int")
-		stack_box_dif = @builder.get_object("stack_box_dif")
+		stack_box_fac = @@builder.get_object("stack_box_fac")
+		stack_box_int = @@builder.get_object("stack_box_int")
+		stack_box_dif = @@builder.get_object("stack_box_dif")
     getHighscore = Highscore.recuperer_ds_fichier
-		#getHighscore.inserer_score_facile("oo",5555)
-		#getHighscore.inserer_score_facile("xx",32)
+		getHighscore.inserer_score_facile("oo",5555)
+		getHighscore.inserer_score_facile("xx",32)
 		#getHighscore.inserer_score_moyen("oo",5555)
 		#getHighscore.inserer_score_moyen("xx",32)
 		#getHighscore.inserer_score_difficile("xx",32)
 		#getHighscore.inserer_score_difficile("xx",32)
 
 		Sauvegarde.sauvegarde_highscore(getHighscore)
+		getHighscore = Highscore.recuperer_ds_fichier
     classement_fac = getHighscore.classement_facile
 		classement_int = getHighscore.classement_moyen
 		classement_dif = getHighscore.classement_difficile
+		p "classment ds menu :"
+		p classement_fac
 
     if(classement_fac)
         for score in classement_fac do
@@ -95,19 +103,19 @@ class Menus
 
 	def afficheChoixPlateau()
 		@window_menu_titre.hide()
-		@builder.add_from_file("../Glade/Selection_niveau.glade")
-		@window_choix_niveau = @builder.get_object("fn_selec")
+		@@builder.add_from_file("../Glade/Selection_niveau.glade")
+		@window_choix_niveau = @@builder.get_object("fn_selec")
 		@window_choix_niveau.show_all()
 
-		bouton_retour = @builder.get_object("btn_retour")
-		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode()}
+		bouton_retour = @@builder.get_object("btn_retour")
+		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
 
 		@window_choix_niveau.signal_connect('destroy') { |_widget| Gtk.main_quit }
-		lab_pseu = @builder.get_object("lab_pseu")
+		lab_pseu = @@builder.get_object("lab_pseu")
 		lab_pseu.set_text("Pseudo : " + @nom_joueur)
 
-		box_fac_haut = @builder.get_object("box_fac_haut")
-		box_fac_bas = @builder.get_object("box_fac_bas")
+		box_fac_haut = @@builder.get_object("box_fac_haut")
+		box_fac_bas = @@builder.get_object("box_fac_bas")
 
 		i = 0
 		files_fac = Dir["../data/template/Facile/*.png"]
@@ -130,8 +138,8 @@ class Menus
 			end
 		end
 
-		box_int_haut = @builder.get_object("box_int_haut")
-		box_int_bas = @builder.get_object("box_int_bas")
+		box_int_haut = @@builder.get_object("box_int_haut")
+		box_int_bas = @@builder.get_object("box_int_bas")
 
 		i = 0
 		files_int = Dir["../data/template/Intermediaire/*.png"]
@@ -154,8 +162,8 @@ class Menus
 			end
 		end
 
-		box_dif_haut = @builder.get_object("box_dif_haut")
-		box_dif_bas = @builder.get_object("box_dif_bas")
+		box_dif_haut = @@builder.get_object("box_dif_haut")
+		box_dif_bas = @@builder.get_object("box_dif_bas")
 
 		i = 0
 
@@ -184,17 +192,17 @@ class Menus
 
 	def afficheChoixSauvegarde()
 		@window_choix_niveau.hide()
-		@builder.add_from_file("../Glade/Charger_sauvegarde.glade")
-		@window = @builder.get_object("fn_save")
+		@@builder.add_from_file("../Glade/Charger_sauvegarde.glade")
+		@window = @@builder.get_object("fn_save")
 
-		bouton_retour = @builder.get_object("btn_retour")
-		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode()}
+		bouton_retour = @@builder.get_object("btn_retour")
+		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
 
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
-		scrl = @builder.get_object("scrl_save")
+		scrl = @@builder.get_object("scrl_save")
 		@window.show()
 		file = Dir["../data/save/"+@nom_joueur+"/*.snurikabe"]
-		box_save = @builder.get_object("box_liste_save")
+		box_save = @@builder.get_object("box_liste_save")
 		box_save.margin = 20
 
 		bouton_charger = []
@@ -262,5 +270,5 @@ class Menus
 
 end
 
-menu = Menus.new()
+menu = Menu.new()
 menu.afficheDemarrage()
