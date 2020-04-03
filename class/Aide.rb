@@ -1,3 +1,4 @@
+# @attr plateau [Plateau] plateau de jeu
 class Aide
     @plateau
     

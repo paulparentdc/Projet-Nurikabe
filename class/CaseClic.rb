@@ -14,7 +14,6 @@ class CaseClic < Case
                     background-image: image(grey);
                     }
                     CSS
-
     @etat
     def initialize(x,y)
         super(x,y)

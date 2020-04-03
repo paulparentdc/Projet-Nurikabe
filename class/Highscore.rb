@@ -1,6 +1,7 @@
 class Highscore
 
   attr_reader :classement_facile, :classement_moyen, :classement_difficile, :chemin
+  
   @classement_facile
   @classement_moyen
   @classement_difficile
