@@ -1,7 +1,7 @@
 class Highscore
 
   attr_reader :classement_facile, :classement_moyen, :classement_difficile, :chemin
-  
+
   @classement_facile
   @classement_moyen
   @classement_difficile
@@ -47,16 +47,16 @@ class Highscore
         if !File.exist?(@chemin)
              highscore = Highscore.new
              donnees = Marshal::dump(highscore)
-             mon_fichier = File::open(@chemin,"w+")
+             mon_fichier = File::open(@chemin,"wb")
              mon_fichier.write(donnees)
              mon_fichier.close
         else
-          fichier = File.open(@chemin, "r")
+          fichier = File.open(@chemin, "rb")
           p File::read(@chemin)
-          highscore = Marshal::load(File::read(@chemin))
+          highscore = Marshal::load(File::binread(@chemin))
           fichier.close
-	  
-	
+
+
         end
         return highscore
     end
