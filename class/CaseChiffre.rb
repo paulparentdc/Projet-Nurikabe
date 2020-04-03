@@ -1,7 +1,8 @@
 # @attr_reader [Fixnum] chiffre - chiffre contenu dans la case
 class CaseChiffre < Case
-    attr_reader :chiffre
     @chiffre
+
+    attr_reader :chiffre
 
     def initialize(x, y, chiffre)
         super(x, y)

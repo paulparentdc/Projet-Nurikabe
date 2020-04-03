@@ -22,18 +22,20 @@ class CaseClic < Case
         @bouton.signal_connect('clicked'){@@plateau.on_click_jeu(x,y)}
     end
 
-
+    # Passe la case à l'état suivant dans l'ordre
     def suivant
         @etat.suivant!
         self.actualises_toi
         
     end
 
+    # Passe la case à l'état précédent dans l'ordre
     def precedent
         @etat.precedent!
         self.actualises_toi
     end
 
+    # Actualise le style du bouton de la case en fonction de son état
     def actualises_toi
         case(@etat.etat)
         when Etat::BLANC
@@ -51,10 +53,12 @@ class CaseClic < Case
         @bouton.style_context.add_provider(css, Gtk::StyleProvider::PRIORITY_USER)
     end
 
+    # Passe la couleur du bouton en rouge
     def en_rouge
         @bouton.style_context.add_provider(@@CSS_BOUTON_ROUGE, Gtk::StyleProvider::PRIORITY_USER)
     end
 
+    # Passe la couleur du bouton en gris
     def en_gris
         @bouton.style_context.add_provider(@@CSS_BOUTON_GRIS, Gtk::StyleProvider::PRIORITY_USER)
     end
