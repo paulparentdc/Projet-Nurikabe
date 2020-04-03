@@ -101,6 +101,7 @@ class PileAction
         end
 
         # Ajoute les coordonnées une seule fois dans la liste et retire ceux qui sont présent un nombre paire de fois
+            #On obtient une liste de cases noire
         tab_temp.each do |coord|
             tab_cases_noires << coord if (tab_temp.count(coord) % 2 != 0) && (tab_cases_noires.count(coord) == 0) 
         end
