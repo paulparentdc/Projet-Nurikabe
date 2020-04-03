@@ -40,7 +40,7 @@ class Sauvegarde
 
     #Chargement d'une partie
     #@param le jeu a sauvegarder
-    
+
     def Sauvegarde.creer_sauvegarde(jeu)
 
         jeu_filtree = DonneesJeu.new(jeu)
@@ -54,7 +54,7 @@ class Sauvegarde
             FileUtils.mkdir_p(dirname)
         end
 
-      
+
        mon_fichier = File::open(chemin_de_base,"w+")
        mon_fichier.write(donnees)
        mon_fichier.close
@@ -66,7 +66,7 @@ class Sauvegarde
     # @param le chemin de la sauvegarde
     # @return le jeu correspondant au chemin
     def Sauvegarde.charger_sauvegarde(chemin_de_base)
-        
+
         if !File.exist?(chemin_de_base)
             raise "Fichier inexistant"
             return
@@ -77,7 +77,7 @@ class Sauvegarde
         donnees=Marshal::load(File::read(chemin_de_base))
         fichier.close
 
-       
+
 
         plateau = Sauvegarde.charger_template(donnees.chemin_template)
 
@@ -177,7 +177,7 @@ class Sauvegarde
     def Sauvegarde.sauvegarde_highscore(highscore)
       donnees = Marshal::dump(highscore)
       chemin_de_base = "../data/highscore.score"
-      mon_fichier = File::open(chemin_de_base,"w+")
+      mon_fichier = File::open(chemin_de_base,"wb")
       mon_fichier.write(donnees)
       mon_fichier.close
     end

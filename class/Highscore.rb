@@ -52,7 +52,6 @@ class Highscore
              mon_fichier.close
         else
           fichier = File.open(@chemin, "rb")
-          p File::read(@chemin)
           highscore = Marshal::load(File::binread(@chemin))
           fichier.close
 

@@ -9,14 +9,16 @@ class Menus
 	@files_fac
 	@files_int
 	@files_dif
+	@window_menu_titre
+	@window_choix_niveau
 
 	def initialize()
 		@builder = Gtk::Builder.new
 	end
 
 	def afficheDemarrage()
-		if(@window != nil) then
-			@window.destroy()
+		if(@window_menu_titre != nil) then
+			@window_menu_titre.hide()
 		end
 		@builder.add_from_file("../Glade/Menu.glade")
 		@window = @builder.get_object("fn_debut")
@@ -24,7 +26,7 @@ class Menus
 		#bt_ok.sensitive = FALSE
 		bt_ok.signal_connect('clicked') { |_widget| onClickDemarrage() }
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
-		@window.show()
+		@window.show_all()
 		Gtk.main()
 	end
 
@@ -35,16 +37,17 @@ class Menus
 		afficheChoixMode()
 	end
 
-	def afficheChoixMode
-		@window.destroy()
+	def afficheChoixMode()
+		if(@window_choix_niveau != nil)
+			@window_choix_niveau.hide()
+		else
+				@window.destroy()
+		end
 		@builder.add_from_file("../Glade/Menu-titre.glade")
-		@window = @builder.get_object("fn_menu")
-		@window.show()
+		@window_menu_titre = @builder.get_object("fn_menu")
+		@window_menu_titre.show_all
 
-		bouton_retour = @builder.get_object("btn_retour")
-		bouton_retour.signal_connect('clicked'){ |_widget| afficheDemarrage()}
-
-		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		@window_menu_titre.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		bt_quit = @builder.get_object("bt_quit")
 		bt_quit.signal_connect('clicked') { |_widget| Gtk.main_quit }
 		bt_nv = @builder.get_object("bt_nv")
@@ -53,9 +56,8 @@ class Menus
 		bt_cs.signal_connect('clicked') { |_widget| afficheChoixSauvegarde() }
 
 		stack_box_fac = @builder.get_object("stack_box_fac")
-    stack_box_int = @builder.get_object("stack_box_int")
-  	stack_box_dif = @builder.get_object("stack_box_dif")
-
+		stack_box_int = @builder.get_object("stack_box_int")
+		stack_box_dif = @builder.get_object("stack_box_dif")
     getHighscore = Highscore.recuperer_ds_fichier
 		getHighscore.inserer_score_facile("oo",5555)
 		getHighscore.inserer_score_facile("xx",32)
@@ -87,20 +89,20 @@ class Menus
               stack_box_dif.add(label_dif)
         end
     end
-		@window.show_all
+		@window_menu_titre.show_all
 		Gtk.main()
 	end
 
 	def afficheChoixPlateau()
-		@window.destroy()
+		@window_menu_titre.hide()
 		@builder.add_from_file("../Glade/Selection_niveau.glade")
-		@window = @builder.get_object("fn_selec")
-		@window.show()
+		@window_choix_niveau = @builder.get_object("fn_selec")
+		@window_choix_niveau.show_all()
 
 		bouton_retour = @builder.get_object("btn_retour")
 		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode()}
 
-		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		@window_choix_niveau.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		lab_pseu = @builder.get_object("lab_pseu")
 		lab_pseu.set_text("Pseudo : " + @nom_joueur)
 
@@ -176,12 +178,12 @@ class Menus
 				i += 1
 			end
 		end
- 		@window.show_all
+ 		@window_choix_niveau.show_all
 		Gtk.main()
 	end
 
 	def afficheChoixSauvegarde()
-		@window.destroy()
+		@window_choix_niveau.hide()
 		@builder.add_from_file("../Glade/Charger_sauvegarde.glade")
 		@window = @builder.get_object("fn_save")
 
@@ -252,7 +254,7 @@ class Menus
 		file_niveau = file_image[0..file_image.length-4]
 		file_niveau +="nurikabe"
 
-		@window.destroy()
+		@window_choix_niveau.destroy()
 		jeu = Jeu.new(plateau: Sauvegarde.charger_template(file_niveau), nom_joueur: @nom_joueur, temps_de_jeu: 0)
 		puts jeu.affiche_toi
 
