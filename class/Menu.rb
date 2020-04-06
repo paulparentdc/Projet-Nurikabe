@@ -63,14 +63,14 @@ class Menu
 		stack_box_fac = @@builder.get_object("stack_box_fac")
 		stack_box_int = @@builder.get_object("stack_box_int")
 		stack_box_dif = @@builder.get_object("stack_box_dif")
-    getHighscore = Highscore.recuperer_ds_fichier
-		getHighscore.inserer_score_facile("oo",5555)
-		getHighscore.inserer_score_facile("xx",32)
+
+		#getHighscore.inserer_score_facile("oo",5555)
+		#getHighscore.inserer_score_facile("xx",32)
 		#getHighscore.inserer_score_moyen("oo",5555)
 		#getHighscore.inserer_score_moyen("xx",32)
 		#getHighscore.inserer_score_difficile("xx",32)
 		#getHighscore.inserer_score_difficile("xx",32)
-
+		getHighscore = Highscore.recuperer_ds_fichier
 		Sauvegarde.sauvegarde_highscore(getHighscore)
 		getHighscore = Highscore.recuperer_ds_fichier
     classement_fac = getHighscore.classement_facile
@@ -79,28 +79,22 @@ class Menu
 		p "classment ds menu :"
 		p classement_fac
 
-	if(classement_fac)
-		i=0
-		for score in classement_fac do
-			i+=1
-            label_fac = Gtk::Label.new(i.to_s + ". " + score)
-            stack_box_fac.add(label_fac)
-	end
-    end
-	if(classement_int)
-		i=0
-		for score in classement_int do
-			i+=1
-            label_int = Gtk::Label.new(i.to_s + ". " +score)
-            stack_box_int.add(label_int)
+    if(classement_fac)
+        for score in classement_fac do
+              label_fac = Gtk::Label.new(score)
+              stack_box_fac.add(label_fac)
         end
     end
-	if(classement_dif)
-		i=0
+		if(classement_int)
+        for score in classement_int do
+              label_int = Gtk::Label.new(score)
+              stack_box_int.add(label_int)
+        end
+    end
+		if(classement_dif)
         for score in classement_dif do
-			i+=1
-			label_dif = Gtk::Label.new(i.to_s + ". " +score)
-            stack_box_dif.add(label_dif)
+              label_dif = Gtk::Label.new(score)
+              stack_box_dif.add(label_dif)
         end
     end
 		@window_menu_titre.show_all
@@ -108,7 +102,9 @@ class Menu
 	end
 
 	def afficheChoixPlateau()
-		@window_menu_titre.hide()
+		if(@window_menu_titre != nil)
+			@window_menu_titre.hide()
+		end
 		@@builder.add_from_file("../Glade/Selection_niveau.glade")
 		@window_choix_niveau = @@builder.get_object("fn_selec")
 		@window_choix_niveau.show_all()
@@ -197,7 +193,13 @@ class Menu
 	end
 
 	def afficheChoixSauvegarde()
-		@window_choix_niveau.hide()
+
+		if(@window_menu_titre != nil)
+			@window_menu_titre.hide()
+		end
+		if(@window != nil)
+				@window.destroy()
+		end
 		@@builder.add_from_file("../Glade/Charger_sauvegarde.glade")
 		@window = @@builder.get_object("fn_save")
 

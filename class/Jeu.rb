@@ -107,9 +107,10 @@ class Jeu
         if(@plateau.partie_finie)
           classement = @plateau.niveau.chomp.downcase
           getHighscore = Highscore.recuperer_ds_fichier
+          p classement
           if(classement == "facile")
               getHighscore.inserer_score_facile(@nom_joueur,@temps_de_jeu+@plateau.malus_aide)
-          elsif(classement == "Moyen")
+          elsif(classement == "moyen")
               getHighscore.inserer_score_moyen(@nom_joueur,@temps_de_jeu+@plateau.malus_aide)
           else
               getHighscore.inserer_score_difficile(@nom_joueur,@temps_de_jeu+@plateau.malus_aide)

@@ -19,6 +19,9 @@ class Highscore
           return classement.sort { |a, b|
             a.split(' ')[1] <=> b.split(' ')[1]
           }[0, 10]
+
+          temphighscore = Highscore.recuperer_ds_fichier
+          Sauvegarde.sauvegarde_highscore(temphighscore)
     end
 
     def inserer_score_facile(nom_j, temp)
