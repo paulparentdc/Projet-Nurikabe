@@ -9,18 +9,15 @@ class Menu
 	@files_fac
 	@files_int
 	@files_dif
-	@window_menu_titre
-	@window_choix_niveau
 	@@menu ||= Menu.new
-
 
 	def Menu.getInstance()
 		return @@menu
 	end
 
 	def afficheDemarrage()
-		if(@window_menu_titre != nil) then
-			@window_menu_titre.hide()
+		if(@window != nil) then
+				@window.hide()
 		end
 		@@builder.add_from_file("../Glade/Menu.glade")
 		@window = @@builder.get_object("fn_debut")
@@ -43,23 +40,22 @@ class Menu
 		if(nom_j != nil)
 				@nom_joueur = nom_j
 		end
-		if(@window_choix_niveau != nil)
-			@window_choix_niveau.hide()
-		elsif(@window != nil)
-				@window.destroy()
+		if(@window != nil)
+				@window.hide()
 		end
+		@@builder = Gtk::Builder.new
 		@@builder.add_from_file("../Glade/Menu-titre.glade")
-		@window_menu_titre = @@builder.get_object("fn_menu")
-		@window_menu_titre.show_all
 
-		@window_menu_titre.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		@window = @@builder.get_object("fn_menu")
+		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		bt_quit = @@builder.get_object("bt_quit")
 		bt_quit.signal_connect('clicked') { |_widget| Gtk.main_quit }
+
 		bt_nv = @@builder.get_object("bt_nv")
 		bt_nv.signal_connect('clicked') { |_widget| afficheChoixPlateau() }
+
 		bt_cs = @@builder.get_object("bt_cs")
 		bt_cs.signal_connect('clicked') { |_widget| afficheChoixSauvegarde() }
-
 		stack_box_fac = @@builder.get_object("stack_box_fac")
 		stack_box_int = @@builder.get_object("stack_box_int")
 		stack_box_dif = @@builder.get_object("stack_box_dif")
@@ -76,8 +72,6 @@ class Menu
     classement_fac = getHighscore.classement_facile
 		classement_int = getHighscore.classement_moyen
 		classement_dif = getHighscore.classement_difficile
-		p "classment ds menu :"
-		p classement_fac
 
     if(classement_fac)
         for score in classement_fac do
@@ -97,22 +91,20 @@ class Menu
               stack_box_dif.add(label_dif)
         end
     end
-		@window_menu_titre.show_all
+		@window.show_all
 		Gtk.main()
 	end
 
 	def afficheChoixPlateau()
-		if(@window_menu_titre != nil)
-			@window_menu_titre.hide()
+		p @window
+		if(@window != nil)
+			p "on va hide la fenetre"
+			@window.hide()
 		end
 		@@builder.add_from_file("../Glade/Selection_niveau.glade")
-		@window_choix_niveau = @@builder.get_object("fn_selec")
-		@window_choix_niveau.show_all()
+		@window = @@builder.get_object("fn_selec")
 
-		bouton_retour = @@builder.get_object("btn_retour")
-		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
-
-		@window_choix_niveau.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		lab_pseu = @@builder.get_object("lab_pseu")
 		lab_pseu.set_text("Pseudo : " + @nom_joueur)
 
@@ -188,31 +180,22 @@ class Menu
 				i += 1
 			end
 		end
- 		@window_choix_niveau.show_all
+ 		@window.show_all
 		Gtk.main()
 	end
 
 	def afficheChoixSauvegarde()
-
-		if(@window_menu_titre != nil)
-			@window_menu_titre.hide()
-		end
 		if(@window != nil)
-				@window.destroy()
+				@window.hide()
 		end
 		@@builder.add_from_file("../Glade/Charger_sauvegarde.glade")
 		@window = @@builder.get_object("fn_save")
 
-		bouton_retour = @@builder.get_object("btn_retour")
-		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
-
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		scrl = @@builder.get_object("scrl_save")
-		@window.show()
 		file = Dir["../data/save/"+@nom_joueur+"/*.snurikabe"]
 		box_save = @@builder.get_object("box_liste_save")
 		box_save.margin = 20
-
 		bouton_charger = []
 		bouton_supprimer = []
 		i = 0
@@ -239,7 +222,7 @@ class Menu
 		j = 0
 		for b in boutons do
 			if(b == btn)
-				@window.destroy()
+				@window.hide()
 				jeu = Sauvegarde.charger_sauvegarde(files[j])
 				jeu.affiche_toi()
 			end
@@ -270,7 +253,7 @@ class Menu
 		file_niveau = file_image[0..file_image.length-4]
 		file_niveau +="nurikabe"
 
-		@window_choix_niveau.destroy()
+		@window.hide()
 		jeu = Jeu.new(plateau: Sauvegarde.charger_template(file_niveau), nom_joueur: @nom_joueur, temps_de_jeu: 0)
 		puts jeu.affiche_toi
 
