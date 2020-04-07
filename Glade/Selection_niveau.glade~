@@ -28,7 +28,8 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="margin_right">13</property>
+                <property name="halign">start</property>
+                <property name="valign">start</property>
                 <property name="image">image1</property>
               </object>
               <packing>
@@ -53,6 +54,9 @@
               <object class="GtkStackSwitcher" id="ss_diff">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="valign">end</property>
+                <property name="margin_left">20</property>
                 <property name="stack">stack1</property>
               </object>
               <packing>
