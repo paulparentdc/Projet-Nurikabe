@@ -6,13 +6,11 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-floppy</property>
-    <property name="icon_size">0</property>
   </object>
   <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-no</property>
-    <property name="icon_size">0</property>
+    <property name="stock">gtk-quit</property>
   </object>
   <object class="GtkWindow" id="fen_opt">
     <property name="can_focus">False</property>
