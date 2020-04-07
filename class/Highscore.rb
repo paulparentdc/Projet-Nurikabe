@@ -6,7 +6,7 @@ class Highscore
   @classement_moyen
   @classement_difficile
   @chemin = "../data/highscore.score"
-  TAILLE_MAX = 10
+  @TAILLE_MAX ||= 10
 
     def initialize()
         @classement_facile = []

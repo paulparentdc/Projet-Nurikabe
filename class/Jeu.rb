@@ -43,7 +43,7 @@ class Jeu
 
         # Configurations des objets récupéré
             # Boutons
-        btn_options.signal_connect('clicked'){Sauvegarde.creer_sauvegarde(self)}
+        btn_options.signal_connect('clicked'){afficherOption()}
         btn_undo.signal_connect('clicked'){@plateau.on_click_undo}
         btn_point_de_retour.signal_connect('clicked'){@plateau.on_click_creer_retour}
         btn_revenir_point_de_retour.signal_connect('clicked'){@plateau.on_click_aller_retour}
@@ -77,6 +77,25 @@ class Jeu
         timer_thread = Thread.new{self.lancer_timer}
         Gtk.main
 
+    end
+
+
+    def afficherOption
+        builder_opt = Gtk::Builder.new
+        builder_opt.add_from_file("../Glade/Options.glade")
+        windowOpt = builder_opt.get_object("fen_opt")
+        windowOpt.signal_connect('destroy') { |_widget| windowOpt.hide() }
+        btn_sav = builder_opt.get_object("btn_sav")
+        btn_sav.signal_connect('destroy') {Sauvegarde.creer_sauvegarde(self) }
+        btn_quit = builder_opt.get_object("btn_quit")
+        btn_quit.signal_connect('destroy') {|_widget| tout_fermer(windowOpt)}
+        windowOpt.show_all()
+    end
+
+    def tout_fermer(windowOpt)
+        @window.destroy()
+        windowOpt.destroy()
+        Gtk.main_quit
     end
 
     def lancer_timer
