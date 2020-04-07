@@ -96,13 +96,16 @@ class Menu
 	end
 
 	def afficheChoixPlateau()
-		p @window
+
 		if(@window != nil)
-			p "on va hide la fenetre"
 			@window.hide()
 		end
+
 		@@builder.add_from_file("../Glade/Selection_niveau.glade")
 		@window = @@builder.get_object("fn_selec")
+
+		bouton_retour = @@builder.get_object("btn_retour")
+		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
 
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		lab_pseu = @@builder.get_object("lab_pseu")
@@ -190,6 +193,9 @@ class Menu
 		end
 		@@builder.add_from_file("../Glade/Charger_sauvegarde.glade")
 		@window = @@builder.get_object("fn_save")
+
+		bouton_retour = @@builder.get_object("btn_retour")
+		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
 
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		scrl = @@builder.get_object("scrl_save")
