@@ -208,20 +208,25 @@ class Menu
 		bouton_charger = []
 		bouton_supprimer = []
 		i = 0
-		for n in file do
-			hbox = Gtk::Box.new(:horizontal, 0)
-			hbox.margin = 20
-			nom_save = n.split("/")
-			label = Gtk::Label.new("Sauvegarde du " + nom_save[4].split(".")[0])
-			bouton_charger[i] = Gtk::Button.new(:label => "Charger")
-			bouton_supprimer[i] = Gtk::Button.new(:label => "Supprimer")
-			bouton_charger[i].signal_connect('clicked'){|_widget| charger_save(bouton_charger, file, _widget)}
-			bouton_supprimer[i].signal_connect('clicked'){|_widget| supprimer_save(bouton_supprimer, file, _widget)}
-			hbox.pack_start(label,:expand => true, :fill => false, :padding => 0)
-			hbox.add(bouton_charger[i])
-			hbox.add(bouton_supprimer[i])
-			box_save.add(hbox)
-			i+=1
+		if(file.length == 0)
+					label = Gtk::Label.new("Vous n'avez aucune sauvegarde.")
+					box_save.add(label)
+		else
+			for n in file do
+				hbox = Gtk::Box.new(:horizontal, 0)
+				hbox.margin = 20
+				nom_save = n.split("/")
+				label = Gtk::Label.new("Sauvegarde du " + nom_save[4].split(".")[0])
+				bouton_charger[i] = Gtk::Button.new(:label => "Charger")
+				bouton_supprimer[i] = Gtk::Button.new(:label => "Supprimer")
+				bouton_charger[i].signal_connect('clicked'){|_widget| charger_save(bouton_charger, file, _widget)}
+				bouton_supprimer[i].signal_connect('clicked'){|_widget| supprimer_save(bouton_supprimer, file, _widget)}
+				hbox.pack_start(label,:expand => true, :fill => false, :padding => 0)
+				hbox.add(bouton_charger[i])
+				hbox.add(bouton_supprimer[i])
+				box_save.add(hbox)
+				i+=1
+			end
 		end
 		@window.show_all
 		Gtk.main()
