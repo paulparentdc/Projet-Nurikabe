@@ -66,7 +66,8 @@ class Jeu
         # configuration de la fenêtre
         @window.set_title "Nurikabe!"
         @window.signal_connect "destroy" do
-            Sauvegarde.creer_sauvegarde(self)
+            #Sauvegarde.creer_sauvegarde(self)
+            @window.destroy()
             Gtk.main_quit
         end
 
@@ -93,7 +94,7 @@ class Jeu
     end
 
     def tout_fermer(windowOpt)
-        @en_jeu = false 
+        @en_jeu = false
         @window.destroy()
         windowOpt.destroy()
         Gtk.main_quit

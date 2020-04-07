@@ -64,6 +64,7 @@ class Sauvegarde
        windowPopup = builderPopup.get_object("fn_popup")
        btn_ok = builderPopup.get_object("btn_ok")
        btn_ok.signal_connect('clicked') {windowPopup.destroy()}
+       windowPopup.show_all()
     end
 
 
