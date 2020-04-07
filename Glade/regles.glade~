@@ -4,6 +4,7 @@
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkWindow" id="fen_regle">
     <property name="can_focus">False</property>
+    <property name="resizable">False</property>
     <property name="window_position">center-always</property>
     <property name="default_width">800</property>
     <property name="default_height">600</property>
@@ -16,10 +17,9 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="is_focus">True</property>
-        <property name="halign">start</property>
-        <property name="valign">start</property>
         <property name="resize_mode">immediate</property>
         <property name="orientation">vertical</property>
+        <property name="baseline_position">top</property>
         <child>
           <object class="GtkNotebook">
             <property name="visible">True</property>
@@ -29,7 +29,6 @@
               <object class="GtkLabel" id="Règles2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="valign">start</property>
                 <property name="label" translatable="yes">Le puzzle se résout sur une grille rectangulaire de cellules, dont certaines contiennent des nombres.
 
 Deux cellules sont connectées si elles sont adjacentes verticalement ou horizontalement, mais pas en diagonale. Les cellules blanches constituent les îlots alors que les cellules noires connectées constituent le fleuve.
@@ -68,6 +67,7 @@ Action entrainant un malus  de temps:
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="shadow_type">in</property>
+                <property name="propagate_natural_width">True</property>
                 <property name="propagate_natural_height">True</property>
                 <child>
                   <object class="GtkViewport">
@@ -244,8 +244,8 @@ les deux indices doit faire partie d'un mur.</property>
             </child>
           </object>
           <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
             <property name="position">0</property>
           </packing>
         </child>
