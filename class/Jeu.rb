@@ -67,6 +67,7 @@ class Jeu
         @window.set_title "Nurikabe!"
         @window.signal_connect "destroy" do
             #Sauvegarde.creer_sauvegarde(self)
+            @en_jeu = false
             @window.destroy()
             Gtk.main_quit
         end
