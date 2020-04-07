@@ -58,6 +58,12 @@ class Sauvegarde
        mon_fichier = File::open(chemin_de_base,"w+")
        mon_fichier.write(donnees)
        mon_fichier.close
+
+       builderPopup = Gtk::Builder.new
+       builderPopup.add_from_file("../Glade/Popup.glade")
+       windowPopup = builderPopup.get_object("fn_popup")
+       btn_ok = builderPopup.get_object("btn_ok")
+       btn_ok.signal_connect('clicked') {windowPopup.destroy()}
     end
 
 
@@ -76,7 +82,6 @@ class Sauvegarde
         fichier=File.open(chemin_de_base,"r")
         donnees=Marshal::load(File::read(chemin_de_base))
         fichier.close
-
 
 
         plateau = Sauvegarde.charger_template(donnees.chemin_template)

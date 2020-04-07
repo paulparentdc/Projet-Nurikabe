@@ -86,13 +86,14 @@ class Jeu
         windowOpt = builder_opt.get_object("fen_opt")
         windowOpt.signal_connect('destroy') { |_widget| windowOpt.hide() }
         btn_sav = builder_opt.get_object("btn_sav")
-        btn_sav.signal_connect('destroy') {Sauvegarde.creer_sauvegarde(self) }
+        btn_sav.signal_connect('clicked') {Sauvegarde.creer_sauvegarde(self) }
         btn_quit = builder_opt.get_object("btn_quit")
-        btn_quit.signal_connect('destroy') {|_widget| tout_fermer(windowOpt)}
+        btn_quit.signal_connect('clicked') {|_widget| tout_fermer(windowOpt)}
         windowOpt.show_all()
     end
 
     def tout_fermer(windowOpt)
+        @en_jeu = false 
         @window.destroy()
         windowOpt.destroy()
         Gtk.main_quit

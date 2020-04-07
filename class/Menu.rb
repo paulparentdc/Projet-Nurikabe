@@ -22,7 +22,6 @@ class Menu
 		@@builder.add_from_file("../Glade/Menu.glade")
 		@window = @@builder.get_object("fn_debut")
 		bt_ok = @@builder.get_object("bt_ok")
-		#bt_ok.sensitive = FALSE
 		bt_ok.signal_connect('clicked') { |_widget| onClickDemarrage() }
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		@window.show_all()
