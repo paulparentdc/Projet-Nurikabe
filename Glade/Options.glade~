@@ -19,7 +19,7 @@
     <property name="window_position">center</property>
     <property name="default_width">300</property>
     <property name="default_height">150</property>
-    <property name="gravity">west</property>
+    <property name="gravity">center</property>
     <child>
       <placeholder/>
     </child>
