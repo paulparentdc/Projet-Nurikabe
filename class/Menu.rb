@@ -2,6 +2,7 @@ require 'rubygems'
 require 'gtk3'
 load 'Sauvegarde.rb'
 load 'Highscore.rb'
+
 class Menu
 	@nom_joueur
 	@window
@@ -23,6 +24,9 @@ class Menu
 		@window = @@builder.get_object("fn_debut")
 		bt_ok = @@builder.get_object("bt_ok")
 		bt_ok.signal_connect('clicked') { |_widget| onClickDemarrage() }
+		@window.signal_connect("key-press-event") do |w, e|
+			onClickDemarrage() if Gdk::Keyval.to_name(e.keyval) == "Return"
+		end
 		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
 		@window.show_all()
 		Gtk.main()
