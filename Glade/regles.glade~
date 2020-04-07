@@ -2,12 +2,15 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-apply</property>
+  </object>
   <object class="GtkWindow" id="fen_regle">
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="window_position">center-always</property>
-    <property name="default_width">800</property>
-    <property name="default_height">600</property>
     <property name="gravity">center</property>
     <child>
       <placeholder/>
@@ -26,30 +29,33 @@
             <property name="can_focus">True</property>
             <property name="resize_mode">immediate</property>
             <child>
-              <object class="GtkLabel" id="Règles2">
+              <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Le puzzle se résout sur une grille rectangulaire de cellules, dont certaines contiennent des nombres.
 
-Deux cellules sont connectées si elles sont adjacentes verticalement ou horizontalement, mais pas en diagonale. Les cellules blanches constituent les îlots alors que les cellules noires connectées constituent le fleuve.
+Deux cellules sont connectées si elles sont adjacentes verticalement ou horizontalement, mais pas en diagonale. 
 
-L'objectif est de déterminer quelles cellules doivent être blanches ou noires en respectant les règles suivantes :
+Les cellules blanches constituent les îlots alors que les cellules noires connectées constituent le fleuve.
 
-    -chaque cellule numérotée est une cellule d'îlots (blanche) et le chiffre qu'elle contient est le nombre de cellules blanches que comporte l'îlot auquel elle appartient,
 
-    -chaque îlot ne doit comporter qu'une cellule numérotée,
 
-    -il ne doit y avoir qu'un fleuve (cellules noires connectées) qui ne doit pas contenir de lacs, c'est-à-dire de blocs de cellules noires de 2x2.
+L'objectif est de déterminer quelles cellules doivent être noires en respectant les règles suivantes :
+
+    - chaque cellule numérotée est une cellule d'îlots (blanche) et le chiffre qu'elle contient 
+      est le nombre de cellules blanches que comporte l'îlot auquel elle appartient,
+
+    - chaque îlot ne doit comporter qu'une cellule numérotée,
+
+    - il ne doit y avoir qu'un fleuve (cellules noires connectées) qui ne doit pas contenir de lacs, 
+     c'est-à-dire de blocs de cellules noires de 2x2.
+
+
 
 Action entrainant un malus  de temps:
-	- demander une vérification du terrain -&gt; 10 secondes de pénalité si il y a au moins une faute + 5*(le nombre de fautes) si l'on décide de les afficher.</property>
-                <property name="justify">center</property>
-                <property name="wrap">True</property>
-                <property name="width_chars">20</property>
+    - demander une vérification du terrain -&gt; 10 secondes de pénalité si il y a au moins une faute + 5*(le nombre de fautes), 
+    si l'on décide de les afficher.</property>
               </object>
-              <packing>
-                <property name="tab_fill">False</property>
-              </packing>
             </child>
             <child type="tab">
               <object class="GtkLabel">
@@ -91,7 +97,7 @@ Comme il s'agit d'une île avec un seul carré, nous pouvons l'entourer de murs 
                             <property name="wrap">True</property>
                           </object>
                           <packing>
-                            <property name="x">205</property>
+                            <property name="x">135</property>
                           </packing>
                         </child>
                         <child>
@@ -104,7 +110,7 @@ Comme il s'agit d'une île avec un seul carré, nous pouvons l'entourer de murs 
                             <property name="pixbuf">../graphic/img_regles/2664.gif</property>
                           </object>
                           <packing>
-                            <property name="x">500</property>
+                            <property name="x">430</property>
                           </packing>
                         </child>
                         <child>
@@ -116,7 +122,7 @@ Comme il s'agit d'une île avec un seul carré, nous pouvons l'entourer de murs 
                             <property name="pixbuf">../graphic/img_regles/2665.gif</property>
                           </object>
                           <packing>
-                            <property name="x">700</property>
+                            <property name="x">630</property>
                           </packing>
                         </child>
                         <child>
@@ -135,7 +141,7 @@ le carré entre les deux doit être un mur.</property>
                             <property name="wrap">True</property>
                           </object>
                           <packing>
-                            <property name="x">700</property>
+                            <property name="x">630</property>
                             <property name="y">200</property>
                           </packing>
                         </child>
@@ -149,7 +155,7 @@ le carré entre les deux doit être un mur.</property>
                             <property name="pixbuf">../graphic/img_regles/2666.gif</property>
                           </object>
                           <packing>
-                            <property name="x">300</property>
+                            <property name="x">230</property>
                             <property name="y">181</property>
                           </packing>
                         </child>
@@ -163,7 +169,7 @@ le carré entre les deux doit être un mur.</property>
                             <property name="pixbuf">../graphic/img_regles/2667.gif</property>
                           </object>
                           <packing>
-                            <property name="x">500</property>
+                            <property name="x">430</property>
                             <property name="y">182</property>
                           </packing>
                         </child>
@@ -182,7 +188,7 @@ les deux indices doit faire partie d'un mur.</property>
                             <property name="wrap">True</property>
                           </object>
                           <packing>
-                            <property name="x">205</property>
+                            <property name="x">135</property>
                             <property name="y">400</property>
                           </packing>
                         </child>
@@ -196,7 +202,7 @@ les deux indices doit faire partie d'un mur.</property>
                             <property name="pixbuf">../graphic/img_regles/2668.gif</property>
                           </object>
                           <packing>
-                            <property name="x">500</property>
+                            <property name="x">430</property>
                             <property name="y">400</property>
                           </packing>
                         </child>
@@ -210,7 +216,7 @@ les deux indices doit faire partie d'un mur.</property>
                             <property name="pixbuf">../graphic/img_regles/2669.gif</property>
                           </object>
                           <packing>
-                            <property name="x">700</property>
+                            <property name="x">630</property>
                             <property name="y">400</property>
                           </packing>
                         </child>
@@ -251,12 +257,14 @@ les deux indices doit faire partie d'un mur.</property>
         </child>
         <child>
           <object class="GtkButton" id="btn_compris">
-            <property name="label" translatable="yes">Compris!</property>
+            <property name="label" translatable="yes">Compris !</property>
             <property name="name">btn_compris</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="receives_default">False</property>
             <property name="resize_mode">immediate</property>
+            <property name="image">image1</property>
+            <property name="always_show_image">True</property>
           </object>
           <packing>
             <property name="expand">False</property>
