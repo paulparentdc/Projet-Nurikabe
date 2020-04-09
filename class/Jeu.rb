@@ -25,7 +25,7 @@ class Jeu
 
         builder.add_from_file("../Glade/EnJeu.glade")
 		    @window = builder.get_object("fn_select")
-        @window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+        @window.signal_connect('destroy') { |_widget| exit!() }
 
         # Récupérations des objets
             # Boutons
@@ -69,7 +69,7 @@ class Jeu
             #Sauvegarde.creer_sauvegarde(self)
             @en_jeu = false
             @window.destroy()
-            Gtk.main_quit
+            exit!()
         end
 
         @window.set_window_position :center
@@ -98,7 +98,7 @@ class Jeu
         @en_jeu = false
         @window.destroy()
         windowOpt.destroy()
-        Gtk.main_quit
+        exit!()
     end
 
     def lancer_timer
@@ -125,7 +125,6 @@ class Jeu
 
         reponse = pop.run
         pop.destroy
-
         if(@plateau.partie_finie)
           classement = @plateau.niveau.chomp.downcase
           getHighscore = Highscore.recuperer_ds_fichier
@@ -137,16 +136,17 @@ class Jeu
               getHighscore.inserer_score_difficile(@nom_joueur,@temps_de_jeu+@plateau.malus_aide)
           end
           Sauvegarde.sauvegarde_highscore(getHighscore)
-          @window.destroy
           if(reponse == Gtk::ResponseType::YES)
+              @window.hide
               menu = Menu.getInstance()
               menu.afficheChoixMode(@nom_joueur)
+
           end
-          elsif(reponse == Gtk::ResponseType::YES)  # affichage en rouge des erreurs
+        elsif(reponse == Gtk::ResponseType::YES)  # affichage en rouge des erreurs
             @plateau.malus_aide += tab_erreur.size*5
             tab_erreur.each do |err|
-                err.en_rouge
-            end
+               err.en_rouge
+           end
         end
     end
 end
