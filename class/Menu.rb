@@ -27,7 +27,7 @@ class Menu
 		@window.signal_connect("key-press-event") do |w, e|
 			onClickDemarrage() if Gdk::Keyval.to_name(e.keyval) == "Return"
 		end
-		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		@window.signal_connect('destroy') { |_widget| exit!() }
 		@window.show_all()
 		Gtk.main()
 	end
@@ -35,7 +35,6 @@ class Menu
 	def onClickDemarrage()
 		ch_pseudo= @@builder.get_object("ch_pseudo")
 		@nom_joueur=ch_pseudo.text().gsub('/',"")
-		puts @nom_joueur
 		afficheChoixMode(nil)
 	end
 
@@ -50,9 +49,9 @@ class Menu
 		@@builder.add_from_file("../Glade/Menu-titre.glade")
 
 		@window = @@builder.get_object("fn_menu")
-		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		@window.signal_connect('destroy') { |_widget| exit!() }
 		bt_quit = @@builder.get_object("bt_quit")
-		bt_quit.signal_connect('clicked') { |_widget| Gtk.main_quit }
+		bt_quit.signal_connect('clicked') { |_widget| exit!() }
 
 		bt_nv = @@builder.get_object("bt_nv")
 		bt_nv.signal_connect('clicked') { |_widget| afficheChoixPlateau() }
@@ -110,7 +109,7 @@ class Menu
 		bouton_retour = @@builder.get_object("btn_retour")
 		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
 
-		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		@window.signal_connect('destroy') { |_widget| exit!() }
 		lab_pseu = @@builder.get_object("lab_pseu")
 		lab_pseu.set_text("Pseudo : " + @nom_joueur)
 
@@ -125,10 +124,9 @@ class Menu
 			for n in files_fac do
 
 				toggles_fac[i] = Gtk::Button.new()
-				image = Gtk::Image.new(n)
+				image = Gtk::Image.new(:file => n)
 				toggles_fac[i].signal_connect('clicked') { |_widget|  btn_to_img(toggles_fac, files_fac,_widget) }
 				toggles_fac[i].add(image)
-				toggles_fac[i].set_visible(TRUE)
 				if(i <= 3) then
 					box_fac_haut.add(toggles_fac[i])
 				else
@@ -147,12 +145,10 @@ class Menu
 		if files_int.length() <= 8 then
 			toggles_int = []
 			for n in files_int do
-
 				toggles_int[i] = Gtk::Button.new()
-				image = Gtk::Image.new(n)
+				image = Gtk::Image.new(:file => n)
 				toggles_int[i].signal_connect('clicked') { |_widget| btn_to_img(toggles_int, files_int,_widget) }
 				toggles_int[i].add(image)
-				toggles_int[i].set_visible(TRUE)
 				if(i <= 3) then
 					box_int_haut.add(toggles_int[i])
 				else
@@ -174,10 +170,9 @@ class Menu
 			for n in files_dif do
 
 				toggles_dif[i] = Gtk::Button.new()
-				image = Gtk::Image.new(n)
+				image = Gtk::Image.new(:file => n)
 				toggles_dif[i].signal_connect('clicked') { |_widget| btn_to_img(toggles_dif, files_dif, _widget)}
 				toggles_dif[i].add(image)
-				toggles_dif[i].set_visible(TRUE)
 				if(i <= 3) then
 					box_dif_haut.add(toggles_dif[i])
 				else
@@ -200,7 +195,7 @@ class Menu
 		bouton_retour = @@builder.get_object("btn_retour")
 		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
 
-		@window.signal_connect('destroy') { |_widget| Gtk.main_quit }
+		@window.signal_connect('destroy') { |_widget| exit!() }
 		scrl = @@builder.get_object("scrl_save")
 		file = Dir["../data/save/"+@nom_joueur+"/*.snurikabe"]
 		box_save = @@builder.get_object("box_liste_save")
