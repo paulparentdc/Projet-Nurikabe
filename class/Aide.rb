@@ -344,7 +344,7 @@ class Aide
     end
     # Regarde aux coordonnées si la case contient un 1
     def case_1?(i,j)
-        return @plateau.coord_valides?(i,j) && @plateau.donne_case(i,j).to_s.chr == '1'
+        return @plateau.coord_valides?(i,j) && @plateau.donne_case(i,j).to_s == '1'
     end
     # Regarde aux coordonnées si la case est hors du plateau
     def case_bord?(i,j)
