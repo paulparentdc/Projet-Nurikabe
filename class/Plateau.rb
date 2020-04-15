@@ -109,6 +109,8 @@ class Plateau
     end
 
     #Vérifie si les coordonnées passées en paramètre désignent une case du plateau
+    # @param x l'abscisse de la case
+    # @param y l'ordonnée de la case
     def coord_valides?(x,y)
         if x < @taille && x>= 0 && y < @taille && y>= 0
             return true
@@ -118,6 +120,8 @@ class Plateau
     end
 
     #Retourne la case aux coordonnées passées en paramètre
+    # @param x l'abscisse de la case
+    # @param y l'ordonnée de la case
     def donne_case(x,y)
         if coord_valides?(x,y)
             return @damier[x][y]
@@ -145,12 +149,15 @@ class Plateau
     end
 
     #Empile dans la pile d'action l'action effectué sur la case concernée par les coordonnées passées en paramètre
+    # @param x l'abscisse de la case
+    # @param y l'ordonnée de la case
     def on_click_jeu(x,y)
         @pile_action.empiler(Action.new(x,y))
         @damier[x][y].suivant
     end
 
     #Ouvre une fenêtre pop-up qui affiche une aide si il y en a une de disponible sur le jeu en cours
+    # @param jeu [Jeu] le jeu tester
     def on_click_aide(jeu)
         txt =''
         if(self.verifier_damier.empty?)
@@ -205,6 +212,7 @@ class Plateau
     end
 
     #Ouvre la fenêtre de règles du jeu
+    # @param jeu [Jeu] le jeu en cours
     def on_click_regle(jeu)
         builder = Gtk::Builder.new
 
