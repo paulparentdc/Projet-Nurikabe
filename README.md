@@ -27,8 +27,9 @@ ruby ./class/Menu.rb
 
 -> Pour créer un nouveau template on notera 'b' une case blanc, 'n' case noire et un chiffre
 
-L'utilisateur ne verra pas les cases noires. Les cases noire permettront à la verification de la grille et sa correction.
+L'utilisateur ne verra pas les cases noires. Les cases noires permettront à la verification de la grille et sa correction.
 
-Le template devra être rédigé dans un fichier avec l'extension .nurikabe et si on on le souhaite on pourra ajouter une image .png pour le voir.
+Le template devra être rédigé dans un fichier avec l'extension .nurikabe et si on le souhaite on pourra ajouter une image .png pour le voir.
+
 Pour se faire, il faudra que les 2 éléments aient le même nom, par exemple
 niveau1.nurikabe pour le template et niveau1.png pour l'image.
