@@ -5,6 +5,10 @@ class CaseChiffre < Case
 
     attr_reader :chiffre
 
+	# Constructeur de CaseChiffre
+	# @param x [Fixnum] la coordonnée x dans le plateau
+	# @param y [Fixnum] la coordonnée y dans le platea
+	# @param chiffre [Fixnul] le chiffre contenue dans la case
     def initialize(x, y, chiffre)
         super(x, y)
         @chiffre = chiffre

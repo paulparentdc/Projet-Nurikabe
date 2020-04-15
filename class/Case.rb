@@ -36,6 +36,9 @@ class Case
         @@plateau = plateau
     end
 
+	# Constructeur de Case
+	# @param x [Fixnum] la coordonnée x dans le plateau
+	# @param y [Fixnum] la coordonnée y dans le plateau
     def initialize(x,y)
         @x, @y = x, y
         @bouton = Gtk::Button.new()

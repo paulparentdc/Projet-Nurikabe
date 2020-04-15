@@ -221,7 +221,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#actualises_toi-instance_method" title="#actualises_toi (instance method)">#<strong>actualises_toi</strong>  &#x21d2; Object </a>
+      <a href="#actualises_toi-instance_method" title="#actualises_toi (instance method)">#<strong>actualises_toi</strong>  &#x21d2; void </a>
     
 
     
@@ -245,7 +245,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#en_gris-instance_method" title="#en_gris (instance method)">#<strong>en_gris</strong>  &#x21d2; Object </a>
+      <a href="#en_gris-instance_method" title="#en_gris (instance method)">#<strong>en_gris</strong>  &#x21d2; void </a>
     
 
     
@@ -269,7 +269,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#en_rouge-instance_method" title="#en_rouge (instance method)">#<strong>en_rouge</strong>  &#x21d2; Object </a>
+      <a href="#en_rouge-instance_method" title="#en_rouge (instance method)">#<strong>en_rouge</strong>  &#x21d2; void </a>
     
 
     
@@ -310,7 +310,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of CaseClic.</p>
+<p>Constructeur de CaseClic.</p>
 </div></span>
   
 </li>
@@ -319,7 +319,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#precedent-instance_method" title="#precedent (instance method)">#<strong>precedent</strong>  &#x21d2; Object </a>
+      <a href="#precedent-instance_method" title="#precedent (instance method)">#<strong>precedent</strong>  &#x21d2; void </a>
     
 
     
@@ -343,7 +343,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#suivant-instance_method" title="#suivant (instance method)">#<strong>suivant</strong>  &#x21d2; Object </a>
+      <a href="#suivant-instance_method" title="#suivant (instance method)">#<strong>suivant</strong>  &#x21d2; void </a>
     
 
     
@@ -393,13 +393,49 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of CaseClic.</p>
+<p>Constructeur de CaseClic</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>la coordonnée x dans le plateau</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y</span>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>la coordonnée y dans le plateau</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -407,14 +443,14 @@
       <pre class="lines">
 
 
-23
-24
-25
 26
-27</pre>
+27
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
     <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
@@ -624,7 +660,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="actualises_toi-instance_method">
   
-    #<strong>actualises_toi</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>actualises_toi</strong>  &#x21d2; <tt>void</tt> 
   
 
   
@@ -632,7 +668,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
 <p>Actualise le style du bouton de la case en fonction de son état</p>
 
 
@@ -647,12 +683,6 @@
       <pre class="lines">
 
 
-43
-44
-45
-46
-47
-48
 49
 50
 51
@@ -662,10 +692,16 @@
 55
 56
 57
-58</pre>
+58
+59
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_actualises_toi'>actualises_toi</span>
     <span class='kw'>case</span><span class='lparen'>(</span><span class='ivar'>@etat</span><span class='period'>.</span><span class='id identifier rubyid_etat'>etat</span><span class='rparen'>)</span>
@@ -691,7 +727,7 @@
       <div class="method_details ">
   <h3 class="signature " id="en_gris-instance_method">
   
-    #<strong>en_gris</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>en_gris</strong>  &#x21d2; <tt>void</tt> 
   
 
   
@@ -699,7 +735,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
 <p>Passe la couleur du bouton en gris</p>
 
 
@@ -714,12 +750,12 @@
       <pre class="lines">
 
 
-66
-67
-68</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_en_gris'>en_gris</span>
     <span class='ivar'>@bouton</span><span class='period'>.</span><span class='id identifier rubyid_style_context'>style_context</span><span class='period'>.</span><span class='id identifier rubyid_add_provider'>add_provider</span><span class='lparen'>(</span><span class='cvar'>@@CSS_BOUTON_GRIS</span><span class='comma'>,</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>StyleProvider</span><span class='op'>::</span><span class='const'>PRIORITY_USER</span><span class='rparen'>)</span>
@@ -732,7 +768,7 @@
       <div class="method_details ">
   <h3 class="signature " id="en_rouge-instance_method">
   
-    #<strong>en_rouge</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>en_rouge</strong>  &#x21d2; <tt>void</tt> 
   
 
   
@@ -740,7 +776,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
 <p>Passe la couleur du bouton en rouge</p>
 
 
@@ -755,12 +791,12 @@
       <pre class="lines">
 
 
-61
-62
-63</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_en_rouge'>en_rouge</span>
     <span class='ivar'>@bouton</span><span class='period'>.</span><span class='id identifier rubyid_style_context'>style_context</span><span class='period'>.</span><span class='id identifier rubyid_add_provider'>add_provider</span><span class='lparen'>(</span><span class='cvar'>@@CSS_BOUTON_ROUGE</span><span class='comma'>,</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>StyleProvider</span><span class='op'>::</span><span class='const'>PRIORITY_USER</span><span class='rparen'>)</span>
@@ -773,7 +809,7 @@
       <div class="method_details ">
   <h3 class="signature " id="precedent-instance_method">
   
-    #<strong>precedent</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>precedent</strong>  &#x21d2; <tt>void</tt> 
   
 
   
@@ -781,7 +817,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
 <p>Passe la case à l&#39;état précédent dans l&#39;ordre</p>
 
 
@@ -796,13 +832,13 @@
       <pre class="lines">
 
 
-37
-38
-39
-40</pre>
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_precedent'>precedent</span>
     <span class='ivar'>@etat</span><span class='period'>.</span><span class='id identifier rubyid_precedent!'>precedent!</span>
@@ -816,7 +852,7 @@
       <div class="method_details ">
   <h3 class="signature " id="suivant-instance_method">
   
-    #<strong>suivant</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>suivant</strong>  &#x21d2; <tt>void</tt> 
   
 
   
@@ -824,7 +860,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
 <p>Passe la case à l&#39;état suivant dans l&#39;ordre</p>
 
 
@@ -839,14 +875,14 @@
       <pre class="lines">
 
 
-30
-31
-32
-33
-34</pre>
+34
+35
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'CaseClic.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_suivant'>suivant</span>
     <span class='ivar'>@etat</span><span class='period'>.</span><span class='id identifier rubyid_suivant!'>suivant!</span>
@@ -863,7 +899,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 15 17:16:47 2020 by
+  Generated on Wed Apr 15 17:58:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

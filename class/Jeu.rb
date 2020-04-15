@@ -2,24 +2,34 @@
 #load 'Sauvegarde.rb'
 load 'Plateau.rb'
 load 'Highscore.rb'
+
+# Coeur et gestion du jeu
+# @attr_reader plateau [Plateau] le plateau de jeu
+# @attr_reader nom_joueur [String]
+# @attr nom_joueur_label [Gtk::Label]
+# @attr_reader temps_de_jeu
+# @attr window [Gtk::Window] composant Gtk de la fenêtre
+# @attr_reader en_jeu [Boolean] prédicat de la continuité du Jeu
 class Jeu
     attr_reader :plateau, :nom_joueur,:temps_de_jeu,:en_jeu
     @plateau
     @nom_joueur
     @nom_joueur_label
     @temps_de_jeu
-    @malus_timer
     @window
     @en_jeu
 
+	# Constructeur du jeu
+	# @param [Plateau] le plateau dans lequel se déroule le jeu
+	# @param [String] le nom du joueur
+	# @param [Fixnum] le temps de jeu
     def initialize(plateau:, nom_joueur:, temps_de_jeu:)
         @plateau, @nom_joueur, @temps_de_jeu = plateau, nom_joueur, temps_de_jeu
-
         @en_jeu = true
-        @malus_timer = 0
     end
 
-
+	# Affichage de notre jeu
+	# @return [void]
     def affiche_toi
         builder = Gtk::Builder.new
 
@@ -81,7 +91,8 @@ class Jeu
 
     end
 
-
+	# Affichages des différentes options possible
+	# @return [void]
     def afficherOption
         builder_opt = Gtk::Builder.new
         builder_opt.add_from_file("../Glade/Options.glade")
@@ -94,6 +105,8 @@ class Jeu
         windowOpt.show_all()
     end
 
+	# Fermeture des fernêtre
+	# @return [void]
     def tout_fermer(windowOpt)
         @en_jeu = false
         @window.destroy()
@@ -101,6 +114,8 @@ class Jeu
         exit!()
     end
 
+	# Lancement d'une boucle qui enregistre le temps tant que le jeu n'est pas finit
+	# @return [void]
     def lancer_timer
         t1 = Time.now - @temps_de_jeu
         while(@en_jeu)
@@ -111,6 +126,8 @@ class Jeu
         end
     end
 
+	# Affichage du résultat de la vérification du plateau
+	# @return [void]
     def afficher_erreur
       # return if @plateau.partie_finie
         tab_erreur = @plateau.verifier_damier
@@ -121,7 +138,6 @@ class Jeu
         (tab_erreur.empty? && !@plateau.partie_finie ? :OK : :yes_no),
         (@plateau.partie_finie ? "Bravo " + @nom_joueur +" ! Vous avez fini le jeu en " + (@temps_de_jeu+@plateau.malus_aide).to_s + " seconde.\nVoulez-vous rejouer ?" :
         (tab_erreur.empty? ? "Vous avez  #{tab_erreur.size} erreurs! " : "Vous avez  #{tab_erreur.size} erreurs!\nVoulez-vous les visionner ?")))
-
 
         reponse = pop.run
         pop.destroy
@@ -150,7 +166,3 @@ class Jeu
         end
     end
 end
-
-
-# plateau.afficheToi
-# puts plateau

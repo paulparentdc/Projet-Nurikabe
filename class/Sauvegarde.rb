@@ -12,7 +12,6 @@ require 'fileutils'
 class Sauvegarde
     
     # Classe qui permet de sauvegarder le jeu sans les boutons
-    # @private
     # @note Nous ne prennons que les données essentiels pour la sérialisation
 	# @attr_reader [Array<Etat>] plateau_etat l'état de chaque cases du plateau
 	# @attr_reader [Array<Action>] pile_action pile d'actions effectué durant la partie

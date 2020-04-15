@@ -99,7 +99,18 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Coeur et gestion du jeu</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -109,7 +120,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#en_jeu-instance_method" title="#en_jeu (instance method)">#<strong>en_jeu</strong>  &#x21d2; Object </a>
+      <a href="#en_jeu-instance_method" title="#en_jeu (instance method)">#<strong>en_jeu</strong>  &#x21d2; Boolean </a>
     
 
     
@@ -129,7 +140,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute en_jeu.</p>
+<p>prédicat de la continuité du Jeu.</p>
 </div></span>
   
 </li>
@@ -138,7 +149,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#nom_joueur-instance_method" title="#nom_joueur (instance method)">#<strong>nom_joueur</strong>  &#x21d2; Object </a>
+      <a href="#nom_joueur-instance_method" title="#nom_joueur (instance method)">#<strong>nom_joueur</strong>  &#x21d2; String </a>
     
 
     
@@ -158,7 +169,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute nom_joueur.</p>
+<p>The current value of nom_joueur.</p>
 </div></span>
   
 </li>
@@ -167,7 +178,34 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#plateau-instance_method" title="#plateau (instance method)">#<strong>plateau</strong>  &#x21d2; Object </a>
+      <a href="#nom_joueur_label-instance_method" title="#nom_joueur_label (instance method)">#<strong>nom_joueur_label</strong>  &#x21d2; Gtk::Label </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The current value of nom_joueur_label.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#plateau-instance_method" title="#plateau (instance method)">#<strong>plateau</strong>  &#x21d2; Plateau </a>
     
 
     
@@ -187,7 +225,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute plateau.</p>
+<p>le plateau de jeu.</p>
 </div></span>
   
 </li>
@@ -216,7 +254,34 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute temps_de_jeu.</p>
+<p>The current value of temps_de_jeu.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#window-instance_method" title="#window (instance method)">#<strong>window</strong>  &#x21d2; Gtk::Window </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>composant Gtk de la fenêtre.</p>
 </div></span>
   
 </li>
@@ -238,7 +303,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#affiche_toi-instance_method" title="#affiche_toi (instance method)">#<strong>affiche_toi</strong>  &#x21d2; Object </a>
+      <a href="#affiche_toi-instance_method" title="#affiche_toi (instance method)">#<strong>affiche_toi</strong>  &#x21d2; void </a>
     
 
     
@@ -252,7 +317,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Affichage de notre jeu.</p>
+</div></span>
   
 </li>
 
@@ -260,7 +327,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#afficher_erreur-instance_method" title="#afficher_erreur (instance method)">#<strong>afficher_erreur</strong>  &#x21d2; Object </a>
+      <a href="#afficher_erreur-instance_method" title="#afficher_erreur (instance method)">#<strong>afficher_erreur</strong>  &#x21d2; void </a>
     
 
     
@@ -274,7 +341,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Affichage du résultat de la vérification du plateau.</p>
+</div></span>
   
 </li>
 
@@ -282,7 +351,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#afficherOption-instance_method" title="#afficherOption (instance method)">#<strong>afficherOption</strong>  &#x21d2; Object </a>
+      <a href="#afficherOption-instance_method" title="#afficherOption (instance method)">#<strong>afficherOption</strong>  &#x21d2; void </a>
     
 
     
@@ -296,7 +365,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Affichages des différentes options possible.</p>
+</div></span>
   
 </li>
 
@@ -321,7 +392,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of Jeu.</p>
+<p>Constructeur du jeu.</p>
 </div></span>
   
 </li>
@@ -330,7 +401,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#lancer_timer-instance_method" title="#lancer_timer (instance method)">#<strong>lancer_timer</strong>  &#x21d2; Object </a>
+      <a href="#lancer_timer-instance_method" title="#lancer_timer (instance method)">#<strong>lancer_timer</strong>  &#x21d2; void </a>
     
 
     
@@ -344,7 +415,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Lancement d&#39;une boucle qui enregistre le temps tant que le jeu n&#39;est pas finit.</p>
+</div></span>
   
 </li>
 
@@ -352,7 +425,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#tout_fermer-instance_method" title="#tout_fermer (instance method)">#<strong>tout_fermer</strong>(windowOpt)  &#x21d2; Object </a>
+      <a href="#tout_fermer-instance_method" title="#tout_fermer (instance method)">#<strong>tout_fermer</strong>(windowOpt)  &#x21d2; void </a>
     
 
     
@@ -366,7 +439,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Fermeture des fernêtre.</p>
+</div></span>
   
 </li>
 
@@ -389,13 +464,65 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of Jeu.</p>
+<p>Constructeur du jeu</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>le</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>plateau dans lequel se déroule le jeu</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>le</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>nom du joueur</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>le</span>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>temps de jeu</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -403,21 +530,17 @@
       <pre class="lines">
 
 
-15
-16
-17
-18
-19
-20</pre>
+26
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>plateau:</span><span class='comma'>,</span> <span class='label'>nom_joueur:</span><span class='comma'>,</span> <span class='label'>temps_de_jeu:</span><span class='rparen'>)</span>
     <span class='ivar'>@plateau</span><span class='comma'>,</span> <span class='ivar'>@nom_joueur</span><span class='comma'>,</span> <span class='ivar'>@temps_de_jeu</span> <span class='op'>=</span> <span class='id identifier rubyid_plateau'>plateau</span><span class='comma'>,</span> <span class='id identifier rubyid_nom_joueur'>nom_joueur</span><span class='comma'>,</span> <span class='id identifier rubyid_temps_de_jeu'>temps_de_jeu</span>
-
     <span class='ivar'>@en_jeu</span> <span class='op'>=</span> <span class='kw'>true</span>
-    <span class='ivar'>@malus_timer</span> <span class='op'>=</span> <span class='int'>0</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -434,7 +557,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="en_jeu-instance_method">
   
-    #<strong>en_jeu</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>en_jeu</strong>  &#x21d2; <tt>Boolean</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -443,13 +566,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute en_jeu.</p>
+<p>prédicat de la continuité du Jeu</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of en_jeu</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -457,12 +598,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_en_jeu'>en_jeu</span>
   <span class='ivar'>@en_jeu</span>
@@ -477,7 +618,7 @@
       <div class="method_details ">
   <h3 class="signature " id="nom_joueur-instance_method">
   
-    #<strong>nom_joueur</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>nom_joueur</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -486,13 +627,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute nom_joueur.</p>
+<p>Returns the current value of nom_joueur.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of nom_joueur</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -500,15 +659,76 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nom_joueur'>nom_joueur</span>
   <span class='ivar'>@nom_joueur</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="nom_joueur_label=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="nom_joueur_label-instance_method">
+  
+    #<strong>nom_joueur_label</strong>  &#x21d2; <tt>Gtk::Label</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the current value of nom_joueur_label.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Gtk::Label</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of nom_joueur_label</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 13</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_nom_joueur_label'>nom_joueur_label</span>
+  <span class='ivar'>@nom_joueur_label</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -520,7 +740,7 @@
       <div class="method_details ">
   <h3 class="signature " id="plateau-instance_method">
   
-    #<strong>plateau</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>plateau</strong>  &#x21d2; <tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -529,13 +749,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute plateau.</p>
+<p>le plateau de jeu</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of plateau</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -543,12 +781,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_plateau'>plateau</span>
   <span class='ivar'>@plateau</span>
@@ -572,13 +810,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute temps_de_jeu.</p>
+<p>Returns the current value of temps_de_jeu.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of temps_de_jeu</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -586,15 +842,76 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_temps_de_jeu'>temps_de_jeu</span>
   <span class='ivar'>@temps_de_jeu</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="window=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="window-instance_method">
+  
+    #<strong>window</strong>  &#x21d2; <tt>Gtk::Window</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>composant Gtk de la fenêtre</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Gtk::Window</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of window</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 13</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_window'>window</span>
+  <span class='ivar'>@window</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -611,28 +928,29 @@
       <div class="method_details first">
   <h3 class="signature first" id="affiche_toi-instance_method">
   
-    #<strong>affiche_toi</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>affiche_toi</strong>  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Affichage de notre jeu</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
 33
 34
 35
@@ -682,10 +1000,20 @@
 79
 80
 81
-82</pre>
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_affiche_toi'>affiche_toi</span>
     <span class='id identifier rubyid_builder'>builder</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -755,35 +1083,29 @@
       <div class="method_details ">
   <h3 class="signature " id="afficher_erreur-instance_method">
   
-    #<strong>afficher_erreur</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>afficher_erreur</strong>  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Affichage du résultat de la vérification du plateau</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
 131
 132
 133
@@ -804,10 +1126,26 @@
 148
 149
 150
-151</pre>
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 131</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficher_erreur'>afficher_erreur</span>
   <span class='comment'># return if @plateau.partie_finie
@@ -819,7 +1157,6 @@
     <span class='lparen'>(</span><span class='id identifier rubyid_tab_erreur'>tab_erreur</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_partie_finie'>partie_finie</span> <span class='op'>?</span> <span class='symbol'>:OK</span> <span class='op'>:</span> <span class='symbol'>:yes_no</span><span class='rparen'>)</span><span class='comma'>,</span>
     <span class='lparen'>(</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_partie_finie'>partie_finie</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bravo </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='ivar'>@nom_joueur</span> <span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> ! Vous avez fini le jeu en </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='lparen'>(</span><span class='ivar'>@temps_de_jeu</span><span class='op'>+</span><span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_malus_aide'>malus_aide</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> seconde.\nVoulez-vous rejouer ?</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span>
     <span class='lparen'>(</span><span class='id identifier rubyid_tab_erreur'>tab_erreur</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Vous avez  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tab_erreur'>tab_erreur</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='embexpr_end'>}</span><span class='tstring_content'> erreurs! </span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Vous avez  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tab_erreur'>tab_erreur</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='embexpr_end'>}</span><span class='tstring_content'> erreurs!\nVoulez-vous les visionner ?</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
-
 
     <span class='id identifier rubyid_reponse'>reponse</span> <span class='op'>=</span> <span class='id identifier rubyid_pop'>pop</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span>
     <span class='id identifier rubyid_pop'>pop</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
@@ -855,32 +1192,43 @@
       <div class="method_details ">
   <h3 class="signature " id="afficherOption-instance_method">
   
-    #<strong>afficherOption</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>afficherOption</strong>  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Affichages des différentes options possible</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95</pre>
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficherOption'>afficherOption</span>
     <span class='id identifier rubyid_builder_opt'>builder_opt</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -901,30 +1249,41 @@
       <div class="method_details ">
   <h3 class="signature " id="lancer_timer-instance_method">
   
-    #<strong>lancer_timer</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>lancer_timer</strong>  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Lancement d&#39;une boucle qui enregistre le temps tant que le jeu n&#39;est pas finit</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-104
-105
-106
-107
-108
-109
-110
-111
-112</pre>
+119
+120
+121
+122
+123
+124
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 119</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_lancer_timer'>lancer_timer</span>
     <span class='id identifier rubyid_t1'>t1</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='ivar'>@temps_de_jeu</span>
@@ -943,27 +1302,38 @@
       <div class="method_details ">
   <h3 class="signature " id="tout_fermer-instance_method">
   
-    #<strong>tout_fermer</strong>(windowOpt)  &#x21d2; <tt>Object</tt> 
+    #<strong>tout_fermer</strong>(windowOpt)  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Fermeture des fernêtre</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-97
-98
-99
-100
-101
-102</pre>
+110
+111
+112
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Jeu.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'Jeu.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tout_fermer'>tout_fermer</span><span class='lparen'>(</span><span class='id identifier rubyid_windowOpt'>windowOpt</span><span class='rparen'>)</span>
     <span class='ivar'>@en_jeu</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -981,7 +1351,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 15 17:16:47 2020 by
+  Generated on Wed Apr 15 17:58:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

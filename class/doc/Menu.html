@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Cette classe gère tout l&#39;aspect graphique du début de l&#39;application, elle utilise le DP singleton @@param builder [GTK::Builder] le constructeur contenant toutes les fenetres .glade @@param menu [Menu] l&#39;instance de la classe Menu</p>
+<p>Cette classe gère tout l&#39;aspect graphique du début de l&#39;application, elle utilise le DP singleton</p>
 
 
   </div>
@@ -128,7 +128,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#getInstance-class_method" title="getInstance (class method)">.<strong>getInstance</strong>  &#x21d2; Object </a>
+      <a href="#getInstance-class_method" title="getInstance (class method)">.<strong>getInstance</strong>  &#x21d2; Menu </a>
     
 
     
@@ -143,7 +143,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>retourne l&#39;instance du Menu.</p>
+<p>Le singleton menu.</p>
 </div></span>
   
 </li>
@@ -161,7 +161,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#afficheChoixMode-instance_method" title="#afficheChoixMode (instance method)">#<strong>afficheChoixMode</strong>(nom_j)  &#x21d2; Object </a>
+      <a href="#afficheChoixMode-instance_method" title="#afficheChoixMode (instance method)">#<strong>afficheChoixMode</strong>(nom_j)  &#x21d2; void </a>
     
 
     
@@ -175,7 +175,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Affichage du menu du jeu.</p>
+</div></span>
   
 </li>
 
@@ -183,7 +185,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#afficheChoixPlateau-instance_method" title="#afficheChoixPlateau (instance method)">#<strong>afficheChoixPlateau</strong>  &#x21d2; Object </a>
+      <a href="#afficheChoixPlateau-instance_method" title="#afficheChoixPlateau (instance method)">#<strong>afficheChoixPlateau</strong>  &#x21d2; void </a>
     
 
     
@@ -197,7 +199,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Affichage des différents mode de jeu.</p>
+</div></span>
   
 </li>
 
@@ -220,7 +224,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>affiche toutes les sauvegardes du joueur <strong>nom_joueur</strong> lui permet de charger ou de supprimer chaque sauvegarde.</p>
+<p>Affiche toutes les sauvegardes du joueur <strong>nom_joueur</strong>.</p>
 </div></span>
   
 </li>
@@ -229,7 +233,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#afficheDemarrage-instance_method" title="#afficheDemarrage (instance method)">#<strong>afficheDemarrage</strong>  &#x21d2; Object </a>
+      <a href="#afficheDemarrage-instance_method" title="#afficheDemarrage (instance method)">#<strong>afficheDemarrage</strong>  &#x21d2; void </a>
     
 
     
@@ -253,7 +257,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#btn_to_img-instance_method" title="#btn_to_img (instance method)">#<strong>btn_to_img</strong>(toggles, files, btn)  &#x21d2; Object </a>
+      <a href="#btn_to_img-instance_method" title="#btn_to_img (instance method)">#<strong>btn_to_img</strong>(toggles, files, btn)  &#x21d2; void </a>
     
 
     
@@ -268,7 +272,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>permet de récupérer la map correspondante au bouton sélectionner.</p>
+<p>Permet de récupérer la map correspondante au bouton sélectionner.</p>
 </div></span>
   
 </li>
@@ -277,7 +281,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#charger_save-instance_method" title="#charger_save (instance method)">#<strong>charger_save</strong>(boutons, files, btn)  &#x21d2; Object </a>
+      <a href="#charger_save-instance_method" title="#charger_save (instance method)">#<strong>charger_save</strong>(boutons, files, btn)  &#x21d2; void </a>
     
 
     
@@ -292,7 +296,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>permet de charger une sauvegarde.</p>
+<p>Permet de charger une sauvegarde.</p>
 </div></span>
   
 </li>
@@ -301,7 +305,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#executer_map-instance_method" title="#executer_map (instance method)">#<strong>executer_map</strong>(file_image)  &#x21d2; Object </a>
+      <a href="#executer_map-instance_method" title="#executer_map (instance method)">#<strong>executer_map</strong>(file_image)  &#x21d2; void </a>
     
 
     
@@ -316,7 +320,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>executer la map correspondante.</p>
+<p>Executer la map correspondante.</p>
 </div></span>
   
 </li>
@@ -325,29 +329,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#onClickDemarrage-instance_method" title="#onClickDemarrage (instance method)">#<strong>onClickDemarrage</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#supprimer_save-instance_method" title="#supprimer_save (instance method)">#<strong>supprimer_save</strong>(boutons, files, btn)  &#x21d2; Object </a>
+      <a href="#onClickDemarrage-instance_method" title="#onClickDemarrage (instance method)">#<strong>onClickDemarrage</strong>  &#x21d2; void </a>
     
 
     
@@ -362,7 +344,31 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>permet de supprimer une sauvegarde.</p>
+<p>Traitement à effectuer apès avoir entré son pseudo et valider.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#supprimer_save-instance_method" title="#supprimer_save (instance method)">#<strong>supprimer_save</strong>(boutons, files, btn)  &#x21d2; void </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Permet de supprimer une sauvegarde.</p>
 </div></span>
   
 </li>
@@ -380,7 +386,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="getInstance-class_method">
   
-    .<strong>getInstance</strong>  &#x21d2; <tt>Object</tt> 
+    .<strong>getInstance</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="Menu (class)">Menu</a></span></tt> 
   
 
   
@@ -389,13 +395,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>retourne l&#39;instance du Menu</p>
+<p>Returns le singleton menu.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Menu (class)">Menu</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>le singleton menu</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -403,12 +427,12 @@
       <pre class="lines">
 
 
-18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='const'><span class='object_link'><a href="" title="Menu (class)">Menu</a></span></span><span class='period'>.</span><span class='id identifier rubyid_getInstance'>getInstance</span><span class='lparen'>(</span><span class='rparen'>)</span>
 	<span class='kw'>return</span> <span class='cvar'>@@menu</span>
@@ -427,7 +451,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="afficheChoixMode-instance_method">
   
-    #<strong>afficheChoixMode</strong>(nom_j)  &#x21d2; <tt>Object</tt> 
+    #<strong>afficheChoixMode</strong>(nom_j)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -435,7 +459,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Affichage du menu du jeu</p>
+
 
   </div>
 </div>
@@ -468,13 +494,6 @@
       <pre class="lines">
 
 
-48
-49
-50
-51
-52
-53
-54
 55
 56
 57
@@ -528,10 +547,16 @@
 105
 106
 107
-108</pre>
+108
+109
+110
+111
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficheChoixMode'>afficheChoixMode</span><span class='lparen'>(</span><span class='id identifier rubyid_nom_j'>nom_j</span><span class='rparen'>)</span>
 	<span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_nom_j'>nom_j</span> <span class='op'>!=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -566,8 +591,7 @@
 	<span class='id identifier rubyid_classement_dif'>classement_dif</span> <span class='op'>=</span> <span class='id identifier rubyid_getHighscore'>getHighscore</span><span class='period'>.</span><span class='id identifier rubyid_classement_difficile'>classement_difficile</span>
 
 	<span class='comment'>#génération dynamique des classement
-</span>
-	<span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_classement_fac'>classement_fac</span><span class='rparen'>)</span>
+</span>	<span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_classement_fac'>classement_fac</span><span class='rparen'>)</span>
 		<span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='int'>1</span>
 		<span class='kw'>for</span> <span class='id identifier rubyid_score'>score</span> <span class='kw'>in</span> <span class='id identifier rubyid_classement_fac'>classement_fac</span> <span class='kw'>do</span>
 			<span class='id identifier rubyid_label_fac'>label_fac</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>. </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_score'>score</span><span class='rparen'>)</span>
@@ -602,26 +626,29 @@
       <div class="method_details ">
   <h3 class="signature " id="afficheChoixPlateau-instance_method">
   
-    #<strong>afficheChoixPlateau</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>afficheChoixPlateau</strong>  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Affichage des différents mode de jeu</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-110
-111
-112
-113
-114
-115
-116
-117
 118
 119
 120
@@ -702,10 +729,18 @@
 195
 196
 197
-198</pre>
+198
+199
+200
+201
+202
+203
+204
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 118</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficheChoixPlateau'>afficheChoixPlateau</span><span class='lparen'>(</span><span class='rparen'>)</span>
 
@@ -813,7 +848,15 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>affiche toutes les sauvegardes du joueur <strong>nom_joueur</strong> lui permet de charger ou de supprimer chaque sauvegarde</p>
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>on lui permet de charger ou de supprimer chaque sauvegarde</p>
+</div>
+  </div>
+
+
+<p>Affiche toutes les sauvegardes du joueur <strong>nom_joueur</strong></p>
 
 
   </div>
@@ -827,14 +870,6 @@
       <pre class="lines">
 
 
-202
-203
-204
-205
-206
-207
-208
-209
 210
 211
 212
@@ -870,10 +905,18 @@
 242
 243
 244
-245</pre>
+245
+246
+247
+248
+249
+250
+251
+252
+253</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 202</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 210</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficheChoixSauvegarde'>afficheChoixSauvegarde</span><span class='lparen'>(</span><span class='rparen'>)</span>
 	<span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@window</span> <span class='op'>!=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -927,7 +970,7 @@
       <div class="method_details ">
   <h3 class="signature " id="afficheDemarrage-instance_method">
   
-    #<strong>afficheDemarrage</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>afficheDemarrage</strong>  &#x21d2; <tt>void</tt> 
   
 
   
@@ -935,7 +978,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
 <p>Gère la première page de l&#39;application</p>
 
 
@@ -950,8 +993,6 @@
       <pre class="lines">
 
 
-23
-24
 25
 26
 27
@@ -965,10 +1006,12 @@
 35
 36
 37
-38</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficheDemarrage'>afficheDemarrage</span><span class='lparen'>(</span><span class='rparen'>)</span>
 	<span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@window</span> <span class='op'>!=</span> <span class='kw'>nil</span><span class='rparen'>)</span> <span class='kw'>then</span>
@@ -994,7 +1037,7 @@
       <div class="method_details ">
   <h3 class="signature " id="btn_to_img-instance_method">
   
-    #<strong>btn_to_img</strong>(toggles, files, btn)  &#x21d2; <tt>Object</tt> 
+    #<strong>btn_to_img</strong>(toggles, files, btn)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -1002,8 +1045,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>permet de récupérer la map correspondante au bouton sélectionner</p>
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Permet de récupérer la map correspondante au bouton sélectionner</p>
 
 
   </div>
@@ -1069,18 +1112,18 @@
       <pre class="lines">
 
 
-280
-281
-282
-283
-284
-285
-286
-287
-288</pre>
+291
+292
+293
+294
+295
+296
+297
+298
+299</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 280</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 291</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_btn_to_img'>btn_to_img</span><span class='lparen'>(</span><span class='id identifier rubyid_toggles'>toggles</span><span class='comma'>,</span> <span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_btn'>btn</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1099,7 +1142,7 @@
       <div class="method_details ">
   <h3 class="signature " id="charger_save-instance_method">
   
-    #<strong>charger_save</strong>(boutons, files, btn)  &#x21d2; <tt>Object</tt> 
+    #<strong>charger_save</strong>(boutons, files, btn)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -1107,8 +1150,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>permet de charger une sauvegarde</p>
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Permet de charger une sauvegarde</p>
 
 
   </div>
@@ -1174,19 +1217,19 @@
       <pre class="lines">
 
 
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260</pre>
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 251</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 260</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_charger_save'>charger_save</span><span class='lparen'>(</span><span class='id identifier rubyid_boutons'>boutons</span><span class='comma'>,</span> <span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_btn'>btn</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1206,7 +1249,7 @@
       <div class="method_details ">
   <h3 class="signature " id="executer_map-instance_method">
   
-    #<strong>executer_map</strong>(file_image)  &#x21d2; <tt>Object</tt> 
+    #<strong>executer_map</strong>(file_image)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -1214,8 +1257,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>executer la map correspondante</p>
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Executer la map correspondante</p>
 
 
   </div>
@@ -1249,17 +1292,17 @@
       <pre class="lines">
 
 
-292
-293
-294
-295
-296
-297
-298
-299</pre>
+304
+305
+306
+307
+308
+309
+310
+311</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 292</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 304</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_executer_map'>executer_map</span><span class='lparen'>(</span><span class='id identifier rubyid_file_image'>file_image</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_file_niveau'>file_niveau</span> <span class='op'>=</span> <span class='id identifier rubyid_file_image'>file_image</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_file_image'>file_image</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='int'>4</span><span class='rbracket'>]</span>
@@ -1277,27 +1320,46 @@
       <div class="method_details ">
   <h3 class="signature " id="onClickDemarrage-instance_method">
   
-    #<strong>onClickDemarrage</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>onClickDemarrage</strong>  &#x21d2; <tt>void</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>on traite puis affecte la variable globale du pseudo et enfin on change de fenêtre</p>
+</div>
+  </div>
+
+<p class="note returns_void">This method returns an undefined value.</p>
+<p>Traitement à effectuer apès avoir entré son pseudo et valider</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-40
-41
-42
-43
-44
-45</pre>
+45
+46
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_onClickDemarrage'>onClickDemarrage</span><span class='lparen'>(</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_ch_pseudo'>ch_pseudo</span><span class='op'>=</span> <span class='cvar'>@@builder</span><span class='period'>.</span><span class='id identifier rubyid_get_object'>get_object</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ch_pseudo</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1313,7 +1375,7 @@
       <div class="method_details ">
   <h3 class="signature " id="supprimer_save-instance_method">
   
-    #<strong>supprimer_save</strong>(boutons, files, btn)  &#x21d2; <tt>Object</tt> 
+    #<strong>supprimer_save</strong>(boutons, files, btn)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -1321,8 +1383,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>permet de supprimer une sauvegarde</p>
+    <p class="note returns_void">This method returns an undefined value.</p>
+<p>Permet de supprimer une sauvegarde</p>
 
 
   </div>
@@ -1388,18 +1450,18 @@
       <pre class="lines">
 
 
-266
-267
-268
-269
-270
-271
-272
-273
-274</pre>
+276
+277
+278
+279
+280
+281
+282
+283
+284</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 266</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 276</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_supprimer_save'>supprimer_save</span><span class='lparen'>(</span><span class='id identifier rubyid_boutons'>boutons</span><span class='comma'>,</span> <span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_btn'>btn</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1420,7 +1482,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 15 17:16:47 2020 by
+  Generated on Wed Apr 15 17:58:35 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

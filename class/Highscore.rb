@@ -1,8 +1,8 @@
-#Cette classe permet de mémoriser les plus gros score des joueurs
-#@param classement_facile [Array[String]] contient les meilleurs scores des grilles faciles
-#@param classement_moyen [Array[String]] contient les meilleurs scores des grilles moyennes
-#@param classement_difficile [Array[String]] contient les meilleurs scores des grilles difficiles
-#@param chemin [String] le chemin d'accès au fichier de sauvegarde des highscores
+# Cette classe permet de mémoriser les plus gros score des joueurs
+# @attr_reader classement_facile [Array[String]] contient les meilleurs scores des grilles faciles
+# @attr_reader classement_moyen [Array[String]] contient les meilleurs scores des grilles moyennes
+# @attr_reader classement_difficile [Array[String]] contient les meilleurs scores des grilles difficiles
+# @attr_reader chemin [String] le chemin d'accès au fichier de sauvegarde des highscores
 class Highscore
 
   attr_reader :classement_facile, :classement_moyen, :classement_difficile, :chemin
@@ -19,7 +19,9 @@ class Highscore
         @classement_difficile = []
     end
 
-    #permet de rentrer un nouveau score s'il est supérieur à au moins un des 10 premiers
+	# Permet de rentrer un nouveau score s'il est supérieur à au moins un des 10 premiers
+	# @note un tri est effectué lors de l'insertion
+	# @return [void]
     def tri_insertion_score(nom_j, temp, classement)
           classement.push(nom_j + " " + temp.to_s)
           return classement.sort { |a, b|
@@ -30,23 +32,29 @@ class Highscore
           Sauvegarde.sauvegarde_highscore(temphighscore)
     end
 
-    #appelle tri_insertion_score avec la bonne variable de classe, ici : facile
+	# Appelle tri_insertion_score avec la bonne variable de classe, ici : facile
+	# @see Highscore#tri_insertion_score
+	# @return [void]
     def inserer_score_facile(nom_j, temp)
         @classement_facile = self.tri_insertion_score(nom_j, temp, @classement_facile)
     end
 
-    #appelle tri_insertion_score avec la bonne variable de classe, ici : moyen
+	# Appelle tri_insertion_score avec la bonne variable de classe, ici : moyen
+	# @see Highscore#tri_insertion_score
+	# @return [void]
     def inserer_score_moyen(nom_j, temp)
         @classement_moyen = self.tri_insertion_score(nom_j, temp, @classement_moyen)
     end
 
-    #appelle tri_insertion_score avec la bonne variable de classe, ici : difficile
+	# Appelle tri_insertion_score avec la bonne variable de classe, ici : difficile
+	# @see Highscore#tri_insertion_score
+	# @return [void]
     def inserer_score_difficile(nom_j, temp)
         @classement_difficile = self.tri_insertion_score(nom_j, temp, @classement_difficile)
     end
 
-    #créer un nouveau fichier highscore.score s'il n'existe pas
-    #s'il existe, l'ouvre en binaire
+    # Créer un nouveau fichier highscore.score s'il n'existe pas
+    # @note s'il existe, on l'ouvre en binaire
     def Highscore.recuperer_ds_fichier
         if !File.exist?(@chemin)
              highscore = Highscore.new
