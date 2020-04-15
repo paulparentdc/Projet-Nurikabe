@@ -22,10 +22,4 @@ class Action
     def to_s
         "Action : Coordonnées : #{@x}, #{@y}  , est un point de retour?:#{point_de_retour}"
     end
-
-    
-
-
-
-
 end

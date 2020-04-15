@@ -10,7 +10,14 @@ require 'fileutils'
 
 
 class Sauvegarde
-    #class qui permet de sauvegarder le jeu sans les boutons
+	# Classe qui permet de sauvegarder le jeu sans les boutons
+	# @attr [Array] plateau_char
+	# @attr [Array] plateau_etat
+	# @attr [Array] pile_action
+    # @attr [Fixnum] malus_aide
+    # @attr [] chemin_template
+    # @attr [] nom_joueur
+    # @attr [] temps_de_jeu
     class DonneesJeu
         attr_reader :plateau_etat, :pile_action, :malus_aide, :nom_joueur, :temps_de_jeu, :chemin_template
 
@@ -37,7 +44,6 @@ class Sauvegarde
 
     #Chargement d'une partie
     #@param le jeu a sauvegarder
-
     def Sauvegarde.creer_sauvegarde(jeu)
 
         jeu_filtree = DonneesJeu.new(jeu)
@@ -76,12 +82,12 @@ class Sauvegarde
             return
         end
 
-
+		# Chargement des donnees de sauvegarde
         fichier=File.open(chemin_de_base,"r")
         donnees=Marshal::load(File::read(chemin_de_base))
         fichier.close
 
-
+		# Initialisaiton du plateau
         plateau = Sauvegarde.charger_template(donnees.chemin_template)
 
         plateau.pile_action = PileAction.new(plateau, donnees.pile_action)
@@ -98,10 +104,8 @@ class Sauvegarde
             end
         end
 
+		# Initialisation du jeu
         jeu = Jeu.new(plateau: plateau, nom_joueur: donnees.nom_joueur, temps_de_jeu: donnees.temps_de_jeu)
-
-
-
 
         return jeu
 
@@ -121,7 +125,7 @@ class Sauvegarde
    # Chargement du template
     # @note le chemin devra être valide et le fichier correct et lisible
     # @param chemin le chemin à du template choisi
-    # @return le damier avec et sans correction par hachage accessible via +:damier+ pour obtenir la matrice de cases et +:damierCorrect+ pour obtenir la matrice de correction indiquand la couleur que les cases doivent prendre
+    # @return le plateau avec et sans correction par hachage accessible via +:damier+ pour obtenir la matrice de cases et +:damierCorrect+ pour obtenir la matrice de correction indiquand la couleur que les cases doivent avoir pour gagner
     # @return +nil+ est renvoyé si un problème est rencontré
     def Sauvegarde.charger_template(chemin)
         chemin_template = chemin
@@ -173,7 +177,6 @@ class Sauvegarde
             plateau = Plateau.new(matrice_plateau, matrice_solution, taille, niveau, chemin_template)
             Case.ajout_plateau(plateau)
             return plateau
-            #return Jeu.new(plateau: plateau, nom_joueur: nom_joueur, temps_de_jeu: 0)
         end
     end
 
