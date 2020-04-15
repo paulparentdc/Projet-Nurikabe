@@ -40,7 +40,7 @@ class Menu
 	end
 
 	# Traitement à effectuer apès avoir entré son pseudo et valider
-	# @note on traite puis affecte la variable globale du pseudo et enfin on change de fenêtre 
+	# @note on traite puis affecte la variable globale du pseudo et enfin on change de fenêtre
 	# @return [void]
 	def onClickDemarrage()
 		ch_pseudo= @@builder.get_object("ch_pseudo")
@@ -49,7 +49,7 @@ class Menu
 		afficheChoixMode(nil)
 	end
 
-	# Affichage du menu du jeu 
+	# Affichage du menu du jeu
 	# @param nom_j [String] le nom du joueur si cette page est appelée autrement que par cette classe
 	# @return [void]
 	def afficheChoixMode(nom_j)
@@ -80,7 +80,7 @@ class Menu
 		getHighscore = Highscore.recuperer_ds_fichier
 		Sauvegarde.sauvegarde_highscore(getHighscore)
 		getHighscore = Highscore.recuperer_ds_fichier
-    	classement_fac = getHighscore.classement_facile
+    classement_fac = getHighscore.classement_facile
 		classement_int = getHighscore.classement_moyen
 		classement_dif = getHighscore.classement_difficile
 
@@ -96,16 +96,16 @@ class Menu
 		if(classement_int)
 			i = 1
 			for score in classement_int do
-				label_fac = Gtk::Label.new(i.to_s + '. ' + score)
-				stack_box_fac.add(label_fac)
+				label_int = Gtk::Label.new(i.to_s + '. ' + score)
+				stack_box_int.add(label_int)
 				i+=1
 			end
 		end
 		if(classement_dif)
 			i = 1
 			for score in classement_dif do
-				label_fac = Gtk::Label.new(i.to_s + '. ' + score)
-				stack_box_fac.add(label_fac)
+				label_dif = Gtk::Label.new(i.to_s + '. ' + score)
+				stack_box_dif.add(label_dif)
 				i+=1
 			end
 		end
