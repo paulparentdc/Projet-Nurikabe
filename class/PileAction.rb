@@ -26,12 +26,14 @@ class PileAction
         end
     end
 
-    # Empile l'action passée en paramètre
+	# Empile l'action passée en paramètre
+	# @param une_action [Action] 
     def empiler(une_action)
         @pile.push(une_action)
     end
 
-    # Dépile l'action du haut de la pile
+	# Dépile l'action du haut de la pile
+	# @return [Action] la dernière action
     def depiler!()
         if(@pile.size>0)
             return @pile.pop()
@@ -40,22 +42,26 @@ class PileAction
         end
     end
 
-    # Indique si la pile est vide 
+	# Indique si la pile est vide 
+	# @return [Boolean] *true* si elle est vide, *false* sinon
     def est_vide?()
         return (@pile.size == 0)
     end
 
-    # Donne le nombre de point de retour dans la pile
+	# Donne le nombre de point de retour dans la pile
+	# @return [Fixnum] le nombre de point de retour
     def combien_de_PDR()
         return @nb_point_de_retour
     end
     
-    # Retourne la dernière action sans la dépiler
+	# Retourne la dernière action sans la dépiler
+	# @return [Action] la dernière action
     def get_derniere_action
         return @pile[@pile.size-1]
     end
 
-    # Défait le dernier coup joué
+	# Défait le dernier coup joué
+	# @return [void]
     def annuler_dernier_coup
         return if self.est_vide?
         derniere_action = self.depiler!
@@ -65,7 +71,8 @@ class PileAction
         case_temp.precedent
     end
 
-    # Met la dernière action comme étant un point de retour
+	# Met la dernière action comme étant un point de retour
+	# @return [void]
     def ajout_point_de_retour
         return if @pile.empty?
         return if self.get_derniere_action.est_point_de_retour? == true
@@ -76,7 +83,8 @@ class PileAction
     end
 
     # Défait tout les coups joués depuis le dernier point de retour
-    def vers_dernier_point_de_retour
+	# @return [void]
+	def vers_dernier_point_de_retour
         return if @nb_point_de_retour == 0
 
         while(!self.est_vide? && !self.get_derniere_action.est_point_de_retour?)
@@ -101,12 +109,14 @@ class PileAction
 
     end
     
-    # Permet de sauvegarder la partie
+	# Permet de sauvegarder la partie
+	# @return [Array<Action>] la pile d'action
     def serialiser
         return @pile
     end
 
-    # Permet de visualiser les coups joués depuis le point de retour 
+	# Permet de visualiser les coups joués depuis le point de retour
+	# @return [void]
     def appliquer_couleur
         tab_temp = []
         tab_cases_noires = []

@@ -55,6 +55,7 @@ class Sauvegarde
         mon_fichier.write(donnees)
         mon_fichier.close
 
+		# Notifier via une pop-up que la sauvegarde a été effectué
         builderPopup = Gtk::Builder.new
         builderPopup.add_from_file("../Glade/Popup.glade")
         windowPopup = builderPopup.get_object("fn_popup")
@@ -106,8 +107,9 @@ class Sauvegarde
 
     # Suppression d'une partie
     # @note le chemin devra être valide
-    # @param chemin le chemin de la sauvegarde a supprimer
-    # @raise la sauvegarde n'existe pas
+    # @param chemin [String] le chemin de la sauvegarde a supprimer
+	# @return [void]
+	# @raise la sauvegarde n'existe pas
     def Sauvegarde.supprimer_sauvegarde(chemin)
         if File.exist?(chemin)
              File.delete(chemin)

@@ -110,7 +110,17 @@
 <div class="tags">
   
 
-</div>
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Sauvegarde/DonneesJeu.html" title="Sauvegarde::DonneesJeu (class)">DonneesJeu</a></span>
+    
+  
+</p>
+
 
 
 
@@ -128,7 +138,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#charger_sauvegarde-class_method" title="charger_sauvegarde (class method)">.<strong>charger_sauvegarde</strong>(chemin_de_base)  &#x21d2; Object </a>
+      <a href="#charger_sauvegarde-class_method" title="charger_sauvegarde (class method)">.<strong>charger_sauvegarde</strong>(chemin_de_base)  &#x21d2; Jeu </a>
     
 
     
@@ -152,7 +162,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#charger_template-class_method" title="charger_template (class method)">.<strong>charger_template</strong>(chemin)  &#x21d2; Object </a>
+      <a href="#charger_template-class_method" title="charger_template (class method)">.<strong>charger_template</strong>(chemin)  &#x21d2; Plateau<sup>?</sup> </a>
     
 
     
@@ -166,7 +176,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Chargement du template.</p>
+</div></span>
   
 </li>
 
@@ -174,7 +186,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#creer_sauvegarde-class_method" title="creer_sauvegarde (class method)">.<strong>creer_sauvegarde</strong>(jeu)  &#x21d2; Object </a>
+      <a href="#creer_sauvegarde-class_method" title="creer_sauvegarde (class method)">.<strong>creer_sauvegarde</strong>(jeu)  &#x21d2; void </a>
     
 
     
@@ -198,7 +210,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#sauvegarde_highscore-class_method" title="sauvegarde_highscore (class method)">.<strong>sauvegarde_highscore</strong>(highscore)  &#x21d2; Object </a>
+      <a href="#sauvegarde_highscore-class_method" title="sauvegarde_highscore (class method)">.<strong>sauvegarde_highscore</strong>(highscore)  &#x21d2; void </a>
     
 
     
@@ -222,7 +234,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#supprimer_sauvegarde-class_method" title="supprimer_sauvegarde (class method)">.<strong>supprimer_sauvegarde</strong>(chemin)  &#x21d2; Object </a>
+      <a href="#supprimer_sauvegarde-class_method" title="supprimer_sauvegarde (class method)">.<strong>supprimer_sauvegarde</strong>(chemin)  &#x21d2; void </a>
     
 
     
@@ -236,9 +248,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Suppression d&#39;une partie.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -255,7 +265,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="charger_sauvegarde-class_method">
   
-    .<strong>charger_sauvegarde</strong>(chemin_de_base)  &#x21d2; <tt>Object</tt> 
+    .<strong>charger_sauvegarde</strong>(chemin_de_base)  &#x21d2; <tt><span class='object_link'><a href="Jeu.html" title="Jeu (class)">Jeu</a></span></tt> 
   
 
   
@@ -283,16 +293,16 @@
   
     <li>
       
-        <span class='name'>le</span>
+        <span class='name'>chemin_de_base</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>chemin de la sauvegarde</p>
+<p>le chemin de la sauvegarde</p>
 </div>
       
     </li>
@@ -305,11 +315,11 @@
     <li>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt><span class='object_link'><a href="Jeu.html" title="Jeu (class)">Jeu</a></span></tt>)</span>
       
       
       
-        
+        &mdash;
         <div class='inline'>
 <p>le jeu correspondant au chemin</p>
 </div>
@@ -324,6 +334,9 @@
       <pre class="lines">
 
 
+72
+73
+74
 75
 76
 77
@@ -355,13 +368,10 @@
 103
 104
 105
-106
-107
-108
-109</pre>
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Sauvegarde.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'Sauvegarde.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='const'><span class='object_link'><a href="" title="Sauvegarde (class)">Sauvegarde</a></span></span><span class='period'>.</span><span class='id identifier rubyid_charger_sauvegarde'>charger_sauvegarde</span><span class='lparen'>(</span><span class='id identifier rubyid_chemin_de_base'>chemin_de_base</span><span class='rparen'>)</span>
 
@@ -406,7 +416,7 @@
       <div class="method_details ">
   <h3 class="signature " id="charger_template-class_method">
   
-    .<strong>charger_template</strong>(chemin)  &#x21d2; <tt>Object</tt> 
+    .<strong>charger_template</strong>(chemin)  &#x21d2; <tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt><sup>?</sup> 
   
 
   
@@ -422,6 +432,8 @@
 </div>
   </div>
 
+
+<p>Chargement du template</p>
 
 
   </div>
@@ -454,11 +466,11 @@
     <li>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt>, <tt>nil</tt>)</span>
       
       
       
-        
+        &mdash;
         <div class='inline'>
 <p>le plateau avec et sans correction par hachage accessible via <code>:damier</code> pour obtenir la matrice de cases et <code>:damierCorrect</code> pour obtenir la matrice de correction indiquand la couleur que les cases doivent avoir pour gagner</p>
 </div>
@@ -487,6 +499,7 @@
       <pre class="lines">
 
 
+126
 127
 128
 129
@@ -537,11 +550,10 @@
 174
 175
 176
-177
-178</pre>
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Sauvegarde.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'Sauvegarde.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='const'><span class='object_link'><a href="" title="Sauvegarde (class)">Sauvegarde</a></span></span><span class='period'>.</span><span class='id identifier rubyid_charger_template'>charger_template</span><span class='lparen'>(</span><span class='id identifier rubyid_chemin'>chemin</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_chemin_template'>chemin_template</span> <span class='op'>=</span> <span class='id identifier rubyid_chemin'>chemin</span>
@@ -603,7 +615,7 @@
       <div class="method_details ">
   <h3 class="signature " id="creer_sauvegarde-class_method">
   
-    .<strong>creer_sauvegarde</strong>(jeu)  &#x21d2; <tt>Object</tt> 
+    .<strong>creer_sauvegarde</strong>(jeu)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -611,7 +623,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
 <p>Chargement d&#39;une partie</p>
 
 
@@ -646,6 +658,10 @@
       <pre class="lines">
 
 
+40
+41
+42
+43
 44
 45
 46
@@ -667,38 +683,36 @@
 62
 63
 64
-65
-66
-67
-68</pre>
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Sauvegarde.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'Sauvegarde.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='const'><span class='object_link'><a href="" title="Sauvegarde (class)">Sauvegarde</a></span></span><span class='period'>.</span><span class='id identifier rubyid_creer_sauvegarde'>creer_sauvegarde</span><span class='lparen'>(</span><span class='id identifier rubyid_jeu'>jeu</span><span class='rparen'>)</span>
 
-    <span class='id identifier rubyid_jeu_filtree'>jeu_filtree</span> <span class='op'>=</span> <span class='const'>DonneesJeu</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_jeu'>jeu</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_jeu_filtree'>jeu_filtree</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Sauvegarde/DonneesJeu.html" title="Sauvegarde::DonneesJeu (class)">DonneesJeu</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Sauvegarde/DonneesJeu.html#initialize-instance_method" title="Sauvegarde::DonneesJeu#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_jeu'>jeu</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_donnees'>donnees</span> <span class='op'>=</span> <span class='const'>Marshal</span><span class='op'>::</span><span class='id identifier rubyid_dump'>dump</span><span class='lparen'>(</span><span class='id identifier rubyid_jeu_filtree'>jeu_filtree</span><span class='rparen'>)</span>
 
     <span class='id identifier rubyid_chemin_de_base'>chemin_de_base</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../data/save/</span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span><span class='id identifier rubyid_jeu'>jeu</span><span class='period'>.</span><span class='id identifier rubyid_nom_joueur'>nom_joueur</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%d-%m-%Y   %Hh%Mm%Ss</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.snurikabe</span><span class='tstring_end'>&quot;</span></span>
 
-    <span class='id identifier rubyid_dirname'>dirname</span><span class='op'>=</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='id identifier rubyid_chemin_de_base'>chemin_de_base</span><span class='rparen'>)</span>
-    <span class='comment'>#creation d&#39;un dossier par joueur , qui contiendra toutes les sauvegardes de ce dernier
-</span>    <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_directory?'>directory?</span><span class='lparen'>(</span><span class='id identifier rubyid_dirname'>dirname</span><span class='rparen'>)</span>
+    <span class='comment'># creation d&#39;un dossier par joueur, qui contiendra toutes les sauvegardes de ce dernier
+</span>    <span class='id identifier rubyid_dirname'>dirname</span><span class='op'>=</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='id identifier rubyid_chemin_de_base'>chemin_de_base</span><span class='rparen'>)</span>
+    <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_directory?'>directory?</span><span class='lparen'>(</span><span class='id identifier rubyid_dirname'>dirname</span><span class='rparen'>)</span>
         <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='id identifier rubyid_dirname'>dirname</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
 
+    <span class='comment'># Sauvegarde dans un fichier
+</span>    <span class='id identifier rubyid_mon_fichier'>mon_fichier</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_chemin_de_base'>chemin_de_base</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w+</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_mon_fichier'>mon_fichier</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_donnees'>donnees</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_mon_fichier'>mon_fichier</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
 
-   <span class='id identifier rubyid_mon_fichier'>mon_fichier</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_chemin_de_base'>chemin_de_base</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w+</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-   <span class='id identifier rubyid_mon_fichier'>mon_fichier</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_donnees'>donnees</span><span class='rparen'>)</span>
-   <span class='id identifier rubyid_mon_fichier'>mon_fichier</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
-
-   <span class='id identifier rubyid_builderPopup'>builderPopup</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-   <span class='id identifier rubyid_builderPopup'>builderPopup</span><span class='period'>.</span><span class='id identifier rubyid_add_from_file'>add_from_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../Glade/Popup.glade</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-   <span class='id identifier rubyid_windowPopup'>windowPopup</span> <span class='op'>=</span> <span class='id identifier rubyid_builderPopup'>builderPopup</span><span class='period'>.</span><span class='id identifier rubyid_get_object'>get_object</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fn_popup</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-   <span class='id identifier rubyid_btn_ok'>btn_ok</span> <span class='op'>=</span> <span class='id identifier rubyid_builderPopup'>builderPopup</span><span class='period'>.</span><span class='id identifier rubyid_get_object'>get_object</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>btn_ok</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-   <span class='id identifier rubyid_btn_ok'>btn_ok</span><span class='period'>.</span><span class='id identifier rubyid_signal_connect'>signal_connect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>clicked</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='id identifier rubyid_windowPopup'>windowPopup</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbrace'>}</span>
-   <span class='id identifier rubyid_windowPopup'>windowPopup</span><span class='period'>.</span><span class='id identifier rubyid_show_all'>show_all</span><span class='lparen'>(</span><span class='rparen'>)</span>
+		<span class='comment'># Notifier via une pop-up que la sauvegarde a été effectué
+</span>    <span class='id identifier rubyid_builderPopup'>builderPopup</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Builder</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+    <span class='id identifier rubyid_builderPopup'>builderPopup</span><span class='period'>.</span><span class='id identifier rubyid_add_from_file'>add_from_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../Glade/Popup.glade</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_windowPopup'>windowPopup</span> <span class='op'>=</span> <span class='id identifier rubyid_builderPopup'>builderPopup</span><span class='period'>.</span><span class='id identifier rubyid_get_object'>get_object</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fn_popup</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_btn_ok'>btn_ok</span> <span class='op'>=</span> <span class='id identifier rubyid_builderPopup'>builderPopup</span><span class='period'>.</span><span class='id identifier rubyid_get_object'>get_object</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>btn_ok</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_btn_ok'>btn_ok</span><span class='period'>.</span><span class='id identifier rubyid_signal_connect'>signal_connect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>clicked</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='id identifier rubyid_windowPopup'>windowPopup</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_windowPopup'>windowPopup</span><span class='period'>.</span><span class='id identifier rubyid_show_all'>show_all</span><span class='lparen'>(</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -708,7 +722,7 @@
       <div class="method_details ">
   <h3 class="signature " id="sauvegarde_highscore-class_method">
   
-    .<strong>sauvegarde_highscore</strong>(highscore)  &#x21d2; <tt>Object</tt> 
+    .<strong>sauvegarde_highscore</strong>(highscore)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -716,7 +730,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note returns_void">This method returns an undefined value.</p>
 <p>Sauvegarde de l&#39;highscore</p>
 
 
@@ -777,7 +791,7 @@
       <div class="method_details ">
   <h3 class="signature " id="supprimer_sauvegarde-class_method">
   
-    .<strong>supprimer_sauvegarde</strong>(chemin)  &#x21d2; <tt>Object</tt> 
+    .<strong>supprimer_sauvegarde</strong>(chemin)  &#x21d2; <tt>void</tt> 
   
 
   
@@ -785,42 +799,30 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>le chemin devra être valide</p>
-</div>
-  </div>
-
-
-<p>Suppression d&#39;une partie</p>
-
+    <p class="note returns_void">This method returns an undefined value.</p>
 
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
+  
+<p class="tag_title">Raises:</p>
+<ul class="raise">
   
     <li>
-      
-        <span class='name'>chemin</span>
       
       
         <span class='type'></span>
       
       
       
-        &mdash;
+        
         <div class='inline'>
-<p>le chemin de la sauvegarde a supprimer</p>
+<p>la sauvegarde n&#39;existe pas</p>
 </div>
       
     </li>
   
 </ul>
-
 
 </div><table class="source_code">
   <tr>
@@ -828,16 +830,16 @@
       <pre class="lines">
 
 
+113
 114
 115
 116
 117
 118
-119
-120</pre>
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Sauvegarde.rb', line 114</span>
+      <pre class="code"><span class="info file"># File 'Sauvegarde.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='const'><span class='object_link'><a href="" title="Sauvegarde (class)">Sauvegarde</a></span></span><span class='period'>.</span><span class='id identifier rubyid_supprimer_sauvegarde'>supprimer_sauvegarde</span><span class='lparen'>(</span><span class='id identifier rubyid_chemin'>chemin</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_chemin'>chemin</span><span class='rparen'>)</span>
@@ -856,9 +858,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 15 15:12:48 2020 by
+  Generated on Wed Apr 15 17:16:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.3).
+  0.9.24 (ruby-2.6.3).
 </div>
 
     </div>

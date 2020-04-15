@@ -4,17 +4,15 @@ load 'Aide.rb'
 load 'PileAction.rb'
 
 # Le plateau de jeu
-# @attr_reader niveau 
-# @attr_reader damier_correct le damier réponse au jeu en cours
-# @attr_reader pile_action une pile des actions réalisées par le joueur
-# @attr_reader aide une aide sur le plateau
-# @attr_reader taille[Fixnum] la taille du plateau
-# @attr_reader partie_finie [Boolean] indique si la partie finis
-# @attr_reader chemin_template [String] le chemin du template utilisé pour le plateau
-# @attr_accessor malus_aide [Fixnum] le nombre de point de malus
-# @attr_accessor damier la matrice du plateau
-# @attr_accessor pile_action une pile des actions réalisées par le joueur
-
+# @attr_reader [String] niveau le niveau de difficulté
+# @attr_reader [Array<String>] damier_correct le damier réponse au jeu en cours
+# @attr_reader [Aide] aide une aide sur le plateau
+# @attr_reader [Fixnum] taille la taille du plateau
+# @attr_reader [Boolean] partie_finie indique si la partie finis
+# @attr_reader [String] chemin_template le chemin du template utilisé pour le plateau
+# @attr [Fixnum] malus_aide le nombre de point de malus
+# @attr [Array<Array<Case>>] damier la matrice du plateau
+# @attr [PileAction] pile_action une pile des actions réalisées par le joueur
 class Plateau
     attr_reader :niveau, :damier_correct, :pile_action, :aide, :taille, :partie_finie, :chemin_template
     attr_accessor :malus_aide, :pile_action, :damier
@@ -59,7 +57,8 @@ class Plateau
         end
     end
 
-    #Vérifie le damier, indique si la partie est finis ou non, actualise le montant du malus en fonction du nombre d'erreurs
+	# Vérifie le damier, indique si la partie est finis ou non, actualise le montant du malus en fonction du nombre d'erreurs
+	# @return [void]
     def verifier_damier
         tab_erreur = []
         @partie_finie = true
@@ -79,7 +78,9 @@ class Plateau
         return tab_erreur
     end
 
-    
+	# Permet d'obtenir un tableau de caractère
+	# @note utile seulement pour l'affichage terminal
+	# @return [Array<String>]
     def get_plateau_caracteres
         tab_char = []
         (0..(@taille-1)).each do |x|
@@ -90,7 +91,8 @@ class Plateau
         return tab_char
     end
 
-    #Récupère l'état du plateau, utile pour la sauvegarde
+	#Récupère l'état du plateau, utile pour la sauvegarde
+	# @return [void]
     def get_plateau_etat
         tab_etat = []
         (0..(@taille-1)).each do |x|
@@ -110,7 +112,8 @@ class Plateau
 
     #Vérifie si les coordonnées passées en paramètre désignent une case du plateau
     # @param x [Fixnum] l'abscisse de la case
-    # @param y [Fixnum] l'ordonnée de la case
+	# @param y [Fixnum] l'ordonnée de la case
+	# @return [void]
     def coord_valides?(x,y)
         if x < @taille && x>= 0 && y < @taille && y>= 0
             return true
@@ -121,7 +124,8 @@ class Plateau
 
     #Retourne la case aux coordonnées passées en paramètre
     # @param x [Fixnum] l'abscisse de la case
-    # @param y [Fixnum] l'ordonnée de la case
+	# @param y [Fixnum] l'ordonnée de la case
+	# @return [void]
     def donne_case(x,y)
         if coord_valides?(x,y)
             return @damier[x][y]
@@ -131,7 +135,8 @@ class Plateau
         
     end
 
-    #Vérifie si le jeu est finis ou non
+	# Vérifie si le jeu est finis ou non
+	# @return [Boolean] *vrai* si il a gagné, *faux* sinon
     def gagner?
         (0..(@taille-1)).each do |x|
             (0..(@taille-1)).each do |y|
@@ -143,21 +148,24 @@ class Plateau
         return true
     end
 
-    #Affiche dans une fenêtre si la partie est finie ou si il y a des erreurs ou non
+	# Affiche dans une fenêtre si la partie est finie ou si il y a des erreurs ou non
+	# @return [void]
     def on_click_verif
         self.afficher_erreur
     end
 
-    #Empile dans la pile d'action l'action effectué sur la case concernée par les coordonnées passées en paramètre
+    # Empile dans la pile d'action l'action effectué sur la case concernée par les coordonnées passées en paramètre
     # @param x [Fixnum] l'abscisse de la case
-    # @param y [Fixnum] l'ordonnée de la case
+	# @param y [Fixnum] l'ordonnée de la case
+	# @return [void]
     def on_click_jeu(x,y)
         @pile_action.empiler(Action.new(x,y))
         @damier[x][y].suivant
     end
 
-    #Ouvre une fenêtre pop-up qui affiche une aide si il y en a une de disponible sur le jeu en cours
-    # @param jeu [Jeu] le jeu tester
+    # Ouvre une fenêtre pop-up qui affiche une aide si il y en a une de disponible sur le jeu en cours
+	# @param jeu [Jeu] le jeu tester
+	# @return [void]
     def on_click_aide(jeu)
         txt =''
         if(self.verifier_damier.empty?)
@@ -219,7 +227,8 @@ class Plateau
     end
 
     #Ouvre la fenêtre de règles du jeu
-    # @param jeu [Jeu] le jeu en cours
+	# @param jeu [Jeu] le jeu en cours
+	# @return [void]
     def on_click_regle(jeu)
         builder = Gtk::Builder.new
 
@@ -234,12 +243,14 @@ class Plateau
         Gtk.main();
     end
 
-    #Créer un point de retour dans la pile d'actions
+	#Créer un point de retour dans la pile d'actions
+	# @return [void]
     def on_click_creer_retour
         @pile_action.ajout_point_de_retour
     end
 
-    #Nous repositionne sur le dernier point de retour de la pile d'actions
+	#Nous repositionne sur le dernier point de retour de la pile d'actions
+	# @return [void]
     def on_click_aller_retour
         @pile_action.vers_dernier_point_de_retour
     end

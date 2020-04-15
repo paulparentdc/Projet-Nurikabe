@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Cette classe gère tout l&#39;aspect graphique du début de l&#39;application, elle utilise le DP singleton @@attr builder [GTK::Builder] le constructeur contenant toutes les fenetres .glade @@attr menu [Menu] l&#39;instance de la classe Menu</p>
+<p>Cette classe gère tout l&#39;aspect graphique du début de l&#39;application, elle utilise le DP singleton @@param builder [GTK::Builder] le constructeur contenant toutes les fenetres .glade @@param menu [Menu] l&#39;instance de la classe Menu</p>
 
 
   </div>
@@ -113,65 +113,6 @@
 </div>
 
 
-
-  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#nom_joueur-instance_method" title="#nom_joueur (instance method)">#<strong>nom_joueur</strong>  &#x21d2; String </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>le nom du joueur.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#window-instance_method" title="#window (instance method)">#<strong>window</strong>  &#x21d2; GTK::Window </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>la fenetre actuelle.</p>
-</div></span>
-  
-</li>
-
-    
-  </ul>
 
 
 
@@ -431,133 +372,6 @@
   
 
 
-  <div id="instance_attr_details" class="attr_details">
-    <h2>Instance Attribute Details</h2>
-    
-      
-      <span id="nom_joueur=-instance_method"></span>
-      <div class="method_details first">
-  <h3 class="signature first" id="nom_joueur-instance_method">
-  
-    #<strong>nom_joueur</strong>  &#x21d2; <tt>String</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>le nom du joueur</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the current value of nom_joueur</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-11
-12
-13</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 11</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_nom_joueur'>nom_joueur</span>
-  <span class='ivar'>@nom_joueur</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id="window=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="window-instance_method">
-  
-    #<strong>window</strong>  &#x21d2; <tt>GTK::Window</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>la fenetre actuelle</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>GTK::Window</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>the current value of window</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-11
-12
-13</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 11</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_window'>window</span>
-  <span class='ivar'>@window</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
-
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
@@ -619,13 +433,41 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>nom_j</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>le nom du joueur si cette page est appelée autrement que par cette classe</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-47
 48
 49
 50
@@ -678,10 +520,18 @@
 97
 98
 99
-100</pre>
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficheChoixMode'>afficheChoixMode</span><span class='lparen'>(</span><span class='id identifier rubyid_nom_j'>nom_j</span><span class='rparen'>)</span>
 	<span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_nom_j'>nom_j</span> <span class='op'>!=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -711,29 +561,36 @@
 </span>	<span class='id identifier rubyid_getHighscore'>getHighscore</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Highscore.html" title="Highscore (class)">Highscore</a></span></span><span class='period'>.</span><span class='id identifier rubyid_recuperer_ds_fichier'><span class='object_link'><a href="Highscore.html#recuperer_ds_fichier-class_method" title="Highscore.recuperer_ds_fichier (method)">recuperer_ds_fichier</a></span></span>
 	<span class='const'><span class='object_link'><a href="Sauvegarde.html" title="Sauvegarde (class)">Sauvegarde</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sauvegarde_highscore'><span class='object_link'><a href="Sauvegarde.html#sauvegarde_highscore-class_method" title="Sauvegarde.sauvegarde_highscore (method)">sauvegarde_highscore</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_getHighscore'>getHighscore</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_getHighscore'>getHighscore</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Highscore.html" title="Highscore (class)">Highscore</a></span></span><span class='period'>.</span><span class='id identifier rubyid_recuperer_ds_fichier'><span class='object_link'><a href="Highscore.html#recuperer_ds_fichier-class_method" title="Highscore.recuperer_ds_fichier (method)">recuperer_ds_fichier</a></span></span>
-   <span class='id identifier rubyid_classement_fac'>classement_fac</span> <span class='op'>=</span> <span class='id identifier rubyid_getHighscore'>getHighscore</span><span class='period'>.</span><span class='id identifier rubyid_classement_facile'>classement_facile</span>
+   	<span class='id identifier rubyid_classement_fac'>classement_fac</span> <span class='op'>=</span> <span class='id identifier rubyid_getHighscore'>getHighscore</span><span class='period'>.</span><span class='id identifier rubyid_classement_facile'>classement_facile</span>
 	<span class='id identifier rubyid_classement_int'>classement_int</span> <span class='op'>=</span> <span class='id identifier rubyid_getHighscore'>getHighscore</span><span class='period'>.</span><span class='id identifier rubyid_classement_moyen'>classement_moyen</span>
 	<span class='id identifier rubyid_classement_dif'>classement_dif</span> <span class='op'>=</span> <span class='id identifier rubyid_getHighscore'>getHighscore</span><span class='period'>.</span><span class='id identifier rubyid_classement_difficile'>classement_difficile</span>
 
 	<span class='comment'>#génération dynamique des classement
-</span>   <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_classement_fac'>classement_fac</span><span class='rparen'>)</span>
-       <span class='kw'>for</span> <span class='id identifier rubyid_score'>score</span> <span class='kw'>in</span> <span class='id identifier rubyid_classement_fac'>classement_fac</span> <span class='kw'>do</span>
-             <span class='id identifier rubyid_label_fac'>label_fac</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_score'>score</span><span class='rparen'>)</span>
-             <span class='id identifier rubyid_stack_box_fac'>stack_box_fac</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_label_fac'>label_fac</span><span class='rparen'>)</span>
-       <span class='kw'>end</span>
-   <span class='kw'>end</span>
+</span>
+	<span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_classement_fac'>classement_fac</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='int'>1</span>
+		<span class='kw'>for</span> <span class='id identifier rubyid_score'>score</span> <span class='kw'>in</span> <span class='id identifier rubyid_classement_fac'>classement_fac</span> <span class='kw'>do</span>
+			<span class='id identifier rubyid_label_fac'>label_fac</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>. </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_score'>score</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_stack_box_fac'>stack_box_fac</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_label_fac'>label_fac</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_i'>i</span><span class='op'>+=</span><span class='int'>1</span>
+		<span class='kw'>end</span>
+	<span class='kw'>end</span>
 	<span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_classement_int'>classement_int</span><span class='rparen'>)</span>
-       <span class='kw'>for</span> <span class='id identifier rubyid_score'>score</span> <span class='kw'>in</span> <span class='id identifier rubyid_classement_int'>classement_int</span> <span class='kw'>do</span>
-             <span class='id identifier rubyid_label_int'>label_int</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_score'>score</span><span class='rparen'>)</span>
-             <span class='id identifier rubyid_stack_box_int'>stack_box_int</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_label_int'>label_int</span><span class='rparen'>)</span>
-       <span class='kw'>end</span>
-   <span class='kw'>end</span>
+		<span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='int'>1</span>
+		<span class='kw'>for</span> <span class='id identifier rubyid_score'>score</span> <span class='kw'>in</span> <span class='id identifier rubyid_classement_int'>classement_int</span> <span class='kw'>do</span>
+			<span class='id identifier rubyid_label_fac'>label_fac</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>. </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_score'>score</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_stack_box_fac'>stack_box_fac</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_label_fac'>label_fac</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_i'>i</span><span class='op'>+=</span><span class='int'>1</span>
+		<span class='kw'>end</span>
+	<span class='kw'>end</span>
 	<span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_classement_dif'>classement_dif</span><span class='rparen'>)</span>
-       <span class='kw'>for</span> <span class='id identifier rubyid_score'>score</span> <span class='kw'>in</span> <span class='id identifier rubyid_classement_dif'>classement_dif</span> <span class='kw'>do</span>
-             <span class='id identifier rubyid_label_dif'>label_dif</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_score'>score</span><span class='rparen'>)</span>
-             <span class='id identifier rubyid_stack_box_dif'>stack_box_dif</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_label_dif'>label_dif</span><span class='rparen'>)</span>
-       <span class='kw'>end</span>
-   <span class='kw'>end</span>
+		<span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='int'>1</span>
+		<span class='kw'>for</span> <span class='id identifier rubyid_score'>score</span> <span class='kw'>in</span> <span class='id identifier rubyid_classement_dif'>classement_dif</span> <span class='kw'>do</span>
+			<span class='id identifier rubyid_label_fac'>label_fac</span> <span class='op'>=</span> <span class='const'>Gtk</span><span class='op'>::</span><span class='const'>Label</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>. </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_score'>score</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_stack_box_fac'>stack_box_fac</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_label_fac'>label_fac</span><span class='rparen'>)</span>
+			<span class='id identifier rubyid_i'>i</span><span class='op'>+=</span><span class='int'>1</span>
+		<span class='kw'>end</span>
+	<span class='kw'>end</span>
 	<span class='ivar'>@window</span><span class='period'>.</span><span class='id identifier rubyid_show_all'>show_all</span>
 	<span class='const'>Gtk</span><span class='period'>.</span><span class='id identifier rubyid_main'>main</span><span class='lparen'>(</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -757,14 +614,6 @@
       <pre class="lines">
 
 
-102
-103
-104
-105
-106
-107
-108
-109
 110
 111
 112
@@ -845,10 +694,18 @@
 187
 188
 189
-190</pre>
+190
+191
+192
+193
+194
+195
+196
+197
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficheChoixPlateau'>afficheChoixPlateau</span><span class='lparen'>(</span><span class='rparen'>)</span>
 
@@ -970,14 +827,6 @@
       <pre class="lines">
 
 
-194
-195
-196
-197
-198
-199
-200
-201
 202
 203
 204
@@ -1013,10 +862,18 @@
 234
 235
 236
-237</pre>
+237
+238
+239
+240
+241
+242
+243
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 194</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_afficheChoixSauvegarde'>afficheChoixSauvegarde</span><span class='lparen'>(</span><span class='rparen'>)</span>
 	<span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@window</span> <span class='op'>!=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -1152,7 +1009,59 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>toggles</span>
+      
+      
+        <span class='type'>(<tt>Array[GTK::Button]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, la liste des boutons et donc des sauvegarde</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>files</span>
+      
+      
+        <span class='type'>(<tt>Array[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, la liste des fichiers</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>btn</span>
+      
+      
+        <span class='type'>(<tt>GTK::Button</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, le bouton qui a été pressé</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -1160,18 +1069,18 @@
       <pre class="lines">
 
 
-263
-264
-265
-266
-267
-268
-269
-270
-271</pre>
+280
+281
+282
+283
+284
+285
+286
+287
+288</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 263</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_btn_to_img'>btn_to_img</span><span class='lparen'>(</span><span class='id identifier rubyid_toggles'>toggles</span><span class='comma'>,</span> <span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_btn'>btn</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1205,7 +1114,59 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>boutons</span>
+      
+      
+        <span class='type'>(<tt>Array[GTK::Button]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, la liste des boutons et donc des sauvegarde</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>files</span>
+      
+      
+        <span class='type'>(<tt>Array[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, la liste des fichiers</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>btn</span>
+      
+      
+        <span class='type'>(<tt>GTK::Button</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, le bouton qui a été pressé</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -1213,19 +1174,19 @@
       <pre class="lines">
 
 
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249</pre>
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 240</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 251</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_charger_save'>charger_save</span><span class='lparen'>(</span><span class='id identifier rubyid_boutons'>boutons</span><span class='comma'>,</span> <span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_btn'>btn</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1260,7 +1221,27 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>file_image</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, le lien vers l&#39;image correspondante au niveau</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -1268,18 +1249,17 @@
       <pre class="lines">
 
 
-274
-275
-276
-277
-278
-279
-280
-281
-282</pre>
+292
+293
+294
+295
+296
+297
+298
+299</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 274</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_executer_map'>executer_map</span><span class='lparen'>(</span><span class='id identifier rubyid_file_image'>file_image</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_file_niveau'>file_niveau</span> <span class='op'>=</span> <span class='id identifier rubyid_file_image'>file_image</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_file_image'>file_image</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='int'>4</span><span class='rbracket'>]</span>
@@ -1288,7 +1268,6 @@
 	<span class='ivar'>@window</span><span class='period'>.</span><span class='id identifier rubyid_hide'>hide</span><span class='lparen'>(</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_jeu'>jeu</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Jeu.html" title="Jeu (class)">Jeu</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Jeu.html#initialize-instance_method" title="Jeu#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>plateau:</span> <span class='const'><span class='object_link'><a href="Sauvegarde.html" title="Sauvegarde (class)">Sauvegarde</a></span></span><span class='period'>.</span><span class='id identifier rubyid_charger_template'><span class='object_link'><a href="Sauvegarde.html#charger_template-class_method" title="Sauvegarde.charger_template (method)">charger_template</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_file_niveau'>file_niveau</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='label'>nom_joueur:</span> <span class='ivar'>@nom_joueur</span><span class='comma'>,</span> <span class='label'>temps_de_jeu:</span> <span class='int'>0</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_jeu'>jeu</span><span class='period'>.</span><span class='id identifier rubyid_affiche_toi'>affiche_toi</span>
-
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1314,7 +1293,8 @@
 41
 42
 43
-44</pre>
+44
+45</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'Menu.rb', line 40</span>
@@ -1322,6 +1302,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_onClickDemarrage'>onClickDemarrage</span><span class='lparen'>(</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_ch_pseudo'>ch_pseudo</span><span class='op'>=</span> <span class='cvar'>@@builder</span><span class='period'>.</span><span class='id identifier rubyid_get_object'>get_object</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ch_pseudo</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 	<span class='ivar'>@nom_joueur</span><span class='op'>=</span><span class='id identifier rubyid_ch_pseudo'>ch_pseudo</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+	<span class='ivar'>@nom_joueur</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sans_nom</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@nom_joueur</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
 	<span class='id identifier rubyid_afficheChoixMode'>afficheChoixMode</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1347,7 +1328,59 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>boutons</span>
+      
+      
+        <span class='type'>(<tt>Array[GTK::Button]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, la liste des boutons et donc des sauvegarde</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>files</span>
+      
+      
+        <span class='type'>(<tt>Array[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, la liste des fichiers</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>btn</span>
+      
+      
+        <span class='type'>(<tt>GTK::Button</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>, le bouton qui a été pressé</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -1355,18 +1388,18 @@
       <pre class="lines">
 
 
-252
-253
-254
-255
-256
-257
-258
-259
-260</pre>
+266
+267
+268
+269
+270
+271
+272
+273
+274</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Menu.rb', line 252</span>
+      <pre class="code"><span class="info file"># File 'Menu.rb', line 266</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_supprimer_save'>supprimer_save</span><span class='lparen'>(</span><span class='id identifier rubyid_boutons'>boutons</span><span class='comma'>,</span> <span class='id identifier rubyid_files'>files</span><span class='comma'>,</span> <span class='id identifier rubyid_btn'>btn</span><span class='rparen'>)</span>
 	<span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1387,9 +1420,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 15 15:12:48 2020 by
+  Generated on Wed Apr 15 17:16:47 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.3).
+  0.9.24 (ruby-2.6.3).
 </div>
 
     </div>

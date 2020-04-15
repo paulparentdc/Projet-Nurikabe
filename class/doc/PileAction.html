@@ -99,7 +99,18 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Pile qui nous permet de mémoriser les actions du joueur</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -109,7 +120,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#nb_point_de_retour-instance_method" title="#nb_point_de_retour (instance method)">#<strong>nb_point_de_retour</strong>  &#x21d2; Object </a>
+      <a href="#nb_point_de_retour-instance_method" title="#nb_point_de_retour (instance method)">#<strong>nb_point_de_retour</strong>  &#x21d2; Fixnum </a>
     
 
     
@@ -117,8 +128,6 @@
   
   
   
-    
-      <span class="note title readonly">readonly</span>
     
     
   
@@ -129,7 +138,61 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute nb_point_de_retour.</p>
+<p>nombre de points de retour dans la pile.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pile-instance_method" title="#pile (instance method)">#<strong>pile</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>pile qui contient les actions.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#plateau-instance_method" title="#plateau (instance method)">#<strong>plateau</strong>  &#x21d2; Plateau </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>notre plateau de jeu.</p>
 </div></span>
   
 </li>
@@ -165,7 +228,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Met la dernière action comme étant un point de retour.</p>
+</div></span>
   
 </li>
 
@@ -187,7 +252,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Défait le dernier coup joué.</p>
+</div></span>
   
 </li>
 
@@ -209,7 +276,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Permet de visualiser les coups joués depuis le point de retour.</p>
+</div></span>
   
 </li>
 
@@ -231,7 +300,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Donne le nombre de point de retour dans la pile.</p>
+</div></span>
   
 </li>
 
@@ -253,7 +324,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Dépile l&#39;action du haut de la pile.</p>
+</div></span>
   
 </li>
 
@@ -275,7 +348,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Empile l&#39;action passée en paramètre.</p>
+</div></span>
   
 </li>
 
@@ -297,7 +372,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Indique si la pile est vide.</p>
+</div></span>
   
 </li>
 
@@ -319,7 +396,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Retourne la dernière action sans la dépiler.</p>
+</div></span>
   
 </li>
 
@@ -367,7 +446,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Permet de sauvegarder la partie.</p>
+</div></span>
   
 </li>
 
@@ -389,7 +470,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Défait tout les coups joués depuis le dernier point de retour.</p>
+</div></span>
   
 </li>
 
@@ -426,14 +509,14 @@
       <pre class="lines">
 
 
-9
-10
-11
-12
-13</pre>
+13
+14
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_plateau'>plateau</span><span class='rparen'>)</span>
     <span class='ivar'>@nb_point_de_retour</span><span class='op'>=</span><span class='int'>0</span>
@@ -451,11 +534,11 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id=""></span>
+      <span id="nb_point_de_retour=-instance_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="nb_point_de_retour-instance_method">
   
-    #<strong>nb_point_de_retour</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>nb_point_de_retour</strong>  &#x21d2; <tt>Fixnum</tt> 
   
 
   
@@ -464,13 +547,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute nb_point_de_retour.</p>
+<p>nombre de points de retour dans la pile</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of nb_point_de_retour</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -478,15 +579,137 @@
       <pre class="lines">
 
 
-3
-4
-5</pre>
+6
+7
+8</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nb_point_de_retour'>nb_point_de_retour</span>
   <span class='ivar'>@nb_point_de_retour</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pile=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pile-instance_method">
+  
+    #<strong>pile</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>pile qui contient les actions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of pile</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pile'>pile</span>
+  <span class='ivar'>@pile</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="plateau=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="plateau-instance_method">
+  
+    #<strong>plateau</strong>  &#x21d2; <tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>notre plateau de jeu</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Plateau.html" title="Plateau (class)">Plateau</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of plateau</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_plateau'>plateau</span>
+  <span class='ivar'>@plateau</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -509,23 +732,34 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Met la dernière action comme étant un point de retour</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-59
-60
-61
-62
-63
-64
-65
-66</pre>
+69
+70
+71
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ajout_point_de_retour'>ajout_point_de_retour</span>
     <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@pile</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -549,23 +783,34 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Défait le dernier coup joué</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-50
-51
-52
-53
-54
-55
-56
-57</pre>
+59
+60
+61
+62
+63
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_annuler_dernier_coup'>annuler_dernier_coup</span>
     <span class='kw'>return</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_est_vide?'>est_vide?</span>
@@ -589,35 +834,44 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Permet de visualiser les coups joués depuis le point de retour</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
 110
 111
 112
 113
 114
 115
-116</pre>
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_appliquer_couleur'>appliquer_couleur</span>
     <span class='id identifier rubyid_tab_temp'>tab_temp</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -636,8 +890,6 @@
     <span class='id identifier rubyid_tab_cases_noires'>tab_cases_noires</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_coord'>coord</span><span class='op'>|</span>
         <span class='ivar'>@plateau</span><span class='period'>.</span><span class='id identifier rubyid_damier'>damier</span><span class='lbracket'>[</span><span class='id identifier rubyid_coord'>coord</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_coord'>coord</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_en_gris'>en_gris</span>
     <span class='kw'>end</span>
-
-
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -653,18 +905,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Donne le nombre de point de retour dans la pile</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_combien_de_PDR'>combien_de_PDR</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='ivar'>@nb_point_de_retour</span>
@@ -683,22 +946,33 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dépile l&#39;action du haut de la pile</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-29
-30
-31
-32
-33
-34
-35</pre>
+35
+36
+37
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_depiler!'>depiler!</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='kw'>if</span><span class='lparen'>(</span><span class='ivar'>@pile</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='op'>&gt;</span><span class='int'>0</span><span class='rparen'>)</span>
@@ -721,18 +995,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Empile l&#39;action passée en paramètre</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_empiler'>empiler</span><span class='lparen'>(</span><span class='id identifier rubyid_une_action'>une_action</span><span class='rparen'>)</span>
     <span class='ivar'>@pile</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_une_action'>une_action</span><span class='rparen'>)</span>
@@ -754,6 +1039,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Indique si la pile est vide</p>
+
 
   </div>
 </div>
@@ -779,12 +1066,12 @@
       <pre class="lines">
 
 
-37
-38
-39</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_est_vide?'>est_vide?</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@pile</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>0</span><span class='rparen'>)</span>
@@ -803,18 +1090,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retourne la dernière action sans la dépiler</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-46
-47
-48</pre>
+54
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_derniere_action'>get_derniere_action</span>
     <span class='kw'>return</span> <span class='ivar'>@pile</span><span class='lbracket'>[</span><span class='ivar'>@pile</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
@@ -833,18 +1131,29 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Permet de sauvegarder la partie</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-93
-94
-95</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_serialiser'>serialiser</span>
     <span class='kw'>return</span> <span class='ivar'>@pile</span>
@@ -863,23 +1172,23 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Défait tout les coups joués depuis le dernier point de retour</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
 79
 80
 81
@@ -892,10 +1201,21 @@
 88
 89
 90
-91</pre>
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'PileAction.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'PileAction.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_vers_dernier_point_de_retour'>vers_dernier_point_de_retour</span>
     <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@nb_point_de_retour</span> <span class='op'>==</span> <span class='int'>0</span>
@@ -931,9 +1251,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 15 15:12:48 2020 by
+  Generated on Wed Apr 15 17:16:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.5.3).
+  0.9.24 (ruby-2.6.3).
 </div>
 
     </div>

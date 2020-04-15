@@ -6,7 +6,7 @@
 
     Documation YARD :
     ------
-    
+    https://gist.github.com/chetan/1827484
     https://rubydoc.info/gems/yard/file/docs/Tags.md#List_of_Available_Tags
 
 ###### Convention de nommage :
