@@ -2,25 +2,30 @@ require 'rubygems'
 require 'gtk3'
 load 'Sauvegarde.rb'
 load 'Highscore.rb'
+#Cette classe gère tout l'aspect graphique du début de l'application, elle utilise le DP singleton
+#@attr nom_joueur [String] le nom du joueur
+#@attr window [GTK::Window] la fenetre actuelle
+#@@attr builder [GTK::Builder] le constructeur contenant toutes les fenetres .glade
+#@@attr menu [Menu] l'instance de la classe Menu
 
 class Menu
 	@nom_joueur
 	@window
 	@@builder ||= Gtk::Builder.new
-	@files_fac
-	@files_int
-	@files_dif
 	@@menu ||= Menu.new
 
+	#retourne l'instance du Menu
 	def Menu.getInstance()
 		return @@menu
 	end
 
+	#Gère la première page de l'application
 	def afficheDemarrage()
 		if(@window != nil) then
 				@window.hide()
 		end
-		@@builder.add_from_file("../Glade/Menu.glade")
+		@@builder.add_from_file("../Glade/Menu.glade") #récupère Menu.glade
+		#déclaration de toute la page et des boutons
 		@window = @@builder.get_object("fn_debut")
 		bt_ok = @@builder.get_object("bt_ok")
 		bt_ok.signal_connect('clicked') { |_widget| onClickDemarrage() }
@@ -29,7 +34,7 @@ class Menu
 		end
 		@window.signal_connect('destroy') { |_widget| exit!() }
 		@window.show_all()
-		Gtk.main()
+		Gtk.main() #exécution du GTK
 	end
 
 	def onClickDemarrage()
@@ -37,6 +42,7 @@ class Menu
 		@nom_joueur=ch_pseudo.text().gsub('/',"")
 		afficheChoixMode(nil)
 	end
+
 
 	def afficheChoixMode(nom_j)
 		if(nom_j != nil)
@@ -47,7 +53,7 @@ class Menu
 		end
 		@@builder = Gtk::Builder.new
 		@@builder.add_from_file("../Glade/Menu-titre.glade")
-
+		#déclaration de toute la page et des boutons
 		@window = @@builder.get_object("fn_menu")
 		@window.signal_connect('destroy') { |_widget| exit!() }
 		bt_quit = @@builder.get_object("bt_quit")
@@ -62,12 +68,7 @@ class Menu
 		stack_box_int = @@builder.get_object("stack_box_int")
 		stack_box_dif = @@builder.get_object("stack_box_dif")
 
-		#getHighscore.inserer_score_facile("oo",5555)
-		#getHighscore.inserer_score_facile("xx",32)
-		#getHighscore.inserer_score_moyen("oo",5555)
-		#getHighscore.inserer_score_moyen("xx",32)
-		#getHighscore.inserer_score_difficile("xx",32)
-		#getHighscore.inserer_score_difficile("xx",32)
+		#récupèration des highscores grâce à la classe Highscore
 		getHighscore = Highscore.recuperer_ds_fichier
 		Sauvegarde.sauvegarde_highscore(getHighscore)
 		getHighscore = Highscore.recuperer_ds_fichier
@@ -75,6 +76,7 @@ class Menu
 		classement_int = getHighscore.classement_moyen
 		classement_dif = getHighscore.classement_difficile
 
+		#génération dynamique des classement
     if(classement_fac)
         for score in classement_fac do
               label_fac = Gtk::Label.new(score)
@@ -104,11 +106,10 @@ class Menu
 		end
 
 		@@builder.add_from_file("../Glade/Selection_niveau.glade")
+		#déclaration de toute la page et des boutons
 		@window = @@builder.get_object("fn_selec")
-
 		bouton_retour = @@builder.get_object("btn_retour")
 		bouton_retour.signal_connect('clicked'){ |_widget| afficheChoixMode(nil)}
-
 		@window.signal_connect('destroy') { |_widget| exit!() }
 		lab_pseu = @@builder.get_object("lab_pseu")
 		lab_pseu.set_text("Pseudo : " + @nom_joueur)
@@ -119,6 +120,7 @@ class Menu
 		i = 0
 		files_fac = Dir["../data/template/Facile/*.png"]
 
+		#génération des images cliquables de chaques maps faciles disponibles
 		if files_fac.length() <= 8 then
 			toggles_fac = []
 			for n in files_fac do
@@ -142,6 +144,7 @@ class Menu
 		i = 0
 		files_int = Dir["../data/template/Intermediaire/*.png"]
 
+		#génération des images cliquables de chaques maps intermédiaires disponibles
 		if files_int.length() <= 8 then
 			toggles_int = []
 			for n in files_int do
@@ -165,6 +168,7 @@ class Menu
 
 		files_dif = Dir["../data/template/Difficile/*.png"]
 
+		#génération des images cliquables de chaques maps difficiles disponibles
 		if files_dif.length() <= 8 then
 			toggles_dif = []
 			for n in files_dif do
@@ -185,11 +189,14 @@ class Menu
 		Gtk.main()
 	end
 
+	#affiche toutes les sauvegardes du joueur *nom_joueur*
+	#lui permet de charger ou de supprimer chaque sauvegarde
 	def afficheChoixSauvegarde()
 		if(@window != nil)
 				@window.hide()
 		end
 		@@builder.add_from_file("../Glade/Charger_sauvegarde.glade")
+		#déclaration de toute la page et des boutons
 		@window = @@builder.get_object("fn_save")
 
 		bouton_retour = @@builder.get_object("btn_retour")
@@ -203,10 +210,12 @@ class Menu
 		bouton_charger = []
 		bouton_supprimer = []
 		i = 0
+		#affichage si le joueur n'a aucune sauvegarde
 		if(file.length == 0)
 					label = Gtk::Label.new("Vous n'avez aucune sauvegarde.")
 					box_save.add(label)
 		else
+			#créer une box contenant deux boutons, charger et supprimer, pour chaque sauvegarde
 			for n in file do
 				hbox = Gtk::Box.new(:horizontal, 0)
 				hbox.margin = 20
@@ -227,6 +236,7 @@ class Menu
 		Gtk.main()
 	end
 
+	#permet de charger une sauvegarde
 	def charger_save(boutons, files, btn)
 		j = 0
 		for b in boutons do
@@ -238,6 +248,7 @@ class Menu
 		end
 	end
 
+	#permet de supprimer une sauvegarde
 	def supprimer_save(boutons, files, btn)
 		j = 0
 		for b in boutons do
@@ -248,6 +259,7 @@ class Menu
 		afficheChoixSauvegarde()
 	end
 
+	#permet de récupérer la map correspondante au bouton sélectionner
 	def btn_to_img(toggles, files, btn)
 		j = 0
 		for b in toggles do
@@ -258,6 +270,7 @@ class Menu
 		end
 	end
 
+	#executer la map correspondante
 	def executer_map(file_image)
 		file_niveau = file_image[0..file_image.length-4]
 		file_niveau +="nurikabe"
