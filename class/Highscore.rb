@@ -1,8 +1,8 @@
 #Cette classe permet de mémoriser les plus gros score des joueurs
-#@attr_reader classement_facile [Array[String]] contient les meilleurs scores des grilles faciles
-#@attr_reader classement_moyen [Array[String]] contient les meilleurs scores des grilles moyennes
-#@attr_reader classement_difficile [Array[String]] contient les meilleurs scores des grilles difficiles
-#@attr_reader chemin [String] le chemin d'accès au fichier de sauvegarde des highscores
+#@param classement_facile [Array[String]] contient les meilleurs scores des grilles faciles
+#@param classement_moyen [Array[String]] contient les meilleurs scores des grilles moyennes
+#@param classement_difficile [Array[String]] contient les meilleurs scores des grilles difficiles
+#@param chemin [String] le chemin d'accès au fichier de sauvegarde des highscores
 class Highscore
 
   attr_reader :classement_facile, :classement_moyen, :classement_difficile, :chemin

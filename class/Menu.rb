@@ -3,10 +3,10 @@ require 'gtk3'
 load 'Sauvegarde.rb'
 load 'Highscore.rb'
 #Cette classe gère tout l'aspect graphique du début de l'application, elle utilise le DP singleton
-#@attr nom_joueur [String] le nom du joueur
-#@attr window [GTK::Window] la fenetre actuelle
-#@@attr builder [GTK::Builder] le constructeur contenant toutes les fenetres .glade
-#@@attr menu [Menu] l'instance de la classe Menu
+#@param nom_joueur [String] le nom du joueur
+#@param window [GTK::Window] la fenetre actuelle
+#@@param builder [GTK::Builder] le constructeur contenant toutes les fenetres .glade
+#@@param menu [Menu] l'instance de la classe Menu
 
 class Menu
 	@nom_joueur
