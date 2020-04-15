@@ -112,7 +112,7 @@ class Jeu
     end
 
     def afficher_erreur
-       return if @plateau.partie_finie
+      # return if @plateau.partie_finie
         tab_erreur = @plateau.verifier_damier
         @en_jeu = false if @plateau.partie_finie
         pop = Gtk::MessageDialog.new(Gtk::Window.new("fenetre"),
