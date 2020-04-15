@@ -5,9 +5,9 @@ ruby ./class/Menu.rb
 # Créer des templates:
 Bon à savoir :
     On a le droit à 8 templates par difficulté
-    Le plateau doit être carré
+    Le plateau devra être carré
 
-Voici un exemple d'un template : 
+Voici un exemple de template : 
 
 #Difficulté
 Difficile
