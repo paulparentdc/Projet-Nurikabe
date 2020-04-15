@@ -11,33 +11,25 @@ load 'Etat.rb'
 
 require 'fileutils'
 
-
+# Ensemble de méthodes permettant la gestion des données sauvegardé
 class Sauvegarde
-	# Classe qui permet de sauvegarder le jeu sans les boutons
-	# @attr [Array] plateau_char
-	# @attr [Array] plateau_etat
-	# @attr [Array] pile_action
-    # @attr [Fixnum] malus_aide
-    # @attr [] chemin_template
-    # @attr [] nom_joueur
-    # @attr [] temps_de_jeu
+    
+    # Classe qui permet de sauvegarder le jeu sans les boutons
+    # @private
+    # @note Nous ne prennons que les données essentiels pour la sérialisation
+	# @attr_reader [Array<Etat>] plateau_etat l'état de chaque cases du plateau
+	# @attr_reader [Array<Action>] pile_action pile d'actions effectué durant la partie
+    # @attr_reader [Fixnum] malus_aide malus du jeu contracté
+    # @attr_reader [String] chemin_template chemin du template de jeu utilisé pour la partie
+    # @attr_reader [String] nom_joueur le nom du joueur
+    # @attr_reader [Fixnum] temps_de_jeu le temps de jeu
     class DonneesJeu
         attr_reader :plateau_etat, :pile_action, :malus_aide, :nom_joueur, :temps_de_jeu, :chemin_template
 
-
-        @plateau_char
-        @plateau_etat
-        @pile_action
-        @malus_aide
-        @chemin_template
-
-        @nom_joueur
-        @temps_de_jeu
-
-
+        # Construction de la base de donnée du jeu nécessaire pour la sauvegarde
+        # @param jeu [Jeu] Le jeu à sauvegarder
         def initialize(jeu)
             @nom_joueur, @temps_de_jeu = jeu.nom_joueur, jeu.temps_de_jeu
-
             @pile_action = jeu.plateau.pile_action.serialiser
             @malus_aide = jeu.plateau.malus_aide
             @chemin_template = jeu.plateau.chemin_template
@@ -45,8 +37,10 @@ class Sauvegarde
         end
     end
 
-    #Chargement d'une partie
-    #@param le jeu a sauvegarder
+    private_constant :DonneesJeu
+
+    # Chargement d'une partie
+    # @param jeu [Jeu] Le jeu a sauvegarder
     def Sauvegarde.creer_sauvegarde(jeu)
 
         jeu_filtree = DonneesJeu.new(jeu)
@@ -90,7 +84,7 @@ class Sauvegarde
         donnees=Marshal::load(File::read(chemin_de_base))
         fichier.close
 
-		# Initialisaiton du plateau
+		# Initialisation du plateau
         plateau = Sauvegarde.charger_template(donnees.chemin_template)
 
         plateau.pile_action = PileAction.new(plateau, donnees.pile_action)
@@ -114,9 +108,9 @@ class Sauvegarde
 
     end
 
-    #Suppression d'une partie
-    #@note le chemin devra être valide
-    #@param le chemin de la sauvegarde a supprimer
+    # Suppression d'une partie
+    # @note le chemin devra être valide
+    # @param chemin le chemin de la sauvegarde a supprimer
     def Sauvegarde.supprimer_sauvegarde(chemin)
         if File.exist?(chemin)
              File.delete(chemin)
@@ -127,7 +121,7 @@ class Sauvegarde
 
    # Chargement du template
     # @note le chemin devra être valide et le fichier correct et lisible
-    # @param chemin le chemin à du template choisi
+    # @param chemin [String] le chemin à du template choisi
     # @return le plateau avec et sans correction par hachage accessible via +:damier+ pour obtenir la matrice de cases et +:damierCorrect+ pour obtenir la matrice de correction indiquand la couleur que les cases doivent avoir pour gagner
     # @return +nil+ est renvoyé si un problème est rencontré
     def Sauvegarde.charger_template(chemin)
@@ -173,7 +167,7 @@ class Sauvegarde
             end
         end
 
-        #Verifier si tout a été initialisé
+        # Verifier que tout a été initialisé
         if niveau == nil && taille == nil && compteur != taille
             return nil
         else
@@ -183,12 +177,14 @@ class Sauvegarde
         end
     end
 
+    # Sauvegarde de l'highscore
+    # @param highscore [Highscore] l'objet highscore à sauvegarder
     def Sauvegarde.sauvegarde_highscore(highscore)
-      donnees = Marshal::dump(highscore)
-      chemin_de_base = "../data/highscore.score"
-      mon_fichier = File::open(chemin_de_base,"wb")
-      mon_fichier.write(donnees)
-      mon_fichier.close
+        donnees = Marshal::dump(highscore)
+        chemin_de_base = "../data/highscore.score"
+        mon_fichier = File::open(chemin_de_base,"wb")
+        mon_fichier.write(donnees)
+        mon_fichier.close
     end
 
 end
