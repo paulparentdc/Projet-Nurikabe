@@ -109,8 +109,8 @@ class Plateau
     end
 
     #Vérifie si les coordonnées passées en paramètre désignent une case du plateau
-    # @param x l'abscisse de la case
-    # @param y l'ordonnée de la case
+    # @param x [Fixnum] l'abscisse de la case
+    # @param y [Fixnum] l'ordonnée de la case
     def coord_valides?(x,y)
         if x < @taille && x>= 0 && y < @taille && y>= 0
             return true
@@ -120,8 +120,8 @@ class Plateau
     end
 
     #Retourne la case aux coordonnées passées en paramètre
-    # @param x l'abscisse de la case
-    # @param y l'ordonnée de la case
+    # @param x [Fixnum] l'abscisse de la case
+    # @param y [Fixnum] l'ordonnée de la case
     def donne_case(x,y)
         if coord_valides?(x,y)
             return @damier[x][y]
@@ -149,8 +149,8 @@ class Plateau
     end
 
     #Empile dans la pile d'action l'action effectué sur la case concernée par les coordonnées passées en paramètre
-    # @param x l'abscisse de la case
-    # @param y l'ordonnée de la case
+    # @param x [Fixnum] l'abscisse de la case
+    # @param y [Fixnum] l'ordonnée de la case
     def on_click_jeu(x,y)
         @pile_action.empiler(Action.new(x,y))
         @damier[x][y].suivant
@@ -167,24 +167,31 @@ class Plateau
 
                 when 1
                     txt ='Il reste des 1 à isoler !'
+                    @malus_aide += 5
 
                 when 2
                     txt ='Il y a une case blanche entre 2 chiffres qui pourrait être cliquer!'
+                    @malus_aide += 5
 
                 when 3
                     txt = 'Il y a des cases en diagonales qui peuvent être separées'
+                    @malus_aide += 5
 
                 when 4
                     txt = "Il y a une case blanche seule"
+                    @malus_aide += 10
 
                 when 5
                     txt = "Il y a une case noire qui ne sera pas reliée aux autres"
+                    @malus_aide += 10
 		    
 		        when 6
                     txt = "Une ile terminée n'est pas complètement entourée"
+                    @malus_aide += 5
 
                 when 7
                     txt = "Des cases ne sont pas atteignable par les iles, il faut les colorer en noire"
+                    @malus_aide += 10
                     
                 else
                     txt = "Aucune aide n'a été trouvé bonne chance !"

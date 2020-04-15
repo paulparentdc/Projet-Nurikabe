@@ -34,10 +34,9 @@ class Sauvegarde
         end
     end
 
-    private_constant :DonneesJeu
-
     # Chargement d'une partie
     # @param jeu [Jeu] Le jeu a sauvegarder
+    # @return [void]
     def Sauvegarde.creer_sauvegarde(jeu)
 
         jeu_filtree = DonneesJeu.new(jeu)
@@ -45,30 +44,30 @@ class Sauvegarde
 
         chemin_de_base = "../data/save/"+jeu.nom_joueur+"/"+Time.new.strftime("%d-%m-%Y   %Hh%Mm%Ss")+".snurikabe"
 
+        # creation d'un dossier par joueur, qui contiendra toutes les sauvegardes de ce dernier
         dirname=File::dirname(chemin_de_base)
-        #creation d'un dossier par joueur , qui contiendra toutes les sauvegardes de ce dernier
         unless File.directory?(dirname)
             FileUtils.mkdir_p(dirname)
         end
 
+        # Sauvegarde dans un fichier
+        mon_fichier = File::open(chemin_de_base,"w+")
+        mon_fichier.write(donnees)
+        mon_fichier.close
 
-       mon_fichier = File::open(chemin_de_base,"w+")
-       mon_fichier.write(donnees)
-       mon_fichier.close
-
-       builderPopup = Gtk::Builder.new
-       builderPopup.add_from_file("../Glade/Popup.glade")
-       windowPopup = builderPopup.get_object("fn_popup")
-       btn_ok = builderPopup.get_object("btn_ok")
-       btn_ok.signal_connect('clicked') {windowPopup.destroy()}
-       windowPopup.show_all()
+        builderPopup = Gtk::Builder.new
+        builderPopup.add_from_file("../Glade/Popup.glade")
+        windowPopup = builderPopup.get_object("fn_popup")
+        btn_ok = builderPopup.get_object("btn_ok")
+        btn_ok.signal_connect('clicked') {windowPopup.destroy()}
+        windowPopup.show_all()
     end
 
 
     # Chargement d'une partie
     # @note le chemin devra être valide
-    # @param le chemin de la sauvegarde
-    # @return le jeu correspondant au chemin
+    # @param chemin_de_base [String] le chemin de la sauvegarde
+    # @return [Jeu] le jeu correspondant au chemin
     def Sauvegarde.charger_sauvegarde(chemin_de_base)
 
         if !File.exist?(chemin_de_base)
@@ -108,6 +107,7 @@ class Sauvegarde
     # Suppression d'une partie
     # @note le chemin devra être valide
     # @param chemin le chemin de la sauvegarde a supprimer
+    # @raise la sauvegarde n'existe pas
     def Sauvegarde.supprimer_sauvegarde(chemin)
         if File.exist?(chemin)
              File.delete(chemin)
@@ -116,10 +116,10 @@ class Sauvegarde
         end
     end
 
-   # Chargement du template
+    # Chargement du template
     # @note le chemin devra être valide et le fichier correct et lisible
     # @param chemin [String] le chemin à du template choisi
-    # @return le plateau avec et sans correction par hachage accessible via +:damier+ pour obtenir la matrice de cases et +:damierCorrect+ pour obtenir la matrice de correction indiquand la couleur que les cases doivent avoir pour gagner
+    # @return [Plateau, nil] le plateau avec et sans correction par hachage accessible via +:damier+ pour obtenir la matrice de cases et +:damierCorrect+ pour obtenir la matrice de correction indiquand la couleur que les cases doivent avoir pour gagner
     # @return +nil+ est renvoyé si un problème est rencontré
     def Sauvegarde.charger_template(chemin)
         chemin_template = chemin
@@ -176,6 +176,7 @@ class Sauvegarde
 
     # Sauvegarde de l'highscore
     # @param highscore [Highscore] l'objet highscore à sauvegarder
+    # @return [void]
     def Sauvegarde.sauvegarde_highscore(highscore)
         donnees = Marshal::dump(highscore)
         chemin_de_base = "../data/highscore.score"
