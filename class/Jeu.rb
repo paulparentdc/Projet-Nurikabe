@@ -157,12 +157,15 @@ class Jeu
               menu = Menu.getInstance()
               menu.afficheChoixMode(@nom_joueur)
 
+          else
+              @window.destroy()
+              Gtk.main_quit()
           end
         elsif(reponse == Gtk::ResponseType::YES)  # affichage en rouge des erreurs
             @plateau.malus_aide += tab_erreur.size*5
             tab_erreur.each do |err|
                err.en_rouge
-           end
         end
-    end
+      end
+  end
 end

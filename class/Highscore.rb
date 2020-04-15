@@ -25,11 +25,8 @@ class Highscore
     def tri_insertion_score(nom_j, temp, classement)
           classement.push(nom_j + " " + temp.to_s)
           return classement.sort { |a, b|
-            a.split(' ')[1] <=> b.split(' ')[1]
+            a.split(' ')[1].to_i <=> b.split(' ')[1].to_i
           }[0, 10]
-
-          temphighscore = Highscore.recuperer_ds_fichier
-          Sauvegarde.sauvegarde_highscore(temphighscore)
     end
 
 	# Appelle tri_insertion_score avec la bonne variable de classe, ici : facile
