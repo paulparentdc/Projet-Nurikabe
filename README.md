@@ -1,8 +1,8 @@
-# Lancement du jeu : 
+###### Lancement du jeu : 
 
 ruby ./class/Menu.rb
 
-# Créer des templates:
+###### Créer des templates:
 Bon à savoir :
     On a le droit à 8 templates par difficulté
     Le plateau devra être carré
