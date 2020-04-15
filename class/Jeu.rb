@@ -121,7 +121,7 @@ class Jeu
         while(@en_jeu)
             t2 = Time.now
             @temps_de_jeu = (t2 - t1).round
-            @nom_joueur_label.set_label("Joueur : " + @nom_joueur + " | temps : " + @temps_de_jeu.to_s + " s (+ " + @plateau.malus_aide.to_s + " s malus) ")
+            @nom_joueur_label.set_label("Joueur : " + @nom_joueur + " | temps : " + @temps_de_jeu.to_s + " s (+ " + @plateau.malus_aide.to_s + " s malus) | " + @plateau.niveau)
             sleep(1)
         end
     end
