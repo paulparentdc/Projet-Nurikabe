@@ -43,7 +43,7 @@ class Menu
 		afficheChoixMode(nil)
 	end
 
-
+	#@param nom_j [String] le nom du joueur si cette page est appelée autrement que par cette classe
 	def afficheChoixMode(nom_j)
 		if(nom_j != nil)
 				@nom_joueur = nom_j
@@ -237,6 +237,9 @@ class Menu
 	end
 
 	#permet de charger une sauvegarde
+	#@param boutons [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
+	#@param files [Array[String]], la liste des fichiers
+	#@param btn [GTK::Button], le bouton qui a été pressé
 	def charger_save(boutons, files, btn)
 		j = 0
 		for b in boutons do
@@ -249,6 +252,9 @@ class Menu
 	end
 
 	#permet de supprimer une sauvegarde
+	#@param boutons [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
+	#@param files [Array[String]], la liste des fichiers
+	#@param btn [GTK::Button], le bouton qui a été pressé
 	def supprimer_save(boutons, files, btn)
 		j = 0
 		for b in boutons do
@@ -260,6 +266,9 @@ class Menu
 	end
 
 	#permet de récupérer la map correspondante au bouton sélectionner
+	#@param toggles [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
+	#@param files [Array[String]], la liste des fichiers
+	#@param btn [GTK::Button], le bouton qui a été pressé
 	def btn_to_img(toggles, files, btn)
 		j = 0
 		for b in toggles do
@@ -271,6 +280,7 @@ class Menu
 	end
 
 	#executer la map correspondante
+	#@param file_image [String], le lien vers l'image correspondante au niveau
 	def executer_map(file_image)
 		file_niveau = file_image[0..file_image.length-4]
 		file_niveau +="nurikabe"
@@ -278,7 +288,6 @@ class Menu
 		@window.hide()
 		jeu = Jeu.new(plateau: Sauvegarde.charger_template(file_niveau), nom_joueur: @nom_joueur, temps_de_jeu: 0)
 		puts jeu.affiche_toi
-
 	end
 
 end
