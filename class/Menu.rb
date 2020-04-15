@@ -2,24 +2,26 @@ require 'rubygems'
 require 'gtk3'
 load 'Sauvegarde.rb'
 load 'Highscore.rb'
-#Cette classe gère tout l'aspect graphique du début de l'application, elle utilise le DP singleton
-#@param nom_joueur [String] le nom du joueur
-#@param window [GTK::Window] la fenetre actuelle
-#@@param builder [GTK::Builder] le constructeur contenant toutes les fenetres .glade
-#@@param menu [Menu] l'instance de la classe Menu
 
+# Cette classe gère tout l'aspect graphique du début de l'application, elle utilise le DP singleton
+# @param nom_joueur [String] le nom du joueur
+# @param window [GTK::Window] la fenetre actuelle
+# @param @builder [GTK::Builder] le constructeur contenant toutes les fenetres .glade
+# @param @menu [Menu] l'instance de la classe Menu
 class Menu
 	@nom_joueur
 	@window
 	@@builder ||= Gtk::Builder.new
 	@@menu ||= Menu.new
 
-	#retourne l'instance du Menu
+	# retourne l'instance du Menu (singleton)
+ 	# @return [Menu] le singleton menu
 	def Menu.getInstance()
 		return @@menu
 	end
 
 	#Gère la première page de l'application
+	# @return [void]
 	def afficheDemarrage()
 		if(@window != nil) then
 				@window.hide()
@@ -37,6 +39,9 @@ class Menu
 		Gtk.main() #exécution du GTK
 	end
 
+	# Traitement à effectuer apès avoir entré son pseudo et valider
+	# @note on traite puis affecte la variable globale du pseudo et enfin on change de fenêtre 
+	# @return [void]
 	def onClickDemarrage()
 		ch_pseudo= @@builder.get_object("ch_pseudo")
 		@nom_joueur=ch_pseudo.text().gsub('/',"")
@@ -44,7 +49,9 @@ class Menu
 		afficheChoixMode(nil)
 	end
 
-	#@param nom_j [String] le nom du joueur si cette page est appelée autrement que par cette classe
+	# Affichage du menu du jeu 
+	# @param nom_j [String] le nom du joueur si cette page est appelée autrement que par cette classe
+	# @return [void]
 	def afficheChoixMode(nom_j)
 		if(nom_j != nil)
 				@nom_joueur = nom_j
@@ -78,7 +85,6 @@ class Menu
 		classement_dif = getHighscore.classement_difficile
 
 		#génération dynamique des classement
-
 		if(classement_fac)
 			i = 1
 			for score in classement_fac do
@@ -107,6 +113,8 @@ class Menu
 		Gtk.main()
 	end
 
+	# Affichage des différents mode de jeu
+	# @return [void]
 	def afficheChoixPlateau()
 
 		if(@window != nil)
@@ -197,8 +205,8 @@ class Menu
 		Gtk.main()
 	end
 
-	#affiche toutes les sauvegardes du joueur *nom_joueur*
-	#lui permet de charger ou de supprimer chaque sauvegarde
+	# Affiche toutes les sauvegardes du joueur *nom_joueur*
+	# @note on lui permet de charger ou de supprimer chaque sauvegarde
 	def afficheChoixSauvegarde()
 		if(@window != nil)
 				@window.hide()
@@ -244,10 +252,11 @@ class Menu
 		Gtk.main()
 	end
 
-	#permet de charger une sauvegarde
-	#@param boutons [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
-	#@param files [Array[String]], la liste des fichiers
-	#@param btn [GTK::Button], le bouton qui a été pressé
+	# Permet de charger une sauvegarde
+	# @param boutons [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
+	# @param files [Array[String]], la liste des fichiers
+	# @param btn [GTK::Button], le bouton qui a été pressé
+	# @return [void]
 	def charger_save(boutons, files, btn)
 		j = 0
 		for b in boutons do
@@ -259,10 +268,11 @@ class Menu
 		end
 	end
 
-	#permet de supprimer une sauvegarde
-	#@param boutons [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
-	#@param files [Array[String]], la liste des fichiers
-	#@param btn [GTK::Button], le bouton qui a été pressé
+	# Permet de supprimer une sauvegarde
+	# @param boutons [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
+	# @param files [Array[String]], la liste des fichiers
+	# @param btn [GTK::Button], le bouton qui a été pressé
+	# @return [void]
 	def supprimer_save(boutons, files, btn)
 		j = 0
 		for b in boutons do
@@ -273,10 +283,11 @@ class Menu
 		afficheChoixSauvegarde()
 	end
 
-	#permet de récupérer la map correspondante au bouton sélectionner
-	#@param toggles [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
-	#@param files [Array[String]], la liste des fichiers
-	#@param btn [GTK::Button], le bouton qui a été pressé
+	# Permet de récupérer la map correspondante au bouton sélectionner
+	# @param toggles [Array[GTK::Button]], la liste des boutons et donc des sauvegarde
+	# @param files [Array[String]], la liste des fichiers
+	# @param btn [GTK::Button], le bouton qui a été pressé
+	# @return [void]
 	def btn_to_img(toggles, files, btn)
 		j = 0
 		for b in toggles do
@@ -287,8 +298,9 @@ class Menu
 		end
 	end
 
-	#executer la map correspondante
-	#@param file_image [String], le lien vers l'image correspondante au niveau
+	# Executer la map correspondante
+	# @param file_image [String], le lien vers l'image correspondante au niveau
+	# @return [void]
 	def executer_map(file_image)
 		file_niveau = file_image[0..file_image.length-4]
 		file_niveau +="nurikabe"
