@@ -1,4 +1,4 @@
-###### Documentation Ruby avec Yard : 
+# Documentation Ruby avec Yard : 
     Instalation :
     ------
 
@@ -9,7 +9,7 @@
     https://gist.github.com/chetan/1827484
     https://rubydoc.info/gems/yard/file/docs/Tags.md#List_of_Available_Tags
 
-###### Convention de nommage :
+# Convention de nommage :
     Classe : CamelCase
     Méthode + variables : avec_underscore
 
