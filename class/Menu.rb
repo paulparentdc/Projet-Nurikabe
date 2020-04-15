@@ -40,6 +40,7 @@ class Menu
 	def onClickDemarrage()
 		ch_pseudo= @@builder.get_object("ch_pseudo")
 		@nom_joueur=ch_pseudo.text().gsub('/',"")
+		@nom_joueur = 'sans_nom' if @nom_joueur == ''
 		afficheChoixMode(nil)
 	end
 
@@ -72,29 +73,36 @@ class Menu
 		getHighscore = Highscore.recuperer_ds_fichier
 		Sauvegarde.sauvegarde_highscore(getHighscore)
 		getHighscore = Highscore.recuperer_ds_fichier
-    classement_fac = getHighscore.classement_facile
+    	classement_fac = getHighscore.classement_facile
 		classement_int = getHighscore.classement_moyen
 		classement_dif = getHighscore.classement_difficile
 
 		#génération dynamique des classement
-    if(classement_fac)
-        for score in classement_fac do
-              label_fac = Gtk::Label.new(score)
-              stack_box_fac.add(label_fac)
-        end
-    end
+
+		if(classement_fac)
+			i = 1
+			for score in classement_fac do
+				label_fac = Gtk::Label.new(i.to_s + '. ' + score)
+				stack_box_fac.add(label_fac)
+				i+=1
+			end
+		end
 		if(classement_int)
-        for score in classement_int do
-              label_int = Gtk::Label.new(score)
-              stack_box_int.add(label_int)
-        end
-    end
+			i = 1
+			for score in classement_int do
+				label_fac = Gtk::Label.new(i.to_s + '. ' + score)
+				stack_box_fac.add(label_fac)
+				i+=1
+			end
+		end
 		if(classement_dif)
-        for score in classement_dif do
-              label_dif = Gtk::Label.new(score)
-              stack_box_dif.add(label_dif)
-        end
-    end
+			i = 1
+			for score in classement_dif do
+				label_fac = Gtk::Label.new(i.to_s + '. ' + score)
+				stack_box_fac.add(label_fac)
+				i+=1
+			end
+		end
 		@window.show_all
 		Gtk.main()
 	end
