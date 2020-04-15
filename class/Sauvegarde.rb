@@ -1,6 +1,3 @@
-
-
-
 load 'Case.rb'
 load 'CaseClic.rb'
 load 'CaseChiffre.rb'

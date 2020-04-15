@@ -19,6 +19,7 @@ class CaseClic < Case
                     }
                     CSS
     @etat
+    
     def initialize(x,y)
         super(x,y)
         @etat = Etat.new
